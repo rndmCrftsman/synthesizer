@@ -28,8 +28,8 @@ class I2S() extends Component {
     val io = new Bundle {
         val s_data_out  = master Stream(UInt(32 bits))
         val s_data_in   = slave Stream(UInt(32 bits))
-        val bclk_out    = out Bool
-        val mclk_out    = out Bool
+        val bclk        = out Bool
+        val mclk        = out Bool
         val pblrc       = out Bool
         val pbdat       = out Bool
         val reclrc      = out Bool
@@ -86,8 +86,8 @@ class I2S() extends Component {
     io.s_data_in.ready  := ~r_buffer_in_full
 
     // I2S
-    io.mclk_out := r_mclk
-    io.bclk_out := r_mclk
+    io.mclk     := r_mclk
+    io.bclk     := r_mclk
     io.pblrc    := r_lrclk
     io.reclrc   := r_lrclk
     io.pbdat    := r_data(63)

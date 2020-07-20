@@ -24,15 +24,6 @@ import spinal.core._
 import spinal.lib._
 import spinal.lib.bus.amba4.axi._
 
-// // Configuration of the AXI Interface
-// object AudDatMvAXIConfig {
-//   def getConfig = Axi4Config (
-//     addressWidth = 32,
-//     dataWidth = 32,
-//     idWidth = 4
-//   )
-// }
-
 //Hardware definition
 class AudioDataMover(
   ADDRESS: Int,
@@ -223,12 +214,12 @@ class AudioDataMover(
 }
 
 
-//Define a custom SpinalHDL configuration with synchronous reset instead of the default asynchronous one. This configuration can be resued everywhere
-object MySpinalConfig extends SpinalConfig(defaultConfigForClockDomains = ClockDomainConfig(resetKind = SYNC))
+// //Define a custom SpinalHDL configuration with synchronous reset instead of the default asynchronous one. This configuration can be resued everywhere
+// object MySpinalConfig extends SpinalConfig(defaultConfigForClockDomains = ClockDomainConfig(resetKind = SYNC))
 
-//Generate the MyTopLevel's Verilog using the above custom configuration.
-object AudioDataMoverVerilogWithCustomConfig {
-  def main(args: Array[String]) {
-    MySpinalConfig.generateVerilog(new AudioDataMover(ADDRESS = 1024, BUF_DEPTH = 128)).printPruned()
-  }
- }
+// //Generate the MyTopLevel's Verilog using the above custom configuration.
+// object AudioDataMoverVerilogWithCustomConfig {
+//   def main(args: Array[String]) {
+//     MySpinalConfig.generateVerilog(new AudioDataMover(ADDRESS = 1024, BUF_DEPTH = 128)).printPruned()
+//   }
+// }

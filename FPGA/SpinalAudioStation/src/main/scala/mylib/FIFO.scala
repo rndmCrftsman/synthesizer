@@ -40,10 +40,10 @@ case class FIFO (WIDTH: Int, DEPTH: Int) extends Component {
   mem.setTechnology(distributedLut)
 
   // Address Memories
-  val w_addr = Reg(UInt(Math.log2(DEPTH) bits)) init(0)
-  val r_addr = Reg(UInt(Math.log2(DEPTH) bits)) init(0)
+  val w_addr = Reg(UInt(log2Up(DEPTH) bits)) init(0)
+  val r_addr = Reg(UInt(log2Up(DEPTH) bits)) init(0)
   
-  val addr_dist = UInt(Math.log2(DEPTH) bits)
+  val addr_dist = UInt(log2Up(DEPTH) bits)
 
   // ----- Combinatorial Logic -----
   // Signaling for FIFO status
@@ -51,7 +51,7 @@ case class FIFO (WIDTH: Int, DEPTH: Int) extends Component {
   io.full := (r_addr === (w_addr + 1)) ? True | False
 
   addr_dist := w_addr - r_addr
-  io.half := (addr_dist(Math.log2(DEPTH) - 1)) ? True | False
+  io.half := (addr_dist(log2Up(DEPTH) - 1)) ? True | False
 
   // ----- Registered Logic
   // Write Control
