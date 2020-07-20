@@ -1,5 +1,5 @@
-name := "Spinal_Rndm_Gen"
-version := "1.0"
+name := "SpinalAudioStation"
+version := "0.5"
 scalaVersion := "2.11.12"
 val spinalVersion = "1.4.0"
 
