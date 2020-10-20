@@ -30,6 +30,7 @@ class AudioStation(
     BUF_DEPTH: Int
 ) extends Component {
     val io = new Bundle {
+        val enable              = in Bool
         val axi                 = slave(Axi4(AudDatMvAXIConfig.getConfig))
         val input_buffer_half   = out Bool
         val input_buffer_full   = out Bool
@@ -54,6 +55,10 @@ class AudioStation(
     // Routing
     // ########################################
     
+    // Enable Signals
+    i2s.io.enable               := io.enable
+    audio_data_mover.io.enable  := io.enable
+    
     // Internal Data Streams
     i2s.io.s_data_out >> audio_data_mover.io.s_data_in
     i2s.io.s_data_in << audio_data_mover.io.s_data_out
@@ -75,11 +80,12 @@ class AudioStation(
 }
 
 // Custom SpinalHDL configuration with synchronous reset instead of the default asynchronous one.
-object MySpinalConfig extends SpinalConfig(defaultConfigForClockDomains = ClockDomainConfig(resetKind = SYNC))
+object MySpinalConfig extends SpinalConfig(defaultConfigForClockDomains = ClockDomainConfig(resetKind = SYNC, resetActiveLevel = LOW))
 
 // Generate the AudioStation's Verilog using the above custom configuration.
 object AudioStationVerilogWithCustomConfig {
   def main(args: Array[String]) {
-    MySpinalConfig.generateVerilog(new AudioStation(ADDRESS = 0, BUF_DEPTH = 64)).printPruned()
+    // Selected 32 as Buffer depth because zynq DMA ist limited to a burst lenght of 16 data beats
+    MySpinalConfig.generateVerilog(new AudioStation(ADDRESS = 0x43c00000, BUF_DEPTH = 32)).printPruned()
   }
 }

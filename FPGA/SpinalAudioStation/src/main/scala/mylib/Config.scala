@@ -7,6 +7,6 @@ object AudDatMvAXIConfig {
   def getConfig = Axi4Config (
     addressWidth = 32,
     dataWidth = 32,
-    idWidth = 4
+    idWidth = 12
   )
 }

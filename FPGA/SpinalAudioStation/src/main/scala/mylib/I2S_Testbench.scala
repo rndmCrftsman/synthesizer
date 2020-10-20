@@ -22,6 +22,7 @@ compiled.doSimUntilVoid{dut =>
 
   // wait and see how the clocks behave
   val waitingThread = fork{
+    dut.io.enable #= true
     dut.io.s_data_in.valid #= true
     dut.io.s_data_in.payload #= 0
     dut.io.s_data_out.ready #= true

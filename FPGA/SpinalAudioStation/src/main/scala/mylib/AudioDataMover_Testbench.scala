@@ -16,6 +16,7 @@ object AudioDataMoverTestbench {
     var counter : Int = 0
 
     dut.io.s_data_in.valid #= false
+    dut.io.enable #= true
 
     dut.clockDomain.waitSampling()
     
@@ -53,6 +54,7 @@ object AudioDataMoverTestbench {
     var counter : Int = 0
 
     dut.io.s_data_out.ready #= false
+    dut.io.enable #= true
 
     dut.clockDomain.waitSampling()
     
@@ -107,7 +109,7 @@ object AudioDataMoverTestbench {
         } else {
           dut.io.axi.ar.addr #= READ_ADDRESS
         }
-        dut.io.axi.ar.id.randomize()
+        dut.io.axi.ar.id #= 0x400 //.randomize()
         dut.io.axi.ar.len #= BURST_LEN
         dut.io.axi.ar.size #= BURST_SIZE
         dut.io.axi.ar.burst #= BURST_TYPE
@@ -164,7 +166,7 @@ object AudioDataMoverTestbench {
 
     while(iter > 0) {
       dut.clockDomain.waitRisingEdge()
-      if(!busy && (dut.io.output_buffer_half.toBoolean == false || OPT_ALWAYS_WRITE)) {
+      if(!busy && (dut.io.output_buffer_half.toBoolean == true || OPT_ALWAYS_WRITE)) {
         // write address
         dut.io.axi.aw.valid #= true
         if(OPT_RAND_ADDRESS) {
@@ -172,7 +174,7 @@ object AudioDataMoverTestbench {
         } else {
           dut.io.axi.aw.addr #= WRITE_ADDRESS
         }
-        dut.io.axi.aw.id.randomize()
+        dut.io.axi.aw.id #= 0x400 // .randomize()
         dut.io.axi.aw.len #= BURST_LEN
         dut.io.axi.aw.size #= BURST_SIZE
         dut.io.axi.aw.burst #= BURST_TYPE
@@ -220,7 +222,7 @@ object AudioDataMoverTestbench {
 
   def main(args: Array[String]) {
 
-    val DUT_ADDRESS = 0x00100000
+    val DUT_ADDRESS = 0x43c00000
     
     // Set default Frequency of System
     val spinalConfig = SpinalConfig(defaultClockDomainFrequency = FixedFrequency(100 MHz))
@@ -231,7 +233,7 @@ object AudioDataMoverTestbench {
         .compile(
           rtl = new AudioDataMover(
           ADDRESS = DUT_ADDRESS,      // AXI Address 32 bit in fixed mode only
-          BUF_DEPTH = 128             // AXI Burst Len only allowed to be half of this value (-1 due to AXI spec)
+          BUF_DEPTH = 32              // AXI Burst Len only allowed to be half of this value (-1 due to AXI spec)
         )
     )
 
@@ -252,35 +254,39 @@ object AudioDataMoverTestbench {
 
       // Push Data into the Stream Input
       val streamInputThread = fork{
-        inputQueue = stream_master(dut = dut, CLK_RATE = 100000000, CLK_RATE_DATA = 5000000, ITER = 641)
+        inputQueue = stream_master(dut = dut, CLK_RATE = 100000000, CLK_RATE_DATA = 5000000, ITER = 161)
         println("Stream Input Data")
+        println(inputQueue.length)
         println(inputQueue)
       }
       
       // Read Data on the AXI Slave Interface
       val axiReadThread = fork{
-        val (axiReadQueue, axiReadAddressQueue, axiReadResponseQueue, axiReadSentIDQueue, axiReadReceivedIDQueue) = axi_master_read(dut = dut, READ_ADDRESS = DUT_ADDRESS, BURST_TYPE = 0, BURST_LEN = 63, BURST_SIZE = 2, NUM_READS = 10, OPT_RAND_ADDRESS = false, OPT_RAND_DATA_READY = 0.0f, OPT_ALWAYS_READ = false)
+        val (axiReadQueue, axiReadAddressQueue, axiReadResponseQueue, axiReadSentIDQueue, axiReadReceivedIDQueue) = axi_master_read(dut = dut, READ_ADDRESS = DUT_ADDRESS, BURST_TYPE = 0, BURST_LEN = 15, BURST_SIZE = 2, NUM_READS = 10, OPT_RAND_ADDRESS = false, OPT_RAND_DATA_READY = 0.0f, OPT_ALWAYS_READ = false)
         // wait until Stream Input Thread is finished
         streamInputThread.join()
         println("AXI Read Data")
+        println(axiReadQueue.length)
         println(axiReadQueue)
         assert(inputQueue == axiReadQueue)
       }
 
       // Read Data on the Stream Output
       val streamOutputThread = fork{  
-        outputQueue = stream_slave(dut = dut, CLK_RATE = 100000000, CLK_RATE_DATA = 5000000, ITER = 641)
+        outputQueue = stream_slave(dut = dut, CLK_RATE = 100000000, CLK_RATE_DATA = 5000000, ITER = 161)
         println("Stream Output Data")
+        println(outputQueue.length)
         println(outputQueue)
       }
 
       // Write Data to the AXI Slave
       val axiWriteThread = fork{
-        val (axiWriteQueue, axiWriteAddressQueue, axiWriteResponseQueue, axiWriteSentIDQueue, axiWriteReceivedIDQueue) = axi_master_write(dut = dut, WRITE_ADDRESS = DUT_ADDRESS, BURST_TYPE = 0, BURST_LEN = 63, BURST_SIZE = 2, NUM_WRITES = 10, OPT_RAND_ADDRESS = false, OPT_RAND_DATA_VALID = 0.0f, OPT_ALWAYS_WRITE = false)
+        val (axiWriteQueue, axiWriteAddressQueue, axiWriteResponseQueue, axiWriteSentIDQueue, axiWriteReceivedIDQueue) = axi_master_write(dut = dut, WRITE_ADDRESS = DUT_ADDRESS, BURST_TYPE = 0, BURST_LEN = 15, BURST_SIZE = 2, NUM_WRITES = 10, OPT_RAND_ADDRESS = false, OPT_RAND_DATA_VALID = 0.05f, OPT_ALWAYS_WRITE = false)
 
         // wait until Stream Output Thread is finished
         streamOutputThread.join()
         println("AXI Write Data")
+        println(axiWriteQueue.length)
         println(axiWriteQueue)
         assert(outputQueue == axiWriteQueue)
 

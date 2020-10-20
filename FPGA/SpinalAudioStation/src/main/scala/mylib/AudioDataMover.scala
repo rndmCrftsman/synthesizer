@@ -30,6 +30,7 @@ class AudioDataMover(
   BUF_DEPTH: Int
 ) extends Component {
   val io = new Bundle {
+    val enable              = in Bool
     val s_data_out          = master Stream(UInt(32 bits))
     val s_data_in           = slave Stream(UInt(32 bits))
     val axi                 = slave(Axi4(AudDatMvAXIConfig.getConfig))
@@ -67,13 +68,13 @@ class AudioDataMover(
   val r_axi_wready    = Reg(Bool)           init(False)
   val r_axi_bvalid    = Reg(Bool)           init(False)
   val r_axi_bresp     = Reg(UInt(2 bits))   init(0)         // Init with Response OKAY
-  val r_axi_bid       = Reg(UInt(4 bits))   init(0)         // Transaction ID (need to be returned with Response)
+  val r_axi_bid       = Reg(UInt(12 bits))   init(0)         // Transaction ID (need to be returned with Response)
   val r_axi_arready   = Reg(Bool)           init(True)
   val r_axi_rvalid    = Reg(Bool)           init(False)
   // val r_axi_rdata     = Reg(UInt(32 bits))  init(0)      // Not used -> Buffer is already synchronus
   val r_axi_rresp     = Reg(UInt(2 bits))   init(0)         // Init with Response OKAY
   val r_axi_rlast     = Reg(Bool)           init(False)
-  val r_axi_rid       = Reg(UInt(4 bits))   init(0)         // Transaction ID (need to be returned with Response)
+  val r_axi_rid       = Reg(UInt(12 bits))   init(0)         // Transaction ID (need to be returned with Response)
 
   
   // internal storage of AXI Transfer ID and Address
@@ -103,19 +104,19 @@ class AudioDataMover(
   // ########################################
 
   // Stream input
-  io.s_data_in.ready  := ~buffer_in.io.full
-  buffer_in.io.w_en   := io.s_data_in.valid
+  io.s_data_in.ready  := ~buffer_in.io.full & io.enable
+  buffer_in.io.w_en   := io.s_data_in.ready & io.s_data_in.valid
   buffer_in.io.w_data := io.s_data_in.payload
   
   // Stream output
-  io.s_data_out.valid   := ~buffer_out.io.empty
-  buffer_out.io.r_en    := io.s_data_out.ready
+  io.s_data_out.valid   := ~buffer_out.io.empty & io.enable
+  buffer_out.io.r_en    := io.s_data_out.ready & io.s_data_out.valid
   io.s_data_out.payload := buffer_out.io.r_data
   
   // Buffer status ouputs
   io.input_buffer_half    := buffer_in.io.half
   io.input_buffer_full    := buffer_in.io.full
-  io.output_buffer_half   := buffer_out.io.half
+  io.output_buffer_half   := ~buffer_out.io.half
   io.output_buffer_empty  := buffer_out.io.empty
 
   // AXI Write Address Channel
@@ -190,10 +191,10 @@ class AudioDataMover(
   when(r_axi_arready & io.axi.ar.valid) {
     r_axi_rid           := io.axi.ar.id                                     // register transaction ID for the response
     axi_r_cnt           := (AXI_BURST_LEN+1).resize(log2Up(BUF_DEPTH/2)+1)  // set counter to set r_last signal
-    r_axi_ar_req_valid  := axi_ar_req_valid                                 // register valid signal for use on write channel
+    r_axi_ar_req_valid  := axi_ar_req_valid                                 // register valid signal for use on read channel
     r_axi_rvalid        := True                                             // set ready signal in Read Data Channel
     r_axi_arready       := False
-    when(axi_aw_req_valid) {
+    when(axi_ar_req_valid) {
       r_axi_rresp := AXI_RESP_OK            // if request is valid write data to memory and respond with "Okay"
     }.otherwise{
       r_axi_rresp := AXI_RESP_SLVERR        // if request is not valid drop data and respond with "Slave Error"
