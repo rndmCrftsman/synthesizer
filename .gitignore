@@ -32,3 +32,5 @@ out
 simWorkspace/
 tmp/
 null
+
+PC_Testbench/test_data/
