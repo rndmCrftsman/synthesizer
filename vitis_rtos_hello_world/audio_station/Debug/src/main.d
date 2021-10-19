@@ -1,0 +1,55 @@
+src/main.o src/main.o: ../src/main.c \
+ /home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/FreeRTOS.h \
+ /home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/FreeRTOSConfig.h \
+ /home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/xparameters.h \
+ /home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/xparameters_ps.h \
+ /home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/projdefs.h \
+ /home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/portable.h \
+ /home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/deprecated_definitions.h \
+ /home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/portmacro.h \
+ /home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/xil_types.h \
+ /home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/mpu_wrappers.h \
+ /home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/task.h \
+ /home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/list.h \
+ /home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/queue.h \
+ /home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/task.h \
+ /home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/timers.h \
+ /home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/xil_printf.h \
+ /home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/bspconfig.h \
+ /home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/xparameters.h
+
+/home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/FreeRTOS.h:
+
+/home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/FreeRTOSConfig.h:
+
+/home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/xparameters.h:
+
+/home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/xparameters_ps.h:
+
+/home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/projdefs.h:
+
+/home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/portable.h:
+
+/home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/deprecated_definitions.h:
+
+/home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/portmacro.h:
+
+/home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/xil_types.h:
+
+/home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/mpu_wrappers.h:
+
+/home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/task.h:
+
+/home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/list.h:
+
+/home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/queue.h:
+
+/home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/task.h:
+
+/home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/timers.h:
+
+/home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/xil_printf.h:
+
+/home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/bspconfig.h:
+
+/home/hannes/Entwicklung/synthesizer/vitis_rtos_hello_world/audio_station_zybo_z7/export/audio_station_zybo_z7/sw/audio_station_zybo_z7/freertos10_xilinx_domain/bspinclude/include/xparameters.h:
