@@ -10,8 +10,8 @@ int main() {
 
     const uint_fast8_t BUFFERSIZE = 16;
 
-    const char* input_file = "test_data/Ensoniq_Dope_77.wav";
-    const char* output_file = "test_data/electronic_fx_out.wav";
+    const char* input_file = "../../test_data/Ensoniq_Dope_77.wav";
+    const char* output_file = "../../test_data/Ensoniq_Dope_77_out.wav";
     
     printf("Hello, World!\n");
     

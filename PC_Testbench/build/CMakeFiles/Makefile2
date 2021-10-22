@@ -72,46 +72,64 @@ CMAKE_BINARY_DIR = /home/hannes/Entwicklung/synthesizer/PC_Testbench/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/PC_Testbench.dir/all
+all: src/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall:
+preinstall: src/preinstall
 
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/PC_Testbench.dir/clean
+clean: src/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/PC_Testbench.dir
+# Directory level rules for directory src
+
+# Recursive "all" directory target.
+src/all: src/CMakeFiles/PC_Testbench.dir/all
+
+.PHONY : src/all
+
+# Recursive "preinstall" directory target.
+src/preinstall:
+
+.PHONY : src/preinstall
+
+# Recursive "clean" directory target.
+src/clean: src/CMakeFiles/PC_Testbench.dir/clean
+
+.PHONY : src/clean
+
+#=============================================================================
+# Target rules for target src/CMakeFiles/PC_Testbench.dir
 
 # All Build rule for target.
-CMakeFiles/PC_Testbench.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PC_Testbench.dir/build.make CMakeFiles/PC_Testbench.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PC_Testbench.dir/build.make CMakeFiles/PC_Testbench.dir/build
+src/CMakeFiles/PC_Testbench.dir/all:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/PC_Testbench.dir/build.make src/CMakeFiles/PC_Testbench.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/PC_Testbench.dir/build.make src/CMakeFiles/PC_Testbench.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/hannes/Entwicklung/synthesizer/PC_Testbench/build/CMakeFiles --progress-num=1,2,3 "Built target PC_Testbench"
-.PHONY : CMakeFiles/PC_Testbench.dir/all
+.PHONY : src/CMakeFiles/PC_Testbench.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/PC_Testbench.dir/rule: cmake_check_build_system
+src/CMakeFiles/PC_Testbench.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/hannes/Entwicklung/synthesizer/PC_Testbench/build/CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/PC_Testbench.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/PC_Testbench.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/hannes/Entwicklung/synthesizer/PC_Testbench/build/CMakeFiles 0
-.PHONY : CMakeFiles/PC_Testbench.dir/rule
+.PHONY : src/CMakeFiles/PC_Testbench.dir/rule
 
 # Convenience name for target.
-PC_Testbench: CMakeFiles/PC_Testbench.dir/rule
+PC_Testbench: src/CMakeFiles/PC_Testbench.dir/rule
 
 .PHONY : PC_Testbench
 
 # clean rule for target.
-CMakeFiles/PC_Testbench.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PC_Testbench.dir/build.make CMakeFiles/PC_Testbench.dir/clean
-.PHONY : CMakeFiles/PC_Testbench.dir/clean
+src/CMakeFiles/PC_Testbench.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/PC_Testbench.dir/build.make src/CMakeFiles/PC_Testbench.dir/clean
+.PHONY : src/CMakeFiles/PC_Testbench.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

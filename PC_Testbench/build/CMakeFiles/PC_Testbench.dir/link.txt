@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/PC_Testbench.dir/src/main.c.o CMakeFiles/PC_Testbench.dir/src/wav.c.o -o PC_Testbench 

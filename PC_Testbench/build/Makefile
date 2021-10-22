@@ -139,62 +139,8 @@ PC_Testbench: cmake_check_build_system
 
 # fast build rule for target.
 PC_Testbench/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PC_Testbench.dir/build.make CMakeFiles/PC_Testbench.dir/build
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/PC_Testbench.dir/build.make src/CMakeFiles/PC_Testbench.dir/build
 .PHONY : PC_Testbench/fast
-
-src/main.o: src/main.c.o
-
-.PHONY : src/main.o
-
-# target to build an object file
-src/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PC_Testbench.dir/build.make CMakeFiles/PC_Testbench.dir/src/main.c.o
-.PHONY : src/main.c.o
-
-src/main.i: src/main.c.i
-
-.PHONY : src/main.i
-
-# target to preprocess a source file
-src/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PC_Testbench.dir/build.make CMakeFiles/PC_Testbench.dir/src/main.c.i
-.PHONY : src/main.c.i
-
-src/main.s: src/main.c.s
-
-.PHONY : src/main.s
-
-# target to generate assembly for a file
-src/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PC_Testbench.dir/build.make CMakeFiles/PC_Testbench.dir/src/main.c.s
-.PHONY : src/main.c.s
-
-src/wav.o: src/wav.c.o
-
-.PHONY : src/wav.o
-
-# target to build an object file
-src/wav.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PC_Testbench.dir/build.make CMakeFiles/PC_Testbench.dir/src/wav.c.o
-.PHONY : src/wav.c.o
-
-src/wav.i: src/wav.c.i
-
-.PHONY : src/wav.i
-
-# target to preprocess a source file
-src/wav.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PC_Testbench.dir/build.make CMakeFiles/PC_Testbench.dir/src/wav.c.i
-.PHONY : src/wav.c.i
-
-src/wav.s: src/wav.c.s
-
-.PHONY : src/wav.s
-
-# target to generate assembly for a file
-src/wav.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PC_Testbench.dir/build.make CMakeFiles/PC_Testbench.dir/src/wav.c.s
-.PHONY : src/wav.c.s
 
 # Help Target
 help:
@@ -205,12 +151,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... PC_Testbench"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
-	@echo "... src/wav.o"
-	@echo "... src/wav.i"
-	@echo "... src/wav.s"
 .PHONY : help
 
 
