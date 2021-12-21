@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="audio_station" location="/home/hannes/Entwicklung/synthesizer/vitis/audio_station" platform="/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/export/audio_station_overview_wrapper/audio_station_overview_wrapper.xpfm" platformUID="xilinx:zybo-z7-20::0.0(custom)" systemProject="audio_station_system_cpu_0" sysConfig="audio_station_overview_wrapper" runtime="cpp" cpu="standalone_ps7_cortexa9_0" cpuInstance="ps7_cortexa9_0" os="standalone" language="CPP" mssSignature="0fb2cff7042691fd4855d2da3d41c92f">
+  <configuration name="Debug" id="xilinx.gnu.armv7.exe.debug.120314009">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+    <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.armv7.exe.release.212103654" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="empty_application"/>
+</sdkproject:SdkProject>
