@@ -1,8 +1,8 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-// Date        : Sun Dec 19 17:42:54 2021
-// Host        : pop-os running 64-bit Pop!_OS 21.04
+// Date        : Sat Jan  1 11:18:01 2022
+// Host        : pop-os running 64-bit Pop!_OS 21.10
 // Command     : write_verilog -force -mode funcsim
 //               /home/hannes/Entwicklung/synthesizer/FPGA/audio_station/audio_station.srcs/sources_1/bd/audio_station_overview/ip/audio_station_overview_processing_system7_0_0/audio_station_overview_processing_system7_0_0_sim_netlist.v
 // Design      : audio_station_overview_processing_system7_0_0
@@ -15,15 +15,15 @@
 (* CHECK_LICENSE_TYPE = "audio_station_overview_processing_system7_0_0,processing_system7_v5_5_processing_system7,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* X_CORE_INFO = "processing_system7_v5_5_processing_system7,Vivado 2020.2" *) 
 (* NotValidForBitStream *)
 module audio_station_overview_processing_system7_0_0
-   (I2C0_SDA_I,
+   (GPIO_I,
+    GPIO_O,
+    GPIO_T,
+    I2C0_SDA_I,
     I2C0_SDA_O,
     I2C0_SDA_T,
     I2C0_SCL_I,
     I2C0_SCL_O,
     I2C0_SCL_T,
-    USB0_PORT_INDCTL,
-    USB0_VBUS_PWRSELECT,
-    USB0_VBUS_PWRFAULT,
     M_AXI_GP0_ARVALID,
     M_AXI_GP0_AWVALID,
     M_AXI_GP0_BREADY,
@@ -87,15 +87,15 @@ module audio_station_overview_processing_system7_0_0
     PS_SRSTB,
     PS_CLK,
     PS_PORB);
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 GPIO_0 TRI_I" *) input [0:0]GPIO_I;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 GPIO_0 TRI_O" *) output [0:0]GPIO_O;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 GPIO_0 TRI_T" *) output [0:0]GPIO_T;
   (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_0 SDA_I" *) input I2C0_SDA_I;
   (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_0 SDA_O" *) output I2C0_SDA_O;
   (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_0 SDA_T" *) output I2C0_SDA_T;
   (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_0 SCL_I" *) input I2C0_SCL_I;
   (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_0 SCL_O" *) output I2C0_SCL_O;
   (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 IIC_0 SCL_T" *) output I2C0_SCL_T;
-  (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:usbctrl:1.0 USBIND_0 PORT_INDCTL" *) output [1:0]USB0_PORT_INDCTL;
-  (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:usbctrl:1.0 USBIND_0 VBUS_PWRSELECT" *) output USB0_VBUS_PWRSELECT;
-  (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:usbctrl:1.0 USBIND_0 VBUS_PWRFAULT" *) input USB0_VBUS_PWRFAULT;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_GP0 ARVALID" *) output M_AXI_GP0_ARVALID;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_GP0 AWVALID" *) output M_AXI_GP0_AWVALID;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_GP0 BREADY" *) output M_AXI_GP0_BREADY;
@@ -136,7 +136,7 @@ module audio_station_overview_processing_system7_0_0
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_GP0 RRESP" *) input [1:0]M_AXI_GP0_RRESP;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_GP0 RDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_AXI_GP0, SUPPORTS_NARROW_BURST 0, NUM_WRITE_OUTSTANDING 8, NUM_READ_OUTSTANDING 8, DATA_WIDTH 32, PROTOCOL AXI3, FREQ_HZ 125000000, ID_WIDTH 12, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, MAX_BURST_LENGTH 16, PHASE 0.000, CLK_DOMAIN audio_station_overview_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 4, NUM_WRITE_THREADS 4, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *) input [31:0]M_AXI_GP0_RDATA;
   (* X_INTERFACE_INFO = "xilinx.com:signal:interrupt:1.0 IRQ_F2P INTERRUPT" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME IRQ_F2P, SENSITIVITY LEVEL_HIGH:LEVEL_HIGH, PortWidth 2" *) input [1:0]IRQ_F2P;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 FCLK_CLK0 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME FCLK_CLK0, FREQ_HZ 1.25e+08, PHASE 0.000, CLK_DOMAIN audio_station_overview_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *) output FCLK_CLK0;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 FCLK_CLK0 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME FCLK_CLK0, FREQ_HZ 125000000, PHASE 0.000, CLK_DOMAIN audio_station_overview_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *) output FCLK_CLK0;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 FCLK_RESET0_N RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME FCLK_RESET0_N, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) output FCLK_RESET0_N;
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO MIO" *) inout [53:0]MIO;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR CAS_N" *) inout DDR_CAS_n;
@@ -181,6 +181,9 @@ module audio_station_overview_processing_system7_0_0
   wire DDR_WEB;
   wire FCLK_CLK0;
   wire FCLK_RESET0_N;
+  wire [0:0]GPIO_I;
+  wire [0:0]GPIO_O;
+  wire [0:0]GPIO_T;
   wire I2C0_SCL_I;
   wire I2C0_SCL_O;
   wire I2C0_SCL_T;
@@ -231,9 +234,6 @@ module audio_station_overview_processing_system7_0_0
   wire PS_CLK;
   wire PS_PORB;
   wire PS_SRSTB;
-  wire [1:0]USB0_PORT_INDCTL;
-  wire USB0_VBUS_PWRFAULT;
-  wire USB0_VBUS_PWRSELECT;
   wire NLW_inst_CAN0_PHY_TX_UNCONNECTED;
   wire NLW_inst_CAN1_PHY_TX_UNCONNECTED;
   wire NLW_inst_DMA0_DAVALID_UNCONNECTED;
@@ -428,6 +428,7 @@ module audio_station_overview_processing_system7_0_0
   wire NLW_inst_UART1_DTRN_UNCONNECTED;
   wire NLW_inst_UART1_RTSN_UNCONNECTED;
   wire NLW_inst_UART1_TX_UNCONNECTED;
+  wire NLW_inst_USB0_VBUS_PWRSELECT_UNCONNECTED;
   wire NLW_inst_USB1_VBUS_PWRSELECT_UNCONNECTED;
   wire NLW_inst_WDT_RST_OUT_UNCONNECTED;
   wire [1:0]NLW_inst_DMA0_DATYPE_UNCONNECTED;
@@ -439,8 +440,6 @@ module audio_station_overview_processing_system7_0_0
   wire [1:0]NLW_inst_EVENT_STANDBYWFE_UNCONNECTED;
   wire [1:0]NLW_inst_EVENT_STANDBYWFI_UNCONNECTED;
   wire [31:0]NLW_inst_FTMT_P2F_DEBUG_UNCONNECTED;
-  wire [63:0]NLW_inst_GPIO_O_UNCONNECTED;
-  wire [63:0]NLW_inst_GPIO_T_UNCONNECTED;
   wire [1:1]NLW_inst_M_AXI_GP0_ARCACHE_UNCONNECTED;
   wire [2:2]NLW_inst_M_AXI_GP0_ARSIZE_UNCONNECTED;
   wire [1:1]NLW_inst_M_AXI_GP0_AWCACHE_UNCONNECTED;
@@ -524,6 +523,7 @@ module audio_station_overview_processing_system7_0_0
   wire [5:0]NLW_inst_S_AXI_HP3_WACOUNT_UNCONNECTED;
   wire [7:0]NLW_inst_S_AXI_HP3_WCOUNT_UNCONNECTED;
   wire [1:0]NLW_inst_TRACE_DATA_UNCONNECTED;
+  wire [1:0]NLW_inst_USB0_PORT_INDCTL_UNCONNECTED;
   wire [1:0]NLW_inst_USB1_PORT_INDCTL_UNCONNECTED;
 
   assign M_AXI_GP0_ARCACHE[3:2] = \^M_AXI_GP0_ARCACHE [3:2];
@@ -543,7 +543,7 @@ module audio_station_overview_processing_system7_0_0
   (* C_DM_WIDTH = "4" *) 
   (* C_DQS_WIDTH = "4" *) 
   (* C_DQ_WIDTH = "32" *) 
-  (* C_EMIO_GPIO_WIDTH = "64" *) 
+  (* C_EMIO_GPIO_WIDTH = "1" *) 
   (* C_EN_EMIO_ENET0 = "0" *) 
   (* C_EN_EMIO_ENET1 = "0" *) 
   (* C_EN_EMIO_PJTAG = "0" *) 
@@ -596,7 +596,7 @@ module audio_station_overview_processing_system7_0_0
   (* C_USE_S_AXI_HP2 = "0" *) 
   (* C_USE_S_AXI_HP3 = "0" *) 
   (* HW_HANDOFF = "audio_station_overview_processing_system7_0_0.hwdef" *) 
-  (* POWER = "<PROCESSOR name={system} numA9Cores={2} clockFreq={667} load={0.5} /><MEMORY name={code} memType={DDR3(LowVoltage)} dataWidth={32} clockFreq={533.333333} readRate={0.5} writeRate={0.5} /><IO interface={GPIO_Bank_1} ioStandard={LVCMOS18} bidis={2} ioBank={Vcco_p1} clockFreq={1} usageRate={0.5} /><IO interface={GPIO_Bank_0} ioStandard={LVCMOS33} bidis={9} ioBank={Vcco_p0} clockFreq={1} usageRate={0.5} /><IO interface={I2C} ioStandard={} bidis={1} ioBank={} clockFreq={111.111115} usageRate={0.5} /><IO interface={UART} ioStandard={LVCMOS18} bidis={2} ioBank={Vcco_p1} clockFreq={100.000000} usageRate={0.5} /><IO interface={SD} ioStandard={LVCMOS18} bidis={7} ioBank={Vcco_p1} clockFreq={50.000000} usageRate={0.5} /><IO interface={USB} ioStandard={LVCMOS18} bidis={12} ioBank={Vcco_p1} clockFreq={60} usageRate={0.5} /><IO interface={GigE} ioStandard={LVCMOS18} bidis={14} ioBank={Vcco_p1} clockFreq={125.000000} usageRate={0.5} /><IO interface={QSPI} ioStandard={LVCMOS33} bidis={7} ioBank={Vcco_p0} clockFreq={200} usageRate={0.5} /><PLL domain={Processor} vco={1333.333} /><PLL domain={Memory} vco={1066.667} /><PLL domain={IO} vco={1000.000} /><AXI interface={M_AXI_GP0} dataWidth={32} clockFreq={125} usageRate={0.5} />/>" *) 
+  (* POWER = "<PROCESSOR name={system} numA9Cores={2} clockFreq={667} load={0.5} /><MEMORY name={code} memType={DDR3(LowVoltage)} dataWidth={32} clockFreq={533.333333} readRate={0.5} writeRate={0.5} /><IO interface={GPIO_Bank_1} ioStandard={LVCMOS18} bidis={15} ioBank={Vcco_p1} clockFreq={1} usageRate={0.5} /><IO interface={GPIO_Bank_0} ioStandard={LVCMOS33} bidis={9} ioBank={Vcco_p0} clockFreq={1} usageRate={0.5} /><IO interface={I2C} ioStandard={} bidis={1} ioBank={} clockFreq={111.111115} usageRate={0.5} /><IO interface={UART} ioStandard={LVCMOS18} bidis={2} ioBank={Vcco_p1} clockFreq={100.000000} usageRate={0.5} /><IO interface={SD} ioStandard={LVCMOS18} bidis={7} ioBank={Vcco_p1} clockFreq={50.000000} usageRate={0.5} /><IO interface={GigE} ioStandard={LVCMOS18} bidis={14} ioBank={Vcco_p1} clockFreq={125.000000} usageRate={0.5} /><IO interface={QSPI} ioStandard={LVCMOS33} bidis={7} ioBank={Vcco_p0} clockFreq={200} usageRate={0.5} /><PLL domain={Processor} vco={1333.333} /><PLL domain={Memory} vco={1066.667} /><PLL domain={IO} vco={1000.000} /><AXI interface={M_AXI_GP0} dataWidth={32} clockFreq={125} usageRate={0.5} />/>" *) 
   (* USE_TRACE_DATA_EDGE_DETECTOR = "0" *) 
   audio_station_overview_processing_system7_0_0_processing_system7_v5_5_processing_system7 inst
        (.CAN0_PHY_RX(1'b0),
@@ -750,9 +750,9 @@ module audio_station_overview_processing_system7_0_0
         .FTMT_P2F_TRIG_1(NLW_inst_FTMT_P2F_TRIG_1_UNCONNECTED),
         .FTMT_P2F_TRIG_2(NLW_inst_FTMT_P2F_TRIG_2_UNCONNECTED),
         .FTMT_P2F_TRIG_3(NLW_inst_FTMT_P2F_TRIG_3_UNCONNECTED),
-        .GPIO_I({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .GPIO_O(NLW_inst_GPIO_O_UNCONNECTED[63:0]),
-        .GPIO_T(NLW_inst_GPIO_T_UNCONNECTED[63:0]),
+        .GPIO_I(GPIO_I),
+        .GPIO_O(GPIO_O),
+        .GPIO_T(GPIO_T),
         .I2C0_SCL_I(I2C0_SCL_I),
         .I2C0_SCL_O(I2C0_SCL_O),
         .I2C0_SCL_T(I2C0_SCL_T),
@@ -1276,9 +1276,9 @@ module audio_station_overview_processing_system7_0_0
         .UART1_RTSN(NLW_inst_UART1_RTSN_UNCONNECTED),
         .UART1_RX(1'b1),
         .UART1_TX(NLW_inst_UART1_TX_UNCONNECTED),
-        .USB0_PORT_INDCTL(USB0_PORT_INDCTL),
-        .USB0_VBUS_PWRFAULT(USB0_VBUS_PWRFAULT),
-        .USB0_VBUS_PWRSELECT(USB0_VBUS_PWRSELECT),
+        .USB0_PORT_INDCTL(NLW_inst_USB0_PORT_INDCTL_UNCONNECTED[1:0]),
+        .USB0_VBUS_PWRFAULT(1'b0),
+        .USB0_VBUS_PWRSELECT(NLW_inst_USB0_VBUS_PWRSELECT_UNCONNECTED),
         .USB1_PORT_INDCTL(NLW_inst_USB1_PORT_INDCTL_UNCONNECTED[1:0]),
         .USB1_VBUS_PWRFAULT(1'b0),
         .USB1_VBUS_PWRSELECT(NLW_inst_USB1_VBUS_PWRSELECT_UNCONNECTED),
@@ -1287,7 +1287,7 @@ module audio_station_overview_processing_system7_0_0
 endmodule
 
 (* C_DM_WIDTH = "4" *) (* C_DQS_WIDTH = "4" *) (* C_DQ_WIDTH = "32" *) 
-(* C_EMIO_GPIO_WIDTH = "64" *) (* C_EN_EMIO_ENET0 = "0" *) (* C_EN_EMIO_ENET1 = "0" *) 
+(* C_EMIO_GPIO_WIDTH = "1" *) (* C_EN_EMIO_ENET0 = "0" *) (* C_EN_EMIO_ENET1 = "0" *) 
 (* C_EN_EMIO_PJTAG = "0" *) (* C_EN_EMIO_TRACE = "0" *) (* C_FCLK_CLK0_BUF = "TRUE" *) 
 (* C_FCLK_CLK1_BUF = "FALSE" *) (* C_FCLK_CLK2_BUF = "FALSE" *) (* C_FCLK_CLK3_BUF = "FALSE" *) 
 (* C_GP0_EN_MODIFIABLE_TXN = "1" *) (* C_GP1_EN_MODIFIABLE_TXN = "1" *) (* C_INCLUDE_ACP_TRANS_CHECK = "0" *) 
@@ -1305,7 +1305,7 @@ endmodule
 (* C_USE_S_AXI_ACP = "0" *) (* C_USE_S_AXI_GP0 = "0" *) (* C_USE_S_AXI_GP1 = "0" *) 
 (* C_USE_S_AXI_HP0 = "0" *) (* C_USE_S_AXI_HP1 = "0" *) (* C_USE_S_AXI_HP2 = "0" *) 
 (* C_USE_S_AXI_HP3 = "0" *) (* HW_HANDOFF = "audio_station_overview_processing_system7_0_0.hwdef" *) (* ORIG_REF_NAME = "processing_system7_v5_5_processing_system7" *) 
-(* POWER = "<PROCESSOR name={system} numA9Cores={2} clockFreq={667} load={0.5} /><MEMORY name={code} memType={DDR3(LowVoltage)} dataWidth={32} clockFreq={533.333333} readRate={0.5} writeRate={0.5} /><IO interface={GPIO_Bank_1} ioStandard={LVCMOS18} bidis={2} ioBank={Vcco_p1} clockFreq={1} usageRate={0.5} /><IO interface={GPIO_Bank_0} ioStandard={LVCMOS33} bidis={9} ioBank={Vcco_p0} clockFreq={1} usageRate={0.5} /><IO interface={I2C} ioStandard={} bidis={1} ioBank={} clockFreq={111.111115} usageRate={0.5} /><IO interface={UART} ioStandard={LVCMOS18} bidis={2} ioBank={Vcco_p1} clockFreq={100.000000} usageRate={0.5} /><IO interface={SD} ioStandard={LVCMOS18} bidis={7} ioBank={Vcco_p1} clockFreq={50.000000} usageRate={0.5} /><IO interface={USB} ioStandard={LVCMOS18} bidis={12} ioBank={Vcco_p1} clockFreq={60} usageRate={0.5} /><IO interface={GigE} ioStandard={LVCMOS18} bidis={14} ioBank={Vcco_p1} clockFreq={125.000000} usageRate={0.5} /><IO interface={QSPI} ioStandard={LVCMOS33} bidis={7} ioBank={Vcco_p0} clockFreq={200} usageRate={0.5} /><PLL domain={Processor} vco={1333.333} /><PLL domain={Memory} vco={1066.667} /><PLL domain={IO} vco={1000.000} /><AXI interface={M_AXI_GP0} dataWidth={32} clockFreq={125} usageRate={0.5} />/>" *) (* USE_TRACE_DATA_EDGE_DETECTOR = "0" *) 
+(* POWER = "<PROCESSOR name={system} numA9Cores={2} clockFreq={667} load={0.5} /><MEMORY name={code} memType={DDR3(LowVoltage)} dataWidth={32} clockFreq={533.333333} readRate={0.5} writeRate={0.5} /><IO interface={GPIO_Bank_1} ioStandard={LVCMOS18} bidis={15} ioBank={Vcco_p1} clockFreq={1} usageRate={0.5} /><IO interface={GPIO_Bank_0} ioStandard={LVCMOS33} bidis={9} ioBank={Vcco_p0} clockFreq={1} usageRate={0.5} /><IO interface={I2C} ioStandard={} bidis={1} ioBank={} clockFreq={111.111115} usageRate={0.5} /><IO interface={UART} ioStandard={LVCMOS18} bidis={2} ioBank={Vcco_p1} clockFreq={100.000000} usageRate={0.5} /><IO interface={SD} ioStandard={LVCMOS18} bidis={7} ioBank={Vcco_p1} clockFreq={50.000000} usageRate={0.5} /><IO interface={GigE} ioStandard={LVCMOS18} bidis={14} ioBank={Vcco_p1} clockFreq={125.000000} usageRate={0.5} /><IO interface={QSPI} ioStandard={LVCMOS33} bidis={7} ioBank={Vcco_p0} clockFreq={200} usageRate={0.5} /><PLL domain={Processor} vco={1333.333} /><PLL domain={Memory} vco={1066.667} /><PLL domain={IO} vco={1000.000} /><AXI interface={M_AXI_GP0} dataWidth={32} clockFreq={125} usageRate={0.5} />/>" *) (* USE_TRACE_DATA_EDGE_DETECTOR = "0" *) 
 module audio_station_overview_processing_system7_0_0_processing_system7_v5_5_processing_system7
    (CAN0_PHY_TX,
     CAN0_PHY_RX,
@@ -2046,9 +2046,9 @@ module audio_station_overview_processing_system7_0_0_processing_system7_v5_5_pro
   input ENET1_MDIO_I;
   input ENET1_EXT_INTIN;
   input [7:0]ENET1_GMII_RXD;
-  input [63:0]GPIO_I;
-  output [63:0]GPIO_O;
-  output [63:0]GPIO_T;
+  input [0:0]GPIO_I;
+  output [0:0]GPIO_O;
+  output [0:0]GPIO_T;
   input I2C0_SDA_I;
   output I2C0_SDA_O;
   output I2C0_SDA_T;
@@ -2701,6 +2701,9 @@ module audio_station_overview_processing_system7_0_0_processing_system7_v5_5_pro
   wire FCLK_CLK0;
   wire [0:0]FCLK_CLK_unbuffered;
   wire FCLK_RESET0_N;
+  wire [0:0]GPIO_I;
+  wire [0:0]GPIO_O;
+  wire [0:0]GPIO_T;
   wire I2C0_SCL_I;
   wire I2C0_SCL_O;
   wire I2C0_SCL_T;
@@ -3246,6 +3249,8 @@ module audio_station_overview_processing_system7_0_0_processing_system7_v5_5_pro
   wire PS7_i_n_23;
   wire PS7_i_n_230;
   wire PS7_i_n_231;
+  wire PS7_i_n_232;
+  wire PS7_i_n_233;
   wire PS7_i_n_234;
   wire PS7_i_n_235;
   wire PS7_i_n_236;
@@ -3721,6 +3726,7 @@ module audio_station_overview_processing_system7_0_0_processing_system7_v5_5_pro
   wire PS7_i_n_847;
   wire PS7_i_n_848;
   wire PS7_i_n_849;
+  wire PS7_i_n_85;
   wire PS7_i_n_850;
   wire PS7_i_n_851;
   wire PS7_i_n_852;
@@ -3746,73 +3752,9 @@ module audio_station_overview_processing_system7_0_0_processing_system7_v5_5_pro
   wire PS7_i_n_870;
   wire PS7_i_n_871;
   wire PS7_i_n_872;
-  wire PS7_i_n_873;
-  wire PS7_i_n_874;
-  wire PS7_i_n_875;
-  wire PS7_i_n_876;
-  wire PS7_i_n_877;
-  wire PS7_i_n_878;
-  wire PS7_i_n_879;
   wire PS7_i_n_88;
-  wire PS7_i_n_880;
-  wire PS7_i_n_881;
-  wire PS7_i_n_882;
-  wire PS7_i_n_883;
-  wire PS7_i_n_884;
-  wire PS7_i_n_885;
-  wire PS7_i_n_886;
-  wire PS7_i_n_887;
-  wire PS7_i_n_888;
-  wire PS7_i_n_889;
   wire PS7_i_n_89;
-  wire PS7_i_n_890;
-  wire PS7_i_n_891;
-  wire PS7_i_n_892;
-  wire PS7_i_n_893;
-  wire PS7_i_n_894;
-  wire PS7_i_n_895;
-  wire PS7_i_n_896;
-  wire PS7_i_n_897;
-  wire PS7_i_n_898;
-  wire PS7_i_n_899;
   wire PS7_i_n_9;
-  wire PS7_i_n_900;
-  wire PS7_i_n_901;
-  wire PS7_i_n_902;
-  wire PS7_i_n_903;
-  wire PS7_i_n_904;
-  wire PS7_i_n_905;
-  wire PS7_i_n_906;
-  wire PS7_i_n_907;
-  wire PS7_i_n_908;
-  wire PS7_i_n_909;
-  wire PS7_i_n_910;
-  wire PS7_i_n_911;
-  wire PS7_i_n_912;
-  wire PS7_i_n_913;
-  wire PS7_i_n_914;
-  wire PS7_i_n_915;
-  wire PS7_i_n_916;
-  wire PS7_i_n_917;
-  wire PS7_i_n_918;
-  wire PS7_i_n_919;
-  wire PS7_i_n_920;
-  wire PS7_i_n_921;
-  wire PS7_i_n_922;
-  wire PS7_i_n_923;
-  wire PS7_i_n_924;
-  wire PS7_i_n_925;
-  wire PS7_i_n_926;
-  wire PS7_i_n_927;
-  wire PS7_i_n_928;
-  wire PS7_i_n_929;
-  wire PS7_i_n_930;
-  wire PS7_i_n_931;
-  wire PS7_i_n_932;
-  wire PS7_i_n_933;
-  wire PS7_i_n_934;
-  wire PS7_i_n_935;
-  wire PS7_i_n_936;
   wire PS7_i_n_96;
   wire PS7_i_n_97;
   wire PS7_i_n_98;
@@ -3848,9 +3790,6 @@ module audio_station_overview_processing_system7_0_0_processing_system7_v5_5_pro
   (* RTL_KEEP = "true" *) wire [1:0]\TRACE_DATA_PIPE[5] ;
   (* RTL_KEEP = "true" *) wire [1:0]\TRACE_DATA_PIPE[6] ;
   (* RTL_KEEP = "true" *) wire [1:0]\TRACE_DATA_PIPE[7] ;
-  wire [1:0]USB0_PORT_INDCTL;
-  wire USB0_VBUS_PWRFAULT;
-  wire USB0_VBUS_PWRSELECT;
   wire [14:0]buffered_DDR_Addr;
   wire [2:0]buffered_DDR_BankAddr;
   wire buffered_DDR_CAS_n;
@@ -3872,7 +3811,7 @@ module audio_station_overview_processing_system7_0_0_processing_system7_v5_5_pro
   wire buffered_PS_CLK;
   wire buffered_PS_PORB;
   wire buffered_PS_SRSTB;
-  wire [63:0]gpio_out_t_n;
+  wire gpio_out_t_n;
   wire NLW_PS7_i_EMIOENET0GMIITXEN_UNCONNECTED;
   wire NLW_PS7_i_EMIOENET0GMIITXER_UNCONNECTED;
   wire NLW_PS7_i_EMIOENET1GMIITXEN_UNCONNECTED;
@@ -3882,6 +3821,8 @@ module audio_station_overview_processing_system7_0_0_processing_system7_v5_5_pro
   wire NLW_PS7_i_EMIOTRACECTL_UNCONNECTED;
   wire [7:0]NLW_PS7_i_EMIOENET0GMIITXD_UNCONNECTED;
   wire [7:0]NLW_PS7_i_EMIOENET1GMIITXD_UNCONNECTED;
+  wire [63:1]NLW_PS7_i_EMIOGPIOO_UNCONNECTED;
+  wire [63:1]NLW_PS7_i_EMIOGPIOTN_UNCONNECTED;
   wire [31:0]NLW_PS7_i_EMIOTRACEDATA_UNCONNECTED;
   wire [1:1]NLW_PS7_i_MAXIGP0ARCACHE_UNCONNECTED;
   wire [1:1]NLW_PS7_i_MAXIGP0AWCACHE_UNCONNECTED;
@@ -4007,134 +3948,6 @@ module audio_station_overview_processing_system7_0_0_processing_system7_v5_5_pro
   assign FTMT_P2F_TRIG_1 = \<const0> ;
   assign FTMT_P2F_TRIG_2 = \<const0> ;
   assign FTMT_P2F_TRIG_3 = \<const0> ;
-  assign GPIO_O[63] = \<const0> ;
-  assign GPIO_O[62] = \<const0> ;
-  assign GPIO_O[61] = \<const0> ;
-  assign GPIO_O[60] = \<const0> ;
-  assign GPIO_O[59] = \<const0> ;
-  assign GPIO_O[58] = \<const0> ;
-  assign GPIO_O[57] = \<const0> ;
-  assign GPIO_O[56] = \<const0> ;
-  assign GPIO_O[55] = \<const0> ;
-  assign GPIO_O[54] = \<const0> ;
-  assign GPIO_O[53] = \<const0> ;
-  assign GPIO_O[52] = \<const0> ;
-  assign GPIO_O[51] = \<const0> ;
-  assign GPIO_O[50] = \<const0> ;
-  assign GPIO_O[49] = \<const0> ;
-  assign GPIO_O[48] = \<const0> ;
-  assign GPIO_O[47] = \<const0> ;
-  assign GPIO_O[46] = \<const0> ;
-  assign GPIO_O[45] = \<const0> ;
-  assign GPIO_O[44] = \<const0> ;
-  assign GPIO_O[43] = \<const0> ;
-  assign GPIO_O[42] = \<const0> ;
-  assign GPIO_O[41] = \<const0> ;
-  assign GPIO_O[40] = \<const0> ;
-  assign GPIO_O[39] = \<const0> ;
-  assign GPIO_O[38] = \<const0> ;
-  assign GPIO_O[37] = \<const0> ;
-  assign GPIO_O[36] = \<const0> ;
-  assign GPIO_O[35] = \<const0> ;
-  assign GPIO_O[34] = \<const0> ;
-  assign GPIO_O[33] = \<const0> ;
-  assign GPIO_O[32] = \<const0> ;
-  assign GPIO_O[31] = \<const0> ;
-  assign GPIO_O[30] = \<const0> ;
-  assign GPIO_O[29] = \<const0> ;
-  assign GPIO_O[28] = \<const0> ;
-  assign GPIO_O[27] = \<const0> ;
-  assign GPIO_O[26] = \<const0> ;
-  assign GPIO_O[25] = \<const0> ;
-  assign GPIO_O[24] = \<const0> ;
-  assign GPIO_O[23] = \<const0> ;
-  assign GPIO_O[22] = \<const0> ;
-  assign GPIO_O[21] = \<const0> ;
-  assign GPIO_O[20] = \<const0> ;
-  assign GPIO_O[19] = \<const0> ;
-  assign GPIO_O[18] = \<const0> ;
-  assign GPIO_O[17] = \<const0> ;
-  assign GPIO_O[16] = \<const0> ;
-  assign GPIO_O[15] = \<const0> ;
-  assign GPIO_O[14] = \<const0> ;
-  assign GPIO_O[13] = \<const0> ;
-  assign GPIO_O[12] = \<const0> ;
-  assign GPIO_O[11] = \<const0> ;
-  assign GPIO_O[10] = \<const0> ;
-  assign GPIO_O[9] = \<const0> ;
-  assign GPIO_O[8] = \<const0> ;
-  assign GPIO_O[7] = \<const0> ;
-  assign GPIO_O[6] = \<const0> ;
-  assign GPIO_O[5] = \<const0> ;
-  assign GPIO_O[4] = \<const0> ;
-  assign GPIO_O[3] = \<const0> ;
-  assign GPIO_O[2] = \<const0> ;
-  assign GPIO_O[1] = \<const0> ;
-  assign GPIO_O[0] = \<const0> ;
-  assign GPIO_T[63] = \<const0> ;
-  assign GPIO_T[62] = \<const0> ;
-  assign GPIO_T[61] = \<const0> ;
-  assign GPIO_T[60] = \<const0> ;
-  assign GPIO_T[59] = \<const0> ;
-  assign GPIO_T[58] = \<const0> ;
-  assign GPIO_T[57] = \<const0> ;
-  assign GPIO_T[56] = \<const0> ;
-  assign GPIO_T[55] = \<const0> ;
-  assign GPIO_T[54] = \<const0> ;
-  assign GPIO_T[53] = \<const0> ;
-  assign GPIO_T[52] = \<const0> ;
-  assign GPIO_T[51] = \<const0> ;
-  assign GPIO_T[50] = \<const0> ;
-  assign GPIO_T[49] = \<const0> ;
-  assign GPIO_T[48] = \<const0> ;
-  assign GPIO_T[47] = \<const0> ;
-  assign GPIO_T[46] = \<const0> ;
-  assign GPIO_T[45] = \<const0> ;
-  assign GPIO_T[44] = \<const0> ;
-  assign GPIO_T[43] = \<const0> ;
-  assign GPIO_T[42] = \<const0> ;
-  assign GPIO_T[41] = \<const0> ;
-  assign GPIO_T[40] = \<const0> ;
-  assign GPIO_T[39] = \<const0> ;
-  assign GPIO_T[38] = \<const0> ;
-  assign GPIO_T[37] = \<const0> ;
-  assign GPIO_T[36] = \<const0> ;
-  assign GPIO_T[35] = \<const0> ;
-  assign GPIO_T[34] = \<const0> ;
-  assign GPIO_T[33] = \<const0> ;
-  assign GPIO_T[32] = \<const0> ;
-  assign GPIO_T[31] = \<const0> ;
-  assign GPIO_T[30] = \<const0> ;
-  assign GPIO_T[29] = \<const0> ;
-  assign GPIO_T[28] = \<const0> ;
-  assign GPIO_T[27] = \<const0> ;
-  assign GPIO_T[26] = \<const0> ;
-  assign GPIO_T[25] = \<const0> ;
-  assign GPIO_T[24] = \<const0> ;
-  assign GPIO_T[23] = \<const0> ;
-  assign GPIO_T[22] = \<const0> ;
-  assign GPIO_T[21] = \<const0> ;
-  assign GPIO_T[20] = \<const0> ;
-  assign GPIO_T[19] = \<const0> ;
-  assign GPIO_T[18] = \<const0> ;
-  assign GPIO_T[17] = \<const0> ;
-  assign GPIO_T[16] = \<const0> ;
-  assign GPIO_T[15] = \<const0> ;
-  assign GPIO_T[14] = \<const0> ;
-  assign GPIO_T[13] = \<const0> ;
-  assign GPIO_T[12] = \<const0> ;
-  assign GPIO_T[11] = \<const0> ;
-  assign GPIO_T[10] = \<const0> ;
-  assign GPIO_T[9] = \<const0> ;
-  assign GPIO_T[8] = \<const0> ;
-  assign GPIO_T[7] = \<const0> ;
-  assign GPIO_T[6] = \<const0> ;
-  assign GPIO_T[5] = \<const0> ;
-  assign GPIO_T[4] = \<const0> ;
-  assign GPIO_T[3] = \<const0> ;
-  assign GPIO_T[2] = \<const0> ;
-  assign GPIO_T[1] = \<const0> ;
-  assign GPIO_T[0] = \<const0> ;
   assign I2C1_SCL_O = \<const0> ;
   assign I2C1_SCL_T = \<const0> ;
   assign I2C1_SDA_O = \<const0> ;
@@ -5073,6 +4886,9 @@ module audio_station_overview_processing_system7_0_0_processing_system7_v5_5_pro
   assign UART1_DTRN = \<const0> ;
   assign UART1_RTSN = \<const0> ;
   assign UART1_TX = \<const0> ;
+  assign USB0_PORT_INDCTL[1] = \<const0> ;
+  assign USB0_PORT_INDCTL[0] = \<const0> ;
+  assign USB0_VBUS_PWRSELECT = \<const0> ;
   assign USB1_PORT_INDCTL[1] = \<const0> ;
   assign USB1_PORT_INDCTL[0] = \<const0> ;
   assign USB1_VBUS_PWRSELECT = \<const0> ;
@@ -5123,6 +4939,11 @@ module audio_station_overview_processing_system7_0_0_processing_system7_v5_5_pro
         .PAD(DDR_WEB));
   GND GND
        (.G(\<const0> ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \GPIO_T[0]_INST_0 
+       (.I0(gpio_out_t_n),
+        .O(GPIO_T));
   LUT1 #(
     .INIT(2'h1)) 
     I2C0_SCL_T_INST_0
@@ -5243,9 +5064,9 @@ module audio_station_overview_processing_system7_0_0_processing_system7_v5_5_pro
         .EMIOENET1PTPSYNCFRAMETX(PS7_i_n_41),
         .EMIOENET1SOFRX(PS7_i_n_42),
         .EMIOENET1SOFTX(PS7_i_n_43),
-        .EMIOGPIOI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .EMIOGPIOO({PS7_i_n_873,PS7_i_n_874,PS7_i_n_875,PS7_i_n_876,PS7_i_n_877,PS7_i_n_878,PS7_i_n_879,PS7_i_n_880,PS7_i_n_881,PS7_i_n_882,PS7_i_n_883,PS7_i_n_884,PS7_i_n_885,PS7_i_n_886,PS7_i_n_887,PS7_i_n_888,PS7_i_n_889,PS7_i_n_890,PS7_i_n_891,PS7_i_n_892,PS7_i_n_893,PS7_i_n_894,PS7_i_n_895,PS7_i_n_896,PS7_i_n_897,PS7_i_n_898,PS7_i_n_899,PS7_i_n_900,PS7_i_n_901,PS7_i_n_902,PS7_i_n_903,PS7_i_n_904,PS7_i_n_905,PS7_i_n_906,PS7_i_n_907,PS7_i_n_908,PS7_i_n_909,PS7_i_n_910,PS7_i_n_911,PS7_i_n_912,PS7_i_n_913,PS7_i_n_914,PS7_i_n_915,PS7_i_n_916,PS7_i_n_917,PS7_i_n_918,PS7_i_n_919,PS7_i_n_920,PS7_i_n_921,PS7_i_n_922,PS7_i_n_923,PS7_i_n_924,PS7_i_n_925,PS7_i_n_926,PS7_i_n_927,PS7_i_n_928,PS7_i_n_929,PS7_i_n_930,PS7_i_n_931,PS7_i_n_932,PS7_i_n_933,PS7_i_n_934,PS7_i_n_935,PS7_i_n_936}),
-        .EMIOGPIOTN(gpio_out_t_n),
+        .EMIOGPIOI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,GPIO_I}),
+        .EMIOGPIOO({NLW_PS7_i_EMIOGPIOO_UNCONNECTED[63:1],GPIO_O}),
+        .EMIOGPIOTN({NLW_PS7_i_EMIOGPIOTN_UNCONNECTED[63:1],gpio_out_t_n}),
         .EMIOI2C0SCLI(I2C0_SCL_I),
         .EMIOI2C0SCLO(I2C0_SCL_O),
         .EMIOI2C0SCLTN(I2C0_SCL_T_n),
@@ -5337,9 +5158,9 @@ module audio_station_overview_processing_system7_0_0_processing_system7_v5_5_pro
         .EMIOUART1RTSN(PS7_i_n_83),
         .EMIOUART1RX(1'b1),
         .EMIOUART1TX(PS7_i_n_84),
-        .EMIOUSB0PORTINDCTL(USB0_PORT_INDCTL),
-        .EMIOUSB0VBUSPWRFAULT(USB0_VBUS_PWRFAULT),
-        .EMIOUSB0VBUSPWRSELECT(USB0_VBUS_PWRSELECT),
+        .EMIOUSB0PORTINDCTL({PS7_i_n_232,PS7_i_n_233}),
+        .EMIOUSB0VBUSPWRFAULT(1'b0),
+        .EMIOUSB0VBUSPWRSELECT(PS7_i_n_85),
         .EMIOUSB1PORTINDCTL({PS7_i_n_234,PS7_i_n_235}),
         .EMIOUSB1VBUSPWRFAULT(1'b0),
         .EMIOUSB1VBUSPWRSELECT(PS7_i_n_86),

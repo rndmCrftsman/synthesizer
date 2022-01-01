@@ -26,3 +26,14 @@ platform generate
 bsp config stdin "ps7_uart_1"
 bsp reload
 platform generate
+platform active {audio_station_overview_wrapper}
+platform config -updatehw {/home/hannes/Entwicklung/synthesizer/FPGA/audio_station/audio_station_overview_wrapper.xsa}
+bsp reload
+domain active {standalone_ps7_cortexa9_0}
+bsp reload
+bsp reload
+bsp setlib -name xilffs -ver 4.4
+bsp write
+bsp reload
+catch {bsp regenerate}
+platform generate -domains standalone_ps7_cortexa9_0,zynq_fsbl 

@@ -7,6 +7,7 @@
 #include "xil_printf.h"
 #include "sleep.h"
 #include "xparameters.h"
+#include "xgpiops.h"
 #include "xiicps.h"
 #include "xdmaps.h"
 #include "xil_exception.h"
@@ -36,11 +37,15 @@
 #define AUDIO_OUTPUT_BUFFER_INTR 	XPAR_FABRIC_AUDIOSTATION_0_IO_OUTPUT_BUFFER_HALF_INTR
 #define AUDIO_BUFFER_LEN			16U
 
+#define AUDIO_ENABLE_GPIO_DEV_ID	XPAR_PS7_GPIO_0_DEVICE_ID
+#define AUDIO_ENABLE_GPIO_PIN		54U
+
 static void AudioInputHandler(void *);
 static void AudioOutputHandler(void *);
 static void DmaReadDoneHandler(unsigned int Channel, XDmaPs_Cmd *DmaCmd, void *CallbackRef);
 static void DmaWriteDoneHandler(unsigned int Channel, XDmaPs_Cmd *DmaCmd, void *CallbackRef);
 
+static XStatus setup_GPIOs();
 static XStatus setup_audio();
 static XStatus setup_dma();
 static XStatus setup_interrupts();
@@ -48,6 +53,7 @@ static XStatus setup_interrupts();
 static XStatus codec_write_reg(u8 Address, u16 Data);
 static XStatus codec_read_reg(u8 Address, u16 *Data);
 
+XGpioPs AudioDataMoverEnable;
 XIicPs IICInst;
 XScuGic IntrInst;
 XDmaPs DmaInst;
@@ -65,6 +71,11 @@ int main(int argc, char **argv) {
 
 	print("Hello, World!\n");
 
+	Status = setup_GPIOs();
+	if (Status != XST_SUCCESS) {
+		print("Failed to initialize GPIO\n");
+	}
+
 	Status = setup_audio();
 	if (Status != XST_SUCCESS) {
 		print("Failed to initialize Audio\n");
@@ -79,6 +90,9 @@ int main(int argc, char **argv) {
 	if (Status != XST_SUCCESS) {
 		print("Failed to initialize Interrupts\n");
 	}
+
+	/* Enable Audio */
+	XGpioPs_WritePin(&AudioDataMoverEnable, AUDIO_ENABLE_GPIO_PIN, 0x1);
 
 	cleanup_platform();
 	return 0;
@@ -119,6 +133,26 @@ void DmaWriteDoneHandler(unsigned int Channel, XDmaPs_Cmd *DmaCmd, void *Callbac
 {
 	XScuGic_Enable(&IntrInst, AUDIO_INPUT_BUFFER_INTR);
 	XScuGic_Enable(&IntrInst, AUDIO_OUTPUT_BUFFER_INTR);
+}
+
+XStatus setup_GPIOs()
+{
+	XStatus Status;
+	XGpioPs_Config *ConfigPtr;
+
+	ConfigPtr = XGpioPs_LookupConfig(AUDIO_ENABLE_GPIO_DEV_ID);
+	Status = XGpioPs_CfgInitialize(&AudioDataMoverEnable, ConfigPtr, ConfigPtr->BaseAddr);
+	if (Status != XST_SUCCESS) {
+		return XST_FAILURE;
+	}
+
+	XGpioPs_SetDirectionPin(&AudioDataMoverEnable, AUDIO_ENABLE_GPIO_PIN, 1);
+	XGpioPs_SetOutputEnablePin(&AudioDataMoverEnable, AUDIO_ENABLE_GPIO_PIN, 1);
+
+	/* Set the GPIO output to be low. */
+	XGpioPs_WritePin(&AudioDataMoverEnable, AUDIO_ENABLE_GPIO_PIN, 0x0);
+
+	return XST_SUCCESS;
 }
 
 XStatus setup_audio()

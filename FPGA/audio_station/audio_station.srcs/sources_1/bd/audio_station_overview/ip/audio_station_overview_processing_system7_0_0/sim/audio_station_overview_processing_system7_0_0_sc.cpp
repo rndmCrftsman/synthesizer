@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -70,7 +70,7 @@ audio_station_overview_processing_system7_0_0_sc::audio_station_overview_process
     model_param_props.addLong("USE_TRACE_DATA_EDGE_DETECTOR", "0");
     model_param_props.addLong("C_TRACE_PIPELINE_WIDTH", "8");
     model_param_props.addLong("C_TRACE_BUFFER_CLOCK_DELAY", "12");
-    model_param_props.addLong("C_EMIO_GPIO_WIDTH", "64");
+    model_param_props.addLong("C_EMIO_GPIO_WIDTH", "1");
     model_param_props.addLong("C_INCLUDE_ACP_TRANS_CHECK", "0");
     model_param_props.addLong("C_USE_DEFAULT_ACP_USER_VAL", "0");
     model_param_props.addLong("C_S_AXI_ACP_ARUSER_VAL", "31");

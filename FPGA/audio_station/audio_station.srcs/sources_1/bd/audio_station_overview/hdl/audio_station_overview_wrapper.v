@@ -1,8 +1,8 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-//Date        : Sun Dec 19 17:41:53 2021
-//Host        : pop-os running 64-bit Pop!_OS 21.04
+//Date        : Sat Jan  1 11:17:06 2022
+//Host        : pop-os running 64-bit Pop!_OS 21.10
 //Command     : generate_target audio_station_overview_wrapper.bd
 //Design      : audio_station_overview_wrapper
 //Purpose     : IP block netlist
@@ -44,8 +44,7 @@ module audio_station_overview_wrapper
     led_1,
     led_2,
     led_3,
-    sw_0,
-    sw_1);
+    sw_0);
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
   inout DDR_cas_n;
@@ -81,7 +80,6 @@ module audio_station_overview_wrapper
   output led_2;
   output led_3;
   input sw_0;
-  input sw_1;
 
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
@@ -124,7 +122,6 @@ module audio_station_overview_wrapper
   wire led_2;
   wire led_3;
   wire sw_0;
-  wire sw_1;
 
   IOBUF ac_i2c_scl_iobuf
        (.I(ac_i2c_scl_o),
@@ -175,6 +172,5 @@ module audio_station_overview_wrapper
         .led_1(led_1),
         .led_2(led_2),
         .led_3(led_3),
-        .sw_0(sw_0),
-        .sw_1(sw_1));
+        .sw_0(sw_0));
 endmodule

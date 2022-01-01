@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="audio_station_overview_processing_system7_0_0_synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1639932134">
+<GenRun Id="audio_station_overview_processing_system7_0_0_synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1641032244">
   <File Type="VDS-TIMING-PB" Name="audio_station_overview_processing_system7_0_0_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="audio_station_overview_processing_system7_0_0_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="audio_station_overview_processing_system7_0_0.dcp"/>
@@ -46,9 +46,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

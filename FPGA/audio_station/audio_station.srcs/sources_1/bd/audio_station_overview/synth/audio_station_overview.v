@@ -1,8 +1,8 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-//Date        : Sun Dec 19 17:41:52 2021
-//Host        : pop-os running 64-bit Pop!_OS 21.04
+//Date        : Sat Jan  1 11:17:06 2022
+//Host        : pop-os running 64-bit Pop!_OS 21.10
 //Command     : generate_target audio_station_overview.bd
 //Design      : audio_station_overview
 //Purpose     : IP block netlist
@@ -49,8 +49,7 @@ module audio_station_overview
     led_1,
     led_2,
     led_3,
-    sw_0,
-    sw_1);
+    sw_0);
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR ADDR" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DDR, AXI_ARBITRATION_SCHEME TDM, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 11, CAS_WRITE_LATENCY 11, CS_ENABLED true, DATA_MASK_ENABLED true, DATA_WIDTH 8, MEMORY_TYPE COMPONENTS, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 1250" *) inout [14:0]DDR_addr;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR BA" *) inout [2:0]DDR_ba;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR CAS_N" *) inout DDR_cas_n;
@@ -90,7 +89,6 @@ module audio_station_overview
   output led_2;
   output led_3;
   input sw_0;
-  input sw_1;
 
   wire AudioStation_0_io_bclk;
   wire AudioStation_0_io_input_buffer_full;
@@ -202,6 +200,7 @@ module audio_station_overview
   wire processing_system7_0_FIXED_IO_PS_CLK;
   wire processing_system7_0_FIXED_IO_PS_PORB;
   wire processing_system7_0_FIXED_IO_PS_SRSTB;
+  wire [0:0]processing_system7_0_GPIO_O;
   wire processing_system7_0_IIC_0_SCL_I;
   wire processing_system7_0_IIC_0_SCL_O;
   wire processing_system7_0_IIC_0_SCL_T;
@@ -210,7 +209,6 @@ module audio_station_overview
   wire processing_system7_0_IIC_0_SDA_T;
   wire [0:0]rst_ps7_0_125M_peripheral_aresetn;
   wire sw_0_1;
-  wire sw_1_1;
   wire [1:0]xlconcat_0_dout;
 
   assign ac_bclk = AudioStation_0_io_bclk;
@@ -231,7 +229,6 @@ module audio_station_overview
   assign processing_system7_0_IIC_0_SCL_I = ac_i2c_scl_i;
   assign processing_system7_0_IIC_0_SDA_I = ac_i2c_sda_i;
   assign sw_0_1 = sw_0;
-  assign sw_1_1 = sw_1;
   audio_station_overview_AudioStation_0_3 AudioStation_0
        (.clk(processing_system7_0_FCLK_CLK0),
         .io_axi_ar_payload_addr(axi_interconnect_0_M00_AXI_ARADDR),
@@ -274,7 +271,7 @@ module audio_station_overview
         .io_axi_w_ready(axi_interconnect_0_M00_AXI_WREADY),
         .io_axi_w_valid(axi_interconnect_0_M00_AXI_WVALID),
         .io_bclk(AudioStation_0_io_bclk),
-        .io_enable(sw_1_1),
+        .io_enable(processing_system7_0_GPIO_O),
         .io_input_buffer_full(AudioStation_0_io_input_buffer_full),
         .io_input_buffer_half(AudioStation_0_io_input_buffer_half),
         .io_mclk(AudioStation_0_io_mclk),
@@ -389,6 +386,8 @@ module audio_station_overview
         .DDR_WEB(DDR_we_n),
         .FCLK_CLK0(processing_system7_0_FCLK_CLK0),
         .FCLK_RESET0_N(processing_system7_0_FCLK_RESET0_N),
+        .GPIO_I(1'b0),
+        .GPIO_O(processing_system7_0_GPIO_O),
         .I2C0_SCL_I(processing_system7_0_IIC_0_SCL_I),
         .I2C0_SCL_O(processing_system7_0_IIC_0_SCL_O),
         .I2C0_SCL_T(processing_system7_0_IIC_0_SCL_T),
@@ -438,8 +437,7 @@ module audio_station_overview
         .M_AXI_GP0_WVALID(S00_AXI_1_WVALID),
         .PS_CLK(FIXED_IO_ps_clk),
         .PS_PORB(FIXED_IO_ps_porb),
-        .PS_SRSTB(FIXED_IO_ps_srstb),
-        .USB0_VBUS_PWRFAULT(1'b0));
+        .PS_SRSTB(FIXED_IO_ps_srstb));
   audio_station_overview_rst_ps7_0_125M_0 rst_ps7_0_125M
        (.aux_reset_in(1'b1),
         .dcm_locked(1'b1),
