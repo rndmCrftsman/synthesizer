@@ -1,3 +1,6 @@
+#ifndef __H_WAV
+#define __H_WAV
+
 /* Provides basic handling of PCM format RIFF/WAVE audio files
    See
    http://www-mmsp.ece.mcgill.ca/Documents/AudioFormats/WAVE/Docs/riffmci.pdf
@@ -6,9 +9,10 @@
    but is very simple, self-contained, and probably adequate for most purposes.
 */
 
+#include "config.h"
 #include <stdint.h>
 #include <stdio.h>
-  
+
 struct wav_info {
     uint_fast16_t num_channels;      /* 1 for mono, 2 for stereo, etc. */
     uint_fast16_t bits_per_sample;   /* 16 for CD, 24 for high-res, etc. */
@@ -44,3 +48,8 @@ void write_sample(const struct wav_info* w, FILE* fp, const int_fast32_t* sample
 
 void read_sample(const struct wav_info* w, FILE* fp, int_fast32_t* sample);
 /* Read a sample from *fp in the correct Little Endian format. */
+
+uint32_t read_sample_buffer(const struct wav_info* w, FILE* fp, int_fast32_t sample_buffer[BUFFERSIZE][w->num_channels]);
+/* Read a complete sample buffer from *fp in the correct Little Endian format */
+
+#endif // __H_WAV

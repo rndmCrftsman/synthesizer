@@ -1,5 +1,6 @@
 
 #include "wav.h"
+#include "config.h"
 #include <stdlib.h>
   
 void read_wav_info(struct wav_info *w, FILE *fp) {
@@ -209,6 +210,7 @@ void write_sample(const struct wav_info* w, FILE* fp, const int_fast32_t* sample
     uint8_t x[b];
     for(int i=0; i<w->num_channels; i++) {
         // populate x with sample[i] in Little Endian format, then write it
+        // int offset = 4 - b; // since internally 32 bit integers are used
         for(int j=0; j<b; j++) x[j] = (sample[i] >> (8*j)) & 0xFF;
         fwrite(x,1,b,fp);
     }
@@ -222,17 +224,51 @@ void read_sample(const struct wav_info* w, FILE* fp, int_fast32_t* sample) {
     int_fast32_t temp[w->num_channels];
     uint8_t num_elem_read;
     int b = w->bits_per_sample/8; // bytes per sample
-    uint8_t x[b];
+    uint8_t data_buffer[w->num_channels * b];
+    
+    num_elem_read = fread(data_buffer, sizeof(data_buffer), 1, fp);
+    // num_elem_read = fread(&temp[1], b, 1, fp);
+
+    // printf("Elements read: %d\n", num_elem_read);
+
     for(int i=0; i<w->num_channels; i++) {
         // populate x with sample[i] in Little Endian format, then write it
         temp[i] = 0;
-        num_elem_read = fread(x, 1, b, fp);
+        // num_elem_read = fread(&temp2[i], b, 1, fp);
+        // int offset = 4 - b; // since internally 32 bit integers are used
         for(int j=0; j<b; j++) {
-            // x[j] = (sample[i] >> (8*j)) & 0xFF;
-            // printf("Current Position: %li, Elements read: %u\n", ftell(fp), num_elem_read);
-            temp[i] = temp[i] | (x[j] << (8*j));
+        //     // x[j] = (sample[i] >> (8*j)) & 0xFF;
+        //     // printf("Current Position: %li, Elements read: %u\n", ftell(fp), num_elem_read);
+
+            temp[i] = temp[i] | (data_buffer[j+(i*b)] << (8*j));
         }
+        // temp[i] = x
+        // printf("Channel %d, temp1: %d\n", i, temp1[i]);
         sample[i] = temp[i];
         // fwrite(x,1,b,fp);
     }
+}
+
+uint32_t read_sample_buffer(const struct wav_info* w, FILE* fp, int_fast32_t sample_buffer[BUFFERSIZE][w->num_channels]) {
+    int_fast32_t temp;
+    uint8_t num_elem_read;
+    uint32_t offset;
+    int b = w->bits_per_sample/8; // bytes per sample
+    // uint32_t shift_offset = 4-b; // since internally 32 bit integers are used
+    uint8_t data_buffer[w->num_channels * b * BUFFERSIZE];
+
+    num_elem_read = fread(data_buffer, b, w->num_channels * BUFFERSIZE, fp);
+
+    offset = 0;
+    for(int s=0; s < BUFFERSIZE; s++) {
+        for(int i=0; i<w->num_channels; i++) {
+            temp = 0;
+            for(int j=0; j<b; j++) {
+                temp = temp | (data_buffer[offset+j] << (8*j));
+            }
+            sample_buffer[s][i] = temp;
+            offset += b;
+        }
+    }
+    return num_elem_read / w->num_channels;
 }

@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/PC_Testbench.dir/main.c.o CMakeFiles/PC_Testbench.dir/wav.c.o CMakeFiles/PC_Testbench.dir/sound.c.o -o ../bin/PC_Testbench  -lm -lsoundio 

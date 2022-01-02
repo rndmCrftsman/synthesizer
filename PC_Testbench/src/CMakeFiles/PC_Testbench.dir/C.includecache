@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/hannes/Entwicklung/synthesizer/PC_Testbench/src/main.c
+soundio/soundio.h
+-
+stdlib.h
+-
+stdint.h
+-
+stdio.h
+-
+math.h
+-
+config.h
+/home/hannes/Entwicklung/synthesizer/PC_Testbench/src/config.h
+wav.h
+/home/hannes/Entwicklung/synthesizer/PC_Testbench/src/wav.h
+sound.h
+/home/hannes/Entwicklung/synthesizer/PC_Testbench/src/sound.h
+
+/home/hannes/Entwicklung/synthesizer/PC_Testbench/src/wav.c
+wav.h
+/home/hannes/Entwicklung/synthesizer/PC_Testbench/src/wav.h
+config.h
+/home/hannes/Entwicklung/synthesizer/PC_Testbench/src/config.h
+stdlib.h
+-
+
+inc/config.h
+
+inc/sound.h
+
+inc/wav.h
+config.h
+inc/config.h
+stdint.h
+-
+stdio.h
+-
+
