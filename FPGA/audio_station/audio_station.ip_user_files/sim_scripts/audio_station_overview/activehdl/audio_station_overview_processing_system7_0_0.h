@@ -1,7 +1,7 @@
 #ifndef IP_AUDIO_STATION_OVERVIEW_PROCESSING_SYSTEM7_0_0_H_
 #define IP_AUDIO_STATION_OVERVIEW_PROCESSING_SYSTEM7_0_0_H_
 
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -80,15 +80,15 @@ public:
 
   // module pin-to-pin RTL interface
 
+  sc_core::sc_in< sc_dt::sc_bv<1> > GPIO_I;
+  sc_core::sc_out< sc_dt::sc_bv<1> > GPIO_O;
+  sc_core::sc_out< sc_dt::sc_bv<1> > GPIO_T;
   sc_core::sc_in< bool > I2C0_SDA_I;
   sc_core::sc_out< bool > I2C0_SDA_O;
   sc_core::sc_out< bool > I2C0_SDA_T;
   sc_core::sc_in< bool > I2C0_SCL_I;
   sc_core::sc_out< bool > I2C0_SCL_O;
   sc_core::sc_out< bool > I2C0_SCL_T;
-  sc_core::sc_out< sc_dt::sc_bv<2> > USB0_PORT_INDCTL;
-  sc_core::sc_out< bool > USB0_VBUS_PWRSELECT;
-  sc_core::sc_in< bool > USB0_VBUS_PWRFAULT;
   sc_core::sc_out< bool > M_AXI_GP0_ARVALID;
   sc_core::sc_out< bool > M_AXI_GP0_AWVALID;
   sc_core::sc_out< bool > M_AXI_GP0_BREADY;
@@ -189,15 +189,15 @@ public:
 
   // module pin-to-pin RTL interface
 
+  sc_core::sc_in< sc_dt::sc_bv<1> > GPIO_I;
+  sc_core::sc_out< sc_dt::sc_bv<1> > GPIO_O;
+  sc_core::sc_out< sc_dt::sc_bv<1> > GPIO_T;
   sc_core::sc_in< bool > I2C0_SDA_I;
   sc_core::sc_out< bool > I2C0_SDA_O;
   sc_core::sc_out< bool > I2C0_SDA_T;
   sc_core::sc_in< bool > I2C0_SCL_I;
   sc_core::sc_out< bool > I2C0_SCL_O;
   sc_core::sc_out< bool > I2C0_SCL_T;
-  sc_core::sc_out< sc_dt::sc_bv<2> > USB0_PORT_INDCTL;
-  sc_core::sc_out< bool > USB0_VBUS_PWRSELECT;
-  sc_core::sc_in< bool > USB0_VBUS_PWRFAULT;
   sc_core::sc_out< bool > M_AXI_GP0_ARVALID;
   sc_core::sc_out< bool > M_AXI_GP0_AWVALID;
   sc_core::sc_out< bool > M_AXI_GP0_BREADY;
@@ -298,15 +298,15 @@ public:
 
   // module pin-to-pin RTL interface
 
+  sc_core::sc_in< sc_dt::sc_bv<1> > GPIO_I;
+  sc_core::sc_out< sc_dt::sc_bv<1> > GPIO_O;
+  sc_core::sc_out< sc_dt::sc_bv<1> > GPIO_T;
   sc_core::sc_in< bool > I2C0_SDA_I;
   sc_core::sc_out< bool > I2C0_SDA_O;
   sc_core::sc_out< bool > I2C0_SDA_T;
   sc_core::sc_in< bool > I2C0_SCL_I;
   sc_core::sc_out< bool > I2C0_SCL_O;
   sc_core::sc_out< bool > I2C0_SCL_T;
-  sc_core::sc_out< sc_dt::sc_bv<2> > USB0_PORT_INDCTL;
-  sc_core::sc_out< bool > USB0_VBUS_PWRSELECT;
-  sc_core::sc_in< bool > USB0_VBUS_PWRFAULT;
   sc_core::sc_out< bool > M_AXI_GP0_ARVALID;
   sc_core::sc_out< bool > M_AXI_GP0_AWVALID;
   sc_core::sc_out< bool > M_AXI_GP0_BREADY;
@@ -409,15 +409,15 @@ public:
 
   // module pin-to-pin RTL interface
 
+  sc_core::sc_in< sc_dt::sc_bv<1> > GPIO_I;
+  sc_core::sc_out< sc_dt::sc_bv<1> > GPIO_O;
+  sc_core::sc_out< sc_dt::sc_bv<1> > GPIO_T;
   sc_core::sc_in< bool > I2C0_SDA_I;
   sc_core::sc_out< bool > I2C0_SDA_O;
   sc_core::sc_out< bool > I2C0_SDA_T;
   sc_core::sc_in< bool > I2C0_SCL_I;
   sc_core::sc_out< bool > I2C0_SCL_O;
   sc_core::sc_out< bool > I2C0_SCL_T;
-  sc_core::sc_out< sc_dt::sc_bv<2> > USB0_PORT_INDCTL;
-  sc_core::sc_out< bool > USB0_VBUS_PWRSELECT;
-  sc_core::sc_in< bool > USB0_VBUS_PWRFAULT;
   sc_core::sc_out< bool > M_AXI_GP0_ARVALID;
   sc_core::sc_out< bool > M_AXI_GP0_AWVALID;
   sc_core::sc_out< bool > M_AXI_GP0_BREADY;
@@ -526,15 +526,15 @@ public:
 
   // module pin-to-pin RTL interface
 
+  sc_core::sc_in< sc_dt::sc_bv<1> > GPIO_I;
+  sc_core::sc_out< sc_dt::sc_bv<1> > GPIO_O;
+  sc_core::sc_out< sc_dt::sc_bv<1> > GPIO_T;
   sc_core::sc_in< bool > I2C0_SDA_I;
   sc_core::sc_out< bool > I2C0_SDA_O;
   sc_core::sc_out< bool > I2C0_SDA_T;
   sc_core::sc_in< bool > I2C0_SCL_I;
   sc_core::sc_out< bool > I2C0_SCL_O;
   sc_core::sc_out< bool > I2C0_SCL_T;
-  sc_core::sc_out< sc_dt::sc_bv<2> > USB0_PORT_INDCTL;
-  sc_core::sc_out< bool > USB0_VBUS_PWRSELECT;
-  sc_core::sc_in< bool > USB0_VBUS_PWRFAULT;
   sc_core::sc_out< bool > M_AXI_GP0_ARVALID;
   sc_core::sc_out< bool > M_AXI_GP0_AWVALID;
   sc_core::sc_out< bool > M_AXI_GP0_BREADY;

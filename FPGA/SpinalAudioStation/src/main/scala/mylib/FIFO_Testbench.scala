@@ -49,6 +49,34 @@ compiled.doSimUntilVoid{dut =>
     simSuccess()
   }
 }
+
+compiled.doSimUntilVoid{dut =>
+  val queueModel = mutable.Queue[Long]()
+
+  dut.clockDomain.forkStimulus(period = 10)
+  SimTimeout(1000000*10)
+
+  //Push data randomly and fill the queueModel with pushed transactions
+  val pushThread = fork{
+    dut.io.w_en #= false
+    dut.io.r_en #= false
+    for(i <- 0 until 32) {
+      dut.io.w_en #= true
+      println("Put in one Sample")
+      dut.io.w_data.randomize()
+      dut.clockDomain.waitSampling()
+      if(dut.io.w_en.toBoolean && !(dut.io.full.toBoolean)) {
+        queueModel.enqueue(dut.io.w_data.toLong)
+      }
+    }
+    dut.io.w_en #= false
+    dut.clockDomain.waitSampling()
+    println("Half indicator test ended!")
+    assert(dut.io.half.toBoolean == true)
+    simSuccess()
+  }
+}
+
   }
 }
 

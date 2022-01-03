@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Sun Dec 19 16:58:56 2021
-| Host         : pop-os running 64-bit Pop!_OS 21.04
+| Date         : Mon Jan  3 18:54:50 2022
+| Host         : pop-os running 64-bit Pop!_OS 21.10
 | Command      : report_utilization -file audio_station_overview_AudioStation_0_3_utilization_synth.rpt -pb audio_station_overview_AudioStation_0_3_utilization_synth.pb
 | Design       : audio_station_overview_AudioStation_0_3
 | Device       : 7z020clg400-1
@@ -149,14 +149,14 @@ Table of Contents
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | FDRE     |  233 |        Flop & Latch |
-| LUT3     |   90 |                 LUT |
+| LUT3     |   84 |                 LUT |
 | RAMD32   |   72 |  Distributed Memory |
-| LUT6     |   70 |                 LUT |
-| LUT4     |   35 |                 LUT |
-| LUT5     |   25 |                 LUT |
-| LUT2     |   25 |                 LUT |
+| LUT6     |   72 |                 LUT |
+| LUT4     |   38 |                 LUT |
+| LUT2     |   30 |                 LUT |
 | RAMS32   |   24 |  Distributed Memory |
-| LUT1     |    8 |                 LUT |
+| LUT5     |   19 |                 LUT |
+| LUT1     |    7 |                 LUT |
 | CARRY4   |    3 |          CarryLogic |
 | FDSE     |    1 |        Flop & Latch |
 +----------+------+---------------------+

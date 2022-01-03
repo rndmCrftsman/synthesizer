@@ -37,3 +37,8 @@ bsp write
 bsp reload
 catch {bsp regenerate}
 platform generate -domains standalone_ps7_cortexa9_0,zynq_fsbl 
+platform active {audio_station_overview_wrapper}
+platform config -updatehw {/home/hannes/Entwicklung/synthesizer/FPGA/audio_station/audio_station_overview_wrapper.xsa}
+platform generate
+platform config -updatehw {/home/hannes/Entwicklung/synthesizer/FPGA/audio_station/audio_station_overview_wrapper.xsa}
+platform generate -domains 

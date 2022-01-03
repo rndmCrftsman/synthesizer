@@ -56,15 +56,15 @@
 `timescale 1ns/1ps
 
 module audio_station_overview_processing_system7_0_0 (
+GPIO_I, 
+GPIO_O, 
+GPIO_T, 
 I2C0_SDA_I, 
 I2C0_SDA_O, 
 I2C0_SDA_T, 
 I2C0_SCL_I, 
 I2C0_SCL_O, 
 I2C0_SCL_T, 
-USB0_PORT_INDCTL, 
-USB0_VBUS_PWRSELECT, 
-USB0_VBUS_PWRFAULT, 
 M_AXI_GP0_ARVALID, 
 M_AXI_GP0_AWVALID, 
 M_AXI_GP0_BREADY, 
@@ -129,15 +129,15 @@ PS_SRSTB,
 PS_CLK, 
 PS_PORB 
 );
+input [0 : 0] GPIO_I;
+output [0 : 0] GPIO_O;
+output [0 : 0] GPIO_T;
 input I2C0_SDA_I;
 output I2C0_SDA_O;
 output I2C0_SDA_T;
 input I2C0_SCL_I;
 output I2C0_SCL_O;
 output I2C0_SCL_T;
-output [1 : 0] USB0_PORT_INDCTL;
-output USB0_VBUS_PWRSELECT;
-input USB0_VBUS_PWRFAULT;
 output M_AXI_GP0_ARVALID;
 output M_AXI_GP0_AWVALID;
 output M_AXI_GP0_BREADY;

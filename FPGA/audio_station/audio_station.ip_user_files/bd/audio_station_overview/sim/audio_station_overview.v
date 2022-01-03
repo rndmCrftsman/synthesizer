@@ -1,15 +1,15 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-//Date        : Sun Dec 19 16:57:37 2021
-//Host        : pop-os running 64-bit Pop!_OS 21.04
+//Date        : Mon Jan  3 18:54:16 2022
+//Host        : pop-os running 64-bit Pop!_OS 21.10
 //Command     : generate_target audio_station_overview.bd
 //Design      : audio_station_overview
 //Purpose     : IP block netlist
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "audio_station_overview,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=audio_station_overview,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=8,numReposBlks=6,numNonXlnxBlks=1,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=6,da_board_cnt=3,da_clkrst_cnt=8,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "audio_station_overview.hwdef" *) 
+(* CORE_GENERATION_INFO = "audio_station_overview,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=audio_station_overview,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=7,numReposBlks=5,numNonXlnxBlks=1,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=6,da_board_cnt=3,da_clkrst_cnt=8,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "audio_station_overview.hwdef" *) 
 module audio_station_overview
    (DDR_addr,
     DDR_ba,
@@ -49,8 +49,7 @@ module audio_station_overview
     led_1,
     led_2,
     led_3,
-    sw_0,
-    sw_1);
+    sw_0);
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR ADDR" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DDR, AXI_ARBITRATION_SCHEME TDM, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 11, CAS_WRITE_LATENCY 11, CS_ENABLED true, DATA_MASK_ENABLED true, DATA_WIDTH 8, MEMORY_TYPE COMPONENTS, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 1250" *) inout [14:0]DDR_addr;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR BA" *) inout [2:0]DDR_ba;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR CAS_N" *) inout DDR_cas_n;
@@ -90,17 +89,16 @@ module audio_station_overview
   output led_2;
   output led_3;
   input sw_0;
-  input sw_1;
 
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire AudioStation_0_io_bclk;
+  wire AudioStation_0_io_bclk;
   wire AudioStation_0_io_input_buffer_full;
   wire AudioStation_0_io_input_buffer_half;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire AudioStation_0_io_mclk;
+  wire AudioStation_0_io_mclk;
   wire AudioStation_0_io_output_buffer_empty;
   wire AudioStation_0_io_output_buffer_half;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire AudioStation_0_io_pbdat;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire AudioStation_0_io_pblrc;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire AudioStation_0_io_reclrc;
+  wire AudioStation_0_io_pbdat;
+  wire AudioStation_0_io_pblrc;
+  wire AudioStation_0_io_reclrc;
   wire [31:0]S00_AXI_1_ARADDR;
   wire [1:0]S00_AXI_1_ARBURST;
   wire [3:0]S00_AXI_1_ARCACHE;
@@ -139,7 +137,7 @@ module audio_station_overview
   wire S00_AXI_1_WREADY;
   wire [3:0]S00_AXI_1_WSTRB;
   wire S00_AXI_1_WVALID;
-  (* DEBUG = "true" *) (* MARK_DEBUG *) wire ac_recdat_1;
+  wire ac_recdat_1;
   wire [31:0]axi_interconnect_0_M00_AXI_ARADDR;
   wire [1:0]axi_interconnect_0_M00_AXI_ARBURST;
   wire [3:0]axi_interconnect_0_M00_AXI_ARCACHE;
@@ -202,6 +200,7 @@ module audio_station_overview
   wire processing_system7_0_FIXED_IO_PS_CLK;
   wire processing_system7_0_FIXED_IO_PS_PORB;
   wire processing_system7_0_FIXED_IO_PS_SRSTB;
+  wire [0:0]processing_system7_0_GPIO_O;
   wire processing_system7_0_IIC_0_SCL_I;
   wire processing_system7_0_IIC_0_SCL_O;
   wire processing_system7_0_IIC_0_SCL_T;
@@ -210,7 +209,6 @@ module audio_station_overview
   wire processing_system7_0_IIC_0_SDA_T;
   wire [0:0]rst_ps7_0_125M_peripheral_aresetn;
   wire sw_0_1;
-  wire sw_1_1;
   wire [1:0]xlconcat_0_dout;
 
   assign ac_bclk = AudioStation_0_io_bclk;
@@ -231,7 +229,6 @@ module audio_station_overview
   assign processing_system7_0_IIC_0_SCL_I = ac_i2c_scl_i;
   assign processing_system7_0_IIC_0_SDA_I = ac_i2c_sda_i;
   assign sw_0_1 = sw_0;
-  assign sw_1_1 = sw_1;
   audio_station_overview_AudioStation_0_3 AudioStation_0
        (.clk(processing_system7_0_FCLK_CLK0),
         .io_axi_ar_payload_addr(axi_interconnect_0_M00_AXI_ARADDR),
@@ -274,7 +271,7 @@ module audio_station_overview
         .io_axi_w_ready(axi_interconnect_0_M00_AXI_WREADY),
         .io_axi_w_valid(axi_interconnect_0_M00_AXI_WVALID),
         .io_bclk(AudioStation_0_io_bclk),
-        .io_enable(sw_1_1),
+        .io_enable(processing_system7_0_GPIO_O),
         .io_input_buffer_full(AudioStation_0_io_input_buffer_full),
         .io_input_buffer_half(AudioStation_0_io_input_buffer_half),
         .io_mclk(AudioStation_0_io_mclk),
@@ -389,6 +386,8 @@ module audio_station_overview
         .DDR_WEB(DDR_we_n),
         .FCLK_CLK0(processing_system7_0_FCLK_CLK0),
         .FCLK_RESET0_N(processing_system7_0_FCLK_RESET0_N),
+        .GPIO_I(1'b0),
+        .GPIO_O(processing_system7_0_GPIO_O),
         .I2C0_SCL_I(processing_system7_0_IIC_0_SCL_I),
         .I2C0_SCL_O(processing_system7_0_IIC_0_SCL_O),
         .I2C0_SCL_T(processing_system7_0_IIC_0_SCL_T),
@@ -438,8 +437,7 @@ module audio_station_overview
         .M_AXI_GP0_WVALID(S00_AXI_1_WVALID),
         .PS_CLK(FIXED_IO_ps_clk),
         .PS_PORB(FIXED_IO_ps_porb),
-        .PS_SRSTB(FIXED_IO_ps_srstb),
-        .USB0_VBUS_PWRFAULT(1'b0));
+        .PS_SRSTB(FIXED_IO_ps_srstb));
   audio_station_overview_rst_ps7_0_125M_0 rst_ps7_0_125M
        (.aux_reset_in(1'b1),
         .dcm_locked(1'b1),
@@ -447,9 +445,6 @@ module audio_station_overview
         .mb_debug_sys_rst(1'b0),
         .peripheral_aresetn(rst_ps7_0_125M_peripheral_aresetn),
         .slowest_sync_clk(processing_system7_0_FCLK_CLK0));
-  audio_station_overview_system_ila_0_1 system_ila_0
-       (.clk(processing_system7_0_FCLK_CLK0),
-        .probe0(AudioStation_0_io_bclk));
   audio_station_overview_xlconcat_0_0 xlconcat_0
        (.In0(AudioStation_0_io_input_buffer_half),
         .In1(AudioStation_0_io_output_buffer_half),

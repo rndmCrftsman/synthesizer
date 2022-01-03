@@ -1,8 +1,8 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
--- Date        : Sun Dec 19 16:58:56 2021
--- Host        : pop-os running 64-bit Pop!_OS 21.04
+-- Date        : Mon Jan  3 18:54:50 2022
+-- Host        : pop-os running 64-bit Pop!_OS 21.10
 -- Command     : write_vhdl -force -mode synth_stub
 --               /home/hannes/Entwicklung/synthesizer/FPGA/audio_station/audio_station.srcs/sources_1/bd/audio_station_overview/ip/audio_station_overview_AudioStation_0_3/audio_station_overview_AudioStation_0_3_stub.vhdl
 -- Design      : audio_station_overview_AudioStation_0_3

@@ -38,7 +38,7 @@
   "../../../bd/audio_station_overview/ip/audio_station_overview_rst_ps7_0_125M_0/sim/audio_station_overview_rst_ps7_0_125M_0.vhd" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
-  "../../../bd/audio_station_overview/ipshared/6aec/AudioStation.v" \
+  "../../../bd/audio_station_overview/ipshared/5d29/AudioStation.v" \
   "../../../bd/audio_station_overview/ip/audio_station_overview_AudioStation_0_3/sim/audio_station_overview_AudioStation_0_3.v" \
 -endlib
 -makelib ies_lib/xlconcat_v2_1_4 \
@@ -46,9 +46,6 @@
 -endlib
 -makelib ies_lib/xil_defaultlib \
   "../../../bd/audio_station_overview/ip/audio_station_overview_xlconcat_0_0/sim/audio_station_overview_xlconcat_0_0.v" \
-  "../../../bd/audio_station_overview/ip/audio_station_overview_system_ila_0_1/bd_0/ip/ip_0/sim/bd_944a_ila_lib_0.v" \
-  "../../../bd/audio_station_overview/ip/audio_station_overview_system_ila_0_1/bd_0/sim/bd_944a.v" \
-  "../../../bd/audio_station_overview/ip/audio_station_overview_system_ila_0_1/sim/audio_station_overview_system_ila_0_1.v" \
 -endlib
 -makelib ies_lib/generic_baseblocks_v2_1_0 \
   "../../../../audio_station.srcs/sources_1/bd/audio_station_overview/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v" \

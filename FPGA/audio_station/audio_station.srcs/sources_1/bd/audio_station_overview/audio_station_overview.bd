@@ -12,13 +12,13 @@
     "design_tree": {
       "processing_system7_0": "",
       "rst_ps7_0_125M": "",
-      "AudioStation_0": "",
       "axi_interconnect_0": {
         "s00_couplers": {
           "auto_pc": ""
         }
       },
-      "xlconcat_0": ""
+      "xlconcat_0": "",
+      "AudioStation_0": ""
     },
     "interface_ports": {
       "DDR": {
@@ -1436,10 +1436,6 @@
         "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
         "xci_name": "audio_station_overview_rst_ps7_0_125M_0"
       },
-      "AudioStation_0": {
-        "vlnv": "hannes.stoll:myIP:AudioStation:0.5",
-        "xci_name": "audio_station_overview_AudioStation_0_3"
-      },
       "axi_interconnect_0": {
         "vlnv": "xilinx.com:ip:axi_interconnect:2.1",
         "xci_name": "audio_station_overview_axi_interconnect_0_0",
@@ -1655,6 +1651,10 @@
             "value": "2"
           }
         }
+      },
+      "AudioStation_0": {
+        "vlnv": "hannes.stoll:myIP:AudioStation:0.5",
+        "xci_name": "audio_station_overview_AudioStation_0_3"
       }
     },
     "interface_nets": {
@@ -1664,10 +1664,10 @@
           "processing_system7_0/FIXED_IO"
         ]
       },
-      "processing_system7_0_DDR": {
+      "axi_interconnect_0_M00_AXI": {
         "interface_ports": [
-          "DDR",
-          "processing_system7_0/DDR"
+          "axi_interconnect_0/M00_AXI",
+          "AudioStation_0/AXI_S"
         ]
       },
       "S00_AXI_1": {
@@ -1676,16 +1676,16 @@
           "processing_system7_0/M_AXI_GP0"
         ]
       },
+      "processing_system7_0_DDR": {
+        "interface_ports": [
+          "DDR",
+          "processing_system7_0/DDR"
+        ]
+      },
       "processing_system7_0_IIC_0": {
         "interface_ports": [
           "ac_i2c",
           "processing_system7_0/IIC_0"
-        ]
-      },
-      "axi_interconnect_0_M00_AXI": {
-        "interface_ports": [
-          "axi_interconnect_0/M00_AXI",
-          "AudioStation_0/AXI_S"
         ]
       }
     },
@@ -1749,31 +1749,25 @@
           "processing_system7_0/FCLK_CLK0",
           "processing_system7_0/M_AXI_GP0_ACLK",
           "rst_ps7_0_125M/slowest_sync_clk",
-          "AudioStation_0/clk",
           "axi_interconnect_0/ACLK",
           "axi_interconnect_0/S00_ACLK",
-          "axi_interconnect_0/M00_ACLK"
+          "axi_interconnect_0/M00_ACLK",
+          "AudioStation_0/clk"
         ]
       },
       "rst_ps7_0_125M_peripheral_aresetn": {
         "ports": [
           "rst_ps7_0_125M/peripheral_aresetn",
-          "AudioStation_0/resetn",
           "axi_interconnect_0/ARESETN",
           "axi_interconnect_0/S00_ARESETN",
-          "axi_interconnect_0/M00_ARESETN"
+          "axi_interconnect_0/M00_ARESETN",
+          "AudioStation_0/resetn"
         ]
       },
       "ac_recdat_1": {
         "ports": [
           "ac_recdat",
           "AudioStation_0/io_recdat"
-        ]
-      },
-      "AudioStation_0_io_output_buffer_empty": {
-        "ports": [
-          "AudioStation_0/io_output_buffer_empty",
-          "led_2"
         ]
       },
       "AudioStation_0_io_input_buffer_half": {
@@ -1794,6 +1788,12 @@
         "ports": [
           "processing_system7_0/GPIO_O",
           "AudioStation_0/io_enable"
+        ]
+      },
+      "AudioStation_0_io_output_buffer_empty": {
+        "ports": [
+          "AudioStation_0/io_output_buffer_empty",
+          "led_2"
         ]
       }
     },

@@ -353,6 +353,7 @@ XStatus setup_interrupts()
 		return XST_FAILURE;
 
 	XScuGic_Enable(&IntrInst, AUDIO_INPUT_BUFFER_INTR);
+	XScuGic_Enable(&IntrInst, AUDIO_OUTPUT_BUFFER_INTR);
 	XScuGic_Enable(&IntrInst, DMA_FAULT_INTR);
 	XScuGic_Enable(&IntrInst, DMA_DONE_INTR_0);
 	XScuGic_Enable(&IntrInst, DMA_DONE_INTR_1);

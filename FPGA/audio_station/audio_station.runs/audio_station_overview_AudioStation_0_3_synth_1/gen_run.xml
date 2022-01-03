@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="audio_station_overview_AudioStation_0_3_synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1639929481">
+<GenRun Id="audio_station_overview_AudioStation_0_3_synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1641232458">
   <File Type="REPORTS-TCL" Name="audio_station_overview_AudioStation_0_3_reports.tcl"/>
   <File Type="PA-TCL" Name="audio_station_overview_AudioStation_0_3.tcl"/>
   <File Type="RDS-DCP" Name="audio_station_overview_AudioStation_0_3.dcp"/>
@@ -43,7 +43,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

@@ -1,11 +1,8 @@
-verilog xil_defaultlib --include "/usr/local/Xilinx/Vivado/2020.2/data/xilinx_vip/include" --include "../../../../audio_station.srcs/sources_1/bd/audio_station_overview/ipshared/ec67/hdl" --include "../../../../audio_station.srcs/sources_1/bd/audio_station_overview/ipshared/34f8/hdl" --include "../../../../audio_station.srcs/sources_1/bd/audio_station_overview/ipshared/1b7e/hdl/verilog" --include "../../../../audio_station.srcs/sources_1/bd/audio_station_overview/ipshared/122e/hdl/verilog" --include "../../../../audio_station.srcs/sources_1/bd/audio_station_overview/ipshared/b205/hdl/verilog" --include "../../../../audio_station.srcs/sources_1/bd/audio_station_overview/ipshared/c968/hdl/verilog" \
+verilog xil_defaultlib --include "/usr/local/Xilinx/Vivado/2020.2/data/xilinx_vip/include" --include "../../../../audio_station.srcs/sources_1/bd/audio_station_overview/ipshared/ec67/hdl" --include "../../../../audio_station.srcs/sources_1/bd/audio_station_overview/ipshared/34f8/hdl" \
 "../../../bd/audio_station_overview/ip/audio_station_overview_processing_system7_0_0/sim/audio_station_overview_processing_system7_0_0.v" \
-"../../../bd/audio_station_overview/ipshared/6aec/AudioStation.v" \
+"../../../bd/audio_station_overview/ipshared/5d29/AudioStation.v" \
 "../../../bd/audio_station_overview/ip/audio_station_overview_AudioStation_0_3/sim/audio_station_overview_AudioStation_0_3.v" \
 "../../../bd/audio_station_overview/ip/audio_station_overview_xlconcat_0_0/sim/audio_station_overview_xlconcat_0_0.v" \
-"../../../bd/audio_station_overview/ip/audio_station_overview_system_ila_0_1/bd_0/ip/ip_0/sim/bd_944a_ila_lib_0.v" \
-"../../../bd/audio_station_overview/ip/audio_station_overview_system_ila_0_1/bd_0/sim/bd_944a.v" \
-"../../../bd/audio_station_overview/ip/audio_station_overview_system_ila_0_1/sim/audio_station_overview_system_ila_0_1.v" \
 "../../../bd/audio_station_overview/ip/audio_station_overview_auto_pc_0/sim/audio_station_overview_auto_pc_0.v" \
 "../../../bd/audio_station_overview/sim/audio_station_overview.v" \
 
