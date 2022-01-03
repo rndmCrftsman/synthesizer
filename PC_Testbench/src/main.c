@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 
 /* Wave-File Read/Write/Info by W. Danny Gillam:
    https://faculty.fiu.edu/~wgillam/wavfiles.html */
@@ -28,6 +29,12 @@ int main() {
     FILE* fp = fopen(input_file,"rb");
     if(fp == 0) {
         fprintf(stderr,"Error with fseek in read_wav_info in wav.c\n");
+        exit(EXIT_FAILURE);
+    }
+
+    FILE* f_csv = fopen("Ensoniq_Dope_77.csv", "w");
+    if(f_csv == 0) {
+        printf("Could not open csv-file");
         exit(EXIT_FAILURE);
     }
 
@@ -87,6 +94,18 @@ int main() {
             last_buffer[k][1] = buffer[k][1];
         }
         
+
+        for (uint_fast8_t k = 0; k < BUFFERSIZE; k++)
+        {
+            char string_to_write[100];
+            // sprintf(string_to_write, "%i, %i\n", (int16_t) buffer[k][0], (int16_t) buffer[k][1]);
+            sprintf(string_to_write, "%i\n", (int16_t) buffer[k][0]);
+            // printf("size: %li", strlen(string_to_write));
+            fwrite(string_to_write, 1, strlen(string_to_write), f_csv);
+            // int16_t casted = (int16_t) buffer[k][0];
+            // int32_t recasted = (int32_t) casted;
+            // printf("before: %li, after: %i, recasted: %i\n", buffer[k][0], casted, recasted);
+        }
     }
 
     printf("Read: %d times, Write: %d times\n", counter_read, counter_write);
@@ -94,29 +113,31 @@ int main() {
     fclose(fp);
     fclose(fwp);
 
-    // f_replay = fopen(output_file, "rb");
+    fclose(f_csv);
 
-    // if(f_replay == 0) {
-    //     fprintf(stderr,"Error with playback\n");
-    //     exit(EXIT_FAILURE);
-    // }
+    f_replay = fopen(output_file, "rb");
 
-    // read_wav_info(&info, f_replay);
+    if(f_replay == 0) {
+        fprintf(stderr,"Error with playback\n");
+        exit(EXIT_FAILURE);
+    }
 
-    // replay_active = true;
+    read_wav_info(&info, f_replay);
+
+    replay_active = true;
 
     // Play (NOT WORKING)
-    // setup_soundio(&write_callback);
+    setup_soundio(&write_callback);
 
-    // // WILL NEVER BE EXECUTED SINCE IN sound.c IS A BLOCKING FOR-LOOP!
+    // WILL NEVER BE EXECUTED SINCE IN sound.c IS A BLOCKING FOR-LOOP!
 
-    // while(replay_active) {
-    //     ;
-    // }
+    while(replay_active) {
+        ;
+    }
     
-    // // replay_active = false;
+    // replay_active = false;
     
-    // fclose(f_replay);
+    fclose(f_replay);
 
 }
 
@@ -171,13 +192,13 @@ static void write_callback(struct SoundIoOutStream *outstream,
         for (int batch = 0; batch < batches; batch++) {
             num_samples_read = read_sample_buffer(&info, f_replay, data);
             for (int32_t s = 0; s < BUFFERSIZE; s++) {
-                data[s][0] = -4000;
-                if((batch % 20) >= 10) data[s][0] *= -1;
-                int16_t sample = (int16_t) data[s][0]; //  -4000 + 500*s; //
-                // float sample = ((float) data[s][0] / powf(2, 28));
-                // printf("sample int: %i, before: %i\n", sample, data[s][0]);
+                // data[s][0] = -4000;
+                // if((batch % 20) >= 10) data[s][0] *= -1;
+                int16_t sample_int = (int16_t) data[s][0]; //  -4000 + 500*s;
+                float sample = ((float) sample_int / INT16_MAX);
+                printf("sample int: %i, after: %.4f\n", sample_int, sample);
                 for (int channel = 0; channel < layout->channel_count; channel += 1) {
-                    int16_t *ptr = (int16_t*)(areas[channel].ptr + areas[channel].step * batch*BUFFERSIZE+s);
+                    float *ptr = (float*)(areas[channel].ptr + areas[channel].step * (batch*BUFFERSIZE+s));
                     *ptr = sample; // sample;
                 }
             }

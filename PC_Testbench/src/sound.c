@@ -38,7 +38,8 @@ int setup_soundio(void* write_callback) {
     fprintf(stderr, "Output device: %s\n", device->name);
 
     struct SoundIoOutStream *outstream = soundio_outstream_create(device);
-    outstream->format = SoundIoFormatS16LE;
+    // outstream->format = SoundIoFormatS16LE;
+    outstream->format = SoundIoFormatFloat32NE;
     outstream->write_callback = write_callback;
 
     if ((err = soundio_outstream_open(outstream))) {
