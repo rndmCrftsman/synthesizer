@@ -216,10 +216,9 @@ void write_sample(const struct wav_info* w, FILE* fp, const int_fast32_t* sample
     }
 }
 
-// Addition by Hannes Stoll (rndmCrftsman)
+/* --- All below is an addition by rndmCrftsman --- */
 void read_sample(const struct wav_info* w, FILE* fp, int_fast32_t* sample) {
-    // We'll assume w->bits_per_sample is divisible by 8, otherwise
-    // one should do bytes_per_sample++ and make sure
+    // We'll assume w->bits_per_sample is divisible by 8
     // the last (w->bits_per_sample % 8) bits of each sample[i] are zero
     int_fast32_t temp[w->num_channels];
     uint8_t num_elem_read;
@@ -249,7 +248,7 @@ void read_sample(const struct wav_info* w, FILE* fp, int_fast32_t* sample) {
     }
 }
 
-uint32_t read_sample_buffer(const struct wav_info* w, FILE* fp, int_fast32_t sample_buffer[BUFFERSIZE][w->num_channels]) {
+uint32_t read_sample_buffer_int32(const struct wav_info* w, FILE* fp, int_fast32_t sample_buffer[BUFFERSIZE][w->num_channels]) {
     int_fast32_t temp;
     uint8_t num_elem_read;
     uint32_t offset;
@@ -267,6 +266,44 @@ uint32_t read_sample_buffer(const struct wav_info* w, FILE* fp, int_fast32_t sam
                 temp = temp | (data_buffer[offset+j] << (8*j));
             }
             sample_buffer[s][i] = temp;
+            offset += b;
+        }
+    }
+    return num_elem_read / w->num_channels;
+}
+
+uint32_t read_sample_buffer_float(const struct wav_info* w, FILE* fp, uint32_t num_samples, float sample_buffer[num_samples][w->num_channels]) {
+    int_fast32_t temp;
+    uint32_t num_elem_read;
+    uint32_t offset;
+    int b = w->bits_per_sample/8; // bytes per sample
+    uint8_t data_buffer[w->num_channels * b * BUFFERSIZE];
+
+    num_elem_read = fread(data_buffer, b, w->num_channels * BUFFERSIZE, fp);
+
+    offset = 0;
+    for(int s=0; s < BUFFERSIZE; s++) {
+        for(int i=0; i<w->num_channels; i++) {
+            temp = 0;
+            for(int j=0; j<b; j++) {
+                temp = temp | (data_buffer[offset+j] << (8*j));
+            }
+            if(b == 1) {
+                sample_buffer[s][i] = (float) (int8_t) temp / INT8_MAX;
+            } else if (b == 2) {
+                sample_buffer[s][i] = (float) (int16_t) temp / INT16_MAX;
+            } else if (b == 3) {
+                if(temp & 0x800000) {
+                    temp |= ~0xFFFFFF;
+                }
+                sample_buffer[s][i] = (float) temp / 0x7FFFFF;
+            } else if (b == 4) {
+                sample_buffer[s][i] = (float) temp / INT32_MAX;
+            } else {
+                printf("Error: other than 32, 24, 16 or 8-bit WAV-Files are not supported!");
+                sample_buffer[s][i] = 0;
+                num_elem_read = 0;
+            }
             offset += b;
         }
     }

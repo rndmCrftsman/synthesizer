@@ -49,7 +49,10 @@ void write_sample(const struct wav_info* w, FILE* fp, const int_fast32_t* sample
 void read_sample(const struct wav_info* w, FILE* fp, int_fast32_t* sample);
 /* Read a sample from *fp in the correct Little Endian format. */
 
-uint32_t read_sample_buffer(const struct wav_info* w, FILE* fp, int_fast32_t sample_buffer[BUFFERSIZE][w->num_channels]);
+uint32_t read_sample_buffer_int32(const struct wav_info* w, FILE* fp, int_fast32_t sample_buffer[BUFFERSIZE][w->num_channels]);
+/* Read a complete sample buffer from *fp in the correct Little Endian format */
+
+uint32_t read_sample_buffer_float(const struct wav_info* w, FILE* fp, uint32_t num_samples, float sample_buffer[num_samples][w->num_channels]);
 /* Read a complete sample buffer from *fp in the correct Little Endian format */
 
 #endif // __H_WAV

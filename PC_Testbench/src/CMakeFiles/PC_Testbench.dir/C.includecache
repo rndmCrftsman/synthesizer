@@ -17,12 +17,22 @@ stdio.h
 -
 math.h
 -
+string.h
+-
 config.h
 /home/hannes/Entwicklung/synthesizer/PC_Testbench/src/config.h
 wav.h
 /home/hannes/Entwicklung/synthesizer/PC_Testbench/src/wav.h
 sound.h
 /home/hannes/Entwicklung/synthesizer/PC_Testbench/src/sound.h
+
+/home/hannes/Entwicklung/synthesizer/PC_Testbench/src/sound.c
+sound.h
+/home/hannes/Entwicklung/synthesizer/PC_Testbench/src/sound.h
+soundio/soundio.h
+-
+stdio.h
+-
 
 /home/hannes/Entwicklung/synthesizer/PC_Testbench/src/wav.c
 wav.h
