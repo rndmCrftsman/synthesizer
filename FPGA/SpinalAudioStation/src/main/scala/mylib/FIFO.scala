@@ -26,13 +26,13 @@ import spinal.lib._
 //Hardware definition
 case class FIFO (WIDTH: Int, DEPTH: Int) extends Component {
   val io = new Bundle {
-    val w_en = in Bool
+    val w_en = in Bool()
     val w_data = in UInt(WIDTH bits)
-    val r_en = in Bool
+    val r_en = in Bool()
     val r_data = out UInt(WIDTH bits)
-    val empty = out Bool
-    val half = out Bool
-    val full = out Bool
+    val empty = out Bool()
+    val half = out Bool()
+    val full = out Bool()
   }
   // ----- Signals & Registers ----- 
   // Memory
