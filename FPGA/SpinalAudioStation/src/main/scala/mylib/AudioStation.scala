@@ -30,18 +30,18 @@ class AudioStation(
     BUF_DEPTH: Int
 ) extends Component {
     val io = new Bundle {
-        val enable              = in Bool
+        val enable              = in Bool()
         val axi                 = slave(Axi4(AudDatMvAXIConfig.getConfig))
-        val input_buffer_half   = out Bool
-        val input_buffer_full   = out Bool
-        val output_buffer_half  = out Bool
-        val output_buffer_empty = out Bool
-        val bclk                = out Bool
-        val mclk                = out Bool
-        val pblrc               = out Bool
-        val pbdat               = out Bool
-        val reclrc              = out Bool
-        val recdat              = in Bool
+        val input_buffer_half   = out Bool()
+        val input_buffer_full   = out Bool()
+        val output_buffer_half  = out Bool()
+        val output_buffer_empty = out Bool()
+        val bclk                = out Bool()
+        val mclk                = out Bool()
+        val pblrc               = out Bool()
+        val pbdat               = out Bool()
+        val reclrc              = out Bool()
+        val recdat              = in Bool()
     }
 
     // ########################################

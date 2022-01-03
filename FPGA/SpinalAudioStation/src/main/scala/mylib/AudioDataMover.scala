@@ -30,14 +30,14 @@ class AudioDataMover(
   BUF_DEPTH: Int
 ) extends Component {
   val io = new Bundle {
-    val enable              = in Bool
+    val enable              = in Bool()
     val s_data_out          = master Stream(UInt(32 bits))
     val s_data_in           = slave Stream(UInt(32 bits))
     val axi                 = slave(Axi4(AudDatMvAXIConfig.getConfig))
-    val input_buffer_half   = out Bool
-    val input_buffer_full   = out Bool
-    val output_buffer_half  = out Bool
-    val output_buffer_empty = out Bool
+    val input_buffer_half   = out Bool()
+    val input_buffer_full   = out Bool()
+    val output_buffer_half  = out Bool()
+    val output_buffer_empty = out Bool()
   }
   
   // ########################################

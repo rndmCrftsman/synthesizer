@@ -1,13 +1,16 @@
-name := "SpinalAudioStation"
-version := "0.5"
-scalaVersion := "2.11.12"
-val spinalVersion = "1.4.0"
+ThisBuild / version := "1.0"
+ThisBuild / scalaVersion := "2.11.12"
+ThisBuild / organization := "org.example"
 
-libraryDependencies ++= Seq(
-  "com.github.spinalhdl" % "spinalhdl-core_2.11" % spinalVersion,
-  "com.github.spinalhdl" % "spinalhdl-lib_2.11" % spinalVersion,
-  compilerPlugin("com.github.spinalhdl" % "spinalhdl-idsl-plugin_2.11" % spinalVersion)
-)
+val spinalVersion = "1.6.0"
+val spinalCore = "com.github.spinalhdl" %% "spinalhdl-core" % spinalVersion
+val spinalLib = "com.github.spinalhdl" %% "spinalhdl-lib" % spinalVersion
+val spinalIdslPlugin = compilerPlugin("com.github.spinalhdl" %% "spinalhdl-idsl-plugin" % spinalVersion)
+
+lazy val mylib = (project in file("."))
+  .settings(
+    name := "SpinalTemplateSbt",
+    libraryDependencies ++= Seq(spinalCore, spinalLib, spinalIdslPlugin)
+  )
 
 fork := true
-EclipseKeys.withSource := true

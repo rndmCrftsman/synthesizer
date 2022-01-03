@@ -26,15 +26,15 @@ import spinal.lib._
 //Hardware definition
 class I2S() extends Component {
     val io = new Bundle {
-        val enable      = in Bool
+        val enable      = in Bool()
         val s_data_out  = master Stream(UInt(32 bits))
         val s_data_in   = slave Stream(UInt(32 bits))
-        val bclk        = out Bool
-        val mclk        = out Bool
-        val pblrc       = out Bool
-        val pbdat       = out Bool
-        val reclrc      = out Bool
-        val recdat      = in Bool
+        val bclk        = out Bool()
+        val mclk        = out Bool()
+        val pblrc       = out Bool()
+        val pbdat       = out Bool()
+        val reclrc      = out Bool()
+        val recdat      = in Bool()
     }
     
     /* Important:
