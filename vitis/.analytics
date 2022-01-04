@@ -68,3 +68,7 @@ timestamp=[2022-01-03 21:32:50], mode=BUILD, duration=0:00:00.474, duration_ms=4
 timestamp=[2022-01-03 21:33:03], mode=BUILD, duration=0:00:07.092, duration_ms=7092, data={name=audio_station_system_cpu_0, configuration=Debug, clean_build=false}
 timestamp=[2022-01-03 21:33:04], mode=BUILD, duration=0:00:00.472, duration_ms=472, data={name=audio_station, configuration=Debug, clean_build=false}
 timestamp=[2022-01-03 21:33:12], mode=BUILD, duration=0:00:07.082, duration_ms=7082, data={name=audio_station_system_cpu_0, configuration=Debug, clean_build=false}
+timestamp=[2022-01-04 10:31:11], mode=WORKBENCH_START, duration=0:00:10.189, duration_ms=10189, data={}
+timestamp=[2022-01-04 10:31:11], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.077, duration_ms=77, data={}
+timestamp=[2022-01-04 10:31:12], mode=WORKBENCH_UI_INIT, duration=0:00:01.077, duration_ms=1077, data={editors_count=12, platform_editors_count=7, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,audio_station,audio_station_overview_wrapper,audio_station_system_cpu_0}
+timestamp=[2022-01-04 11:14:23], mode=BUILD, duration=0:00:00.859, duration_ms=859, data={name=audio_station, configuration=Debug, clean_build=false}

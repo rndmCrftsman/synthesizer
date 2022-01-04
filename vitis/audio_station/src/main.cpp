@@ -69,7 +69,7 @@ int main(int argc, char **argv) {
 
 	init_platform();
 
-	print("Hello, World!\n");
+	print("Welcome to Audio Station v0.5\n");
 
 	Status = setup_GPIOs();
 	if (Status != XST_SUCCESS) {
