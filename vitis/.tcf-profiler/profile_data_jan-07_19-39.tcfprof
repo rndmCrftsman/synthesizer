@@ -1,0 +1,281 @@
+{
+  "sampleCount": 761,
+  "entries": [
+    {
+      "addr": 1080468,
+      "name": "XUartPs_SendByte",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/uartps_v3_10/src/xuartps_hw.c",
+      "fileBase": "xuartps_hw.c",
+      "line": 57,
+      "count": 725,
+      "total": 1105.0477,
+      "callerMap": {
+        "1054964": 761.0494,
+        "1080468": 344.0007
+      },
+      "calleeMap": {
+        "1048608": 24.011501,
+        "1048576": 12.0012,
+        "1080468": 344.03513
+      }
+    },
+    {
+      "addr": 1071612,
+      "name": "_start",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/standalone_v7_3/src/xil-crt0.S",
+      "fileBase": "xil-crt0.S",
+      "line": 59,
+      "count": 0,
+      "total": 761.2752,
+      "callerMap": {},
+      "calleeMap": {
+        "1054472": 761.2752
+      }
+    },
+    {
+      "addr": 1054472,
+      "name": "main",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station/Debug/../src/main.cpp",
+      "fileBase": "main.cpp",
+      "line": 6,
+      "count": 0,
+      "total": 761.19934,
+      "callerMap": {
+        "1071612": 761.2014
+      },
+      "calleeMap": {
+        "1054964": 761.19934
+      }
+    },
+    {
+      "addr": 1054964,
+      "name": "print",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/standalone_v7_3/src/print.c",
+      "fileBase": "print.c",
+      "line": 28,
+      "count": 0,
+      "total": 761.1233,
+      "callerMap": {
+        "1054472": 761.12537
+      },
+      "calleeMap": {
+        "1080468": 761.1233
+      }
+    },
+    {
+      "addr": 1048608,
+      "name": "IRQHandler",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/standalone_v7_3/src/asm_vectors.S",
+      "fileBase": "asm_vectors.S",
+      "line": 62,
+      "count": 2,
+      "total": 40.0166,
+      "callerMap": {
+        "1048608": 16.005402,
+        "1080468": 24.011301
+      },
+      "calleeMap": {
+        "1048608": 16.007,
+        "1073452": 22.009602
+      }
+    },
+    {
+      "addr": 1057392,
+      "name": "XDmaPs_GenDmaProg",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/dmaps_v2_7/src/xdmaps.c",
+      "fileBase": "xdmaps.c",
+      "line": 1321,
+      "count": 2,
+      "total": 23.0043,
+      "callerMap": {
+        "1057392": 15.002101,
+        "1059052": 8.0022
+      },
+      "calleeMap": {
+        "1057392": 15.003603,
+        "1056288": 2.0003,
+        "1069596": 3.0003,
+        "1081212": 1.0001
+      }
+    },
+    {
+      "addr": 1073452,
+      "name": "XScuGic_InterruptHandler",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/scugic_v4_3/src/xscugic_intr.c",
+      "fileBase": "xscugic_intr.c",
+      "line": 105,
+      "count": 1,
+      "total": 22.007502,
+      "callerMap": {
+        "1048608": 22.007502
+      },
+      "calleeMap": {
+        "1053392": 10.0039,
+        "1053696": 2.0002,
+        "1053544": 8.0033,
+        "1055372": 1.0001
+      }
+    },
+    {
+      "addr": 1059052,
+      "name": "XDmaPs_Start",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/dmaps_v2_7/src/xdmaps.c",
+      "fileBase": "xdmaps.c",
+      "line": 1447,
+      "count": 3,
+      "total": 16.0036,
+      "callerMap": {
+        "1053392": 9.0019,
+        "1053544": 7.0017004
+      },
+      "calleeMap": {
+        "1057392": 8.003,
+        "1069288": 3.0004,
+        "1069596": 2.0002
+      }
+    },
+    {
+      "addr": 1048576,
+      "name": "_vector_table",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/standalone_v7_3/src/asm_vectors.S",
+      "fileBase": "asm_vectors.S",
+      "line": 50,
+      "count": 12,
+      "total": 12.0,
+      "callerMap": {
+        "1080468": 12.0
+      },
+      "calleeMap": {}
+    },
+    {
+      "addr": 1053392,
+      "name": "AudioInputHandler",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station/Debug/../src/audio_subsystem.cpp",
+      "fileBase": "audio_subsystem.cpp",
+      "line": 383,
+      "count": 0,
+      "total": 10.0029,
+      "callerMap": {
+        "1073452": 10.0029
+      },
+      "calleeMap": {
+        "1075352": 1.0001,
+        "1059052": 9.0028
+      }
+    },
+    {
+      "addr": 1053544,
+      "name": "AudioOutputHandler",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station/Debug/../src/audio_subsystem.cpp",
+      "fileBase": "audio_subsystem.cpp",
+      "line": 394,
+      "count": 0,
+      "total": 8.002501,
+      "callerMap": {
+        "1073452": 8.002501
+      },
+      "calleeMap": {
+        "1075352": 1.0001,
+        "1059052": 7.0023994
+      }
+    },
+    {
+      "addr": 1069596,
+      "name": "Xil_DCacheFlushRange",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/standalone_v7_3/src/xil_cache.c",
+      "fileBase": "xil_cache.c",
+      "line": 462,
+      "count": 5,
+      "total": 5.0,
+      "callerMap": {
+        "1057392": 3.0,
+        "1059052": 2.0
+      },
+      "calleeMap": {}
+    },
+    {
+      "addr": 1069288,
+      "name": "Xil_DCacheInvalidateRange",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/standalone_v7_3/src/xil_cache.c",
+      "fileBase": "xil_cache.c",
+      "line": 317,
+      "count": 3,
+      "total": 4.0001,
+      "callerMap": {
+        "1069288": 1.0,
+        "1059052": 3.0001001
+      },
+      "calleeMap": {
+        "1069288": 1.0001
+      }
+    },
+    {
+      "addr": 1056288,
+      "name": "XDmaPs_ToCCRValue",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/dmaps_v2_7/src/xdmaps.c",
+      "fileBase": "xdmaps.c",
+      "line": 832,
+      "count": 2,
+      "total": 3.0001001,
+      "callerMap": {
+        "1057392": 2.0001001,
+        "1056288": 1.0
+      },
+      "calleeMap": {
+        "1056288": 1.0001
+      }
+    },
+    {
+      "addr": 1053696,
+      "name": "DmaReadDoneHandler",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station/Debug/../src/audio_subsystem.cpp",
+      "fileBase": "audio_subsystem.cpp",
+      "line": 405,
+      "count": 2,
+      "total": 2.0,
+      "callerMap": {
+        "1073452": 2.0
+      },
+      "calleeMap": {}
+    },
+    {
+      "addr": 1075352,
+      "name": "XScuGic_Disable",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/scugic_v4_3/src/xscugic.c",
+      "fileBase": "xscugic.c",
+      "line": 608,
+      "count": 2,
+      "total": 2.0,
+      "callerMap": {
+        "1053392": 1.0,
+        "1053544": 1.0
+      },
+      "calleeMap": {}
+    },
+    {
+      "addr": 1055372,
+      "name": "XDmaPs_DoneISR_n",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/dmaps_v2_7/src/xdmaps.c",
+      "fileBase": "xdmaps.c",
+      "line": 1879,
+      "count": 1,
+      "total": 1.0,
+      "callerMap": {
+        "1073452": 1.0
+      },
+      "calleeMap": {}
+    },
+    {
+      "addr": 1081212,
+      "name": "__aeabi_uidivmod",
+      "line": 0,
+      "count": 1,
+      "total": 1.0,
+      "callerMap": {
+        "1057392": 1.0
+      },
+      "calleeMap": {}
+    }
+  ],
+  "stackTrace": true
+}

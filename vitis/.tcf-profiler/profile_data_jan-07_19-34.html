@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<style>
+   table th, tr, td {
+      border-collapse: collapse;
+      padding: 2px;
+      table-layout: fixed;
+   }
+
+   table th {
+      background-color: darkslategray;
+      color: white;
+   }
+
+   table thead.details th {
+      background-color: lightslategray;
+      color: white;
+   }
+
+   h4.details {
+      margin: 4px;
+   }
+
+   td {
+      position: relative;
+   }
+
+   .bar {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      background-color: darkOrange;
+      z-index: -1;
+      opacity: .90;
+   }
+
+   div.details .bar {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      background-color: coral;
+      z-index: -1;
+      opacity: .90;
+   }
+
+   .button {
+      display: inline-block;
+      padding:0px;
+      font-size: 12px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      outline: none;
+      color: black;
+      background-color: white;
+      border: none;
+      border-radius: 4px;
+   }
+
+   .button:hover {
+      background-color: lightsteelblue;
+   }
+
+    div.details {
+       border: solid 4px;
+      border-color: silver;
+      margin: 20px;
+      padding: 20px;
+      display: none;
+   }
+
+</style>
+<script>
+   var expandText = "[+]";
+   var collapseText = "(-)";
+   var lastBtnElm;
+
+   function changeText(btnElm) {
+      if (btnElm.textContent == expandText) {
+         if (lastBtnElm != null) {
+            changeState(lastBtnElm, false);
+         }
+         changeState(btnElm, true);
+         lastBtnElm = btnElm
+      } else {
+         changeState(btnElm, false);
+      }
+   }
+
+   function changeState(btnElm, isSelected) {
+      var divId = btnElm.id + "-details";
+      var divElm = document.getElementById(divId);
+      if (isSelected) {
+         btnElm.textContent = collapseText;
+         btnElm.style.backgroundColor = "white";
+         if (divElm != null) {
+            divElm.style.display = "block";
+         }
+      } else {
+         btnElm.textContent = expandText;
+         btnElm.style.backgroundColor = "white";
+         if (divElm != null) {
+            divElm.style.display = "none";
+         }
+      }
+   }
+
+</script>
+<div id="main-div">
+   <table class="table" style="width: 100%;" border="1">
+      <thead>
+         <tr>
+            <th style="width: 10%;">Address</th>
+            <th style="width: 20%;">% Inclusive</th>
+            <th style="width: 20%;">% Exclusive</th>
+            <th style="width: 15%;">Function</th>
+            <th style="width: 15%;">File</th>
+            <th style="width: 10%;">Line</th>
+            <th style="width: 10%;">Details</th>
+         </tr>
+      </thead>
+   </table>
+      <table class="table" style="width: 100%;" border="1">
+         <tbody>
+            <tr>
+               <td style="width: 10%;">00107c94</td>
+               <td style="width: 20%;">96.4
+                  <div class="bar" style="width: 96.4%"></div>
+               </td>
+               <td style="width: 20%;">0
+                  <div class="bar" style="width: 0%"></div>
+               </td>
+               <td style="width: 15%;">XUartPs_SendByte</td>
+               <td style="width: 15%;">xuartps_hw.c</td>
+               <td style="width: 10%;">57</td>
+               <td class="td-btn" style="width: 10%;"><button id="btn-0" class="button" onClick="changeText(this);">[+]</button></td>
+            </tr>
+         </tbody>
+      </table>
+      <div id="btn-0-details" class="details">
+      <h4 class="details">Stacktrace is not available</h4>
+   </div>
+         <table class="table" style="width: 100%;" border="1">
+            <tbody>
+               <tr>
+                  <td style="width: 10%;">001028ec</td>
+                  <td style="width: 20%;">.636
+                     <div class="bar" style="width: .636%"></div>
+                  </td>
+                  <td style="width: 20%;">0
+                     <div class="bar" style="width: 0%"></div>
+                  </td>
+                  <td style="width: 15%;">XDmaPs_Start</td>
+                  <td style="width: 15%;">xdmaps.c</td>
+                  <td style="width: 10%;">1447</td>
+                  <td class="td-btn" style="width: 10%;"><button id="btn-1" class="button" onClick="changeText(this);">[+]</button></td>
+               </tr>
+            </tbody>
+         </table>
+         <div id="btn-1-details" class="details">
+         <h4 class="details">Stacktrace is not available</h4>
+      </div>
+            <table class="table" style="width: 100%;" border="1">
+               <tbody>
+                  <tr>
+                     <td style="width: 10%;">0010521c</td>
+                     <td style="width: 20%;">.557
+                        <div class="bar" style="width: .557%"></div>
+                     </td>
+                     <td style="width: 20%;">0
+                        <div class="bar" style="width: 0%"></div>
+                     </td>
+                     <td style="width: 15%;">Xil_DCacheFlushRange</td>
+                     <td style="width: 15%;">xil_cache.c</td>
+                     <td style="width: 10%;">462</td>
+                     <td class="td-btn" style="width: 10%;"><button id="btn-2" class="button" onClick="changeText(this);">[+]</button></td>
+                  </tr>
+               </tbody>
+            </table>
+            <div id="btn-2-details" class="details">
+            <h4 class="details">Stacktrace is not available</h4>
+         </div>
+               <table class="table" style="width: 100%;" border="1">
+                  <tbody>
+                     <tr>
+                        <td style="width: 10%;">00102270</td>
+                        <td style="width: 20%;">.398
+                           <div class="bar" style="width: .398%"></div>
+                        </td>
+                        <td style="width: 20%;">0
+                           <div class="bar" style="width: 0%"></div>
+                        </td>
+                        <td style="width: 15%;">XDmaPs_GenDmaProg</td>
+                        <td style="width: 15%;">xdmaps.c</td>
+                        <td style="width: 10%;">1321</td>
+                        <td class="td-btn" style="width: 10%;"><button id="btn-3" class="button" onClick="changeText(this);">[+]</button></td>
+                     </tr>
+                  </tbody>
+               </table>
+               <div id="btn-3-details" class="details">
+               <h4 class="details">Stacktrace is not available</h4>
+            </div>
+                  <table class="table" style="width: 100%;" border="1">
+                     <tbody>
+                        <tr>
+                           <td style="width: 10%;">00100020</td>
+                           <td style="width: 20%;">.239
+                              <div class="bar" style="width: .239%"></div>
+                           </td>
+                           <td style="width: 20%;">0
+                              <div class="bar" style="width: 0%"></div>
+                           </td>
+                           <td style="width: 15%;">IRQHandler</td>
+                           <td style="width: 15%;">asm_vectors.S</td>
+                           <td style="width: 10%;">62</td>
+                           <td class="td-btn" style="width: 10%;"><button id="btn-4" class="button" onClick="changeText(this);">[+]</button></td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <div id="btn-4-details" class="details">
+                  <h4 class="details">Stacktrace is not available</h4>
+               </div>
+                     <table class="table" style="width: 100%;" border="1">
+                        <tbody>
+                           <tr>
+                              <td style="width: 10%;">00101930</td>
+                              <td style="width: 20%;">.239
+                                 <div class="bar" style="width: .239%"></div>
+                              </td>
+                              <td style="width: 20%;">0
+                                 <div class="bar" style="width: 0%"></div>
+                              </td>
+                              <td style="width: 15%;">IRQInterrupt</td>
+                              <td style="width: 15%;">vectors.c</td>
+                              <td style="width: 10%;">85</td>
+                              <td class="td-btn" style="width: 10%;"><button id="btn-5" class="button" onClick="changeText(this);">[+]</button></td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <div id="btn-5-details" class="details">
+                     <h4 class="details">Stacktrace is not available</h4>
+                  </div>
+                        <table class="table" style="width: 100%;" border="1">
+                           <tbody>
+                              <tr>
+                                 <td style="width: 10%;">0010612c</td>
+                                 <td style="width: 20%;">.239
+                                    <div class="bar" style="width: .239%"></div>
+                                 </td>
+                                 <td style="width: 20%;">0
+                                    <div class="bar" style="width: 0%"></div>
+                                 </td>
+                                 <td style="width: 15%;">XScuGic_InterruptHandler</td>
+                                 <td style="width: 15%;">xscugic_intr.c</td>
+                                 <td style="width: 10%;">105</td>
+                                 <td class="td-btn" style="width: 10%;"><button id="btn-6" class="button" onClick="changeText(this);">[+]</button></td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <div id="btn-6-details" class="details">
+                        <h4 class="details">Stacktrace is not available</h4>
+                     </div>
+                           <table class="table" style="width: 100%;" border="1">
+                              <tbody>
+                                 <tr>
+                                    <td style="width: 10%;">00106898</td>
+                                    <td style="width: 20%;">.239
+                                       <div class="bar" style="width: .239%"></div>
+                                    </td>
+                                    <td style="width: 20%;">0
+                                       <div class="bar" style="width: 0%"></div>
+                                    </td>
+                                    <td style="width: 15%;">XScuGic_Disable</td>
+                                    <td style="width: 15%;">xscugic.c</td>
+                                    <td style="width: 10%;">608</td>
+                                    <td class="td-btn" style="width: 10%;"><button id="btn-7" class="button" onClick="changeText(this);">[+]</button></td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                           <div id="btn-7-details" class="details">
+                           <h4 class="details">Stacktrace is not available</h4>
+                        </div>
+                              <table class="table" style="width: 100%;" border="1">
+                                 <tbody>
+                                    <tr>
+                                       <td style="width: 10%;">00101a8c</td>
+                                       <td style="width: 20%;">.159
+                                          <div class="bar" style="width: .159%"></div>
+                                       </td>
+                                       <td style="width: 20%;">0
+                                          <div class="bar" style="width: 0%"></div>
+                                       </td>
+                                       <td style="width: 15%;">XDmaPs_DoneISR_n</td>
+                                       <td style="width: 15%;">xdmaps.c</td>
+                                       <td style="width: 10%;">1879</td>
+                                       <td class="td-btn" style="width: 10%;"><button id="btn-8" class="button" onClick="changeText(this);">[+]</button></td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <div id="btn-8-details" class="details">
+                              <h4 class="details">Stacktrace is not available</h4>
+                           </div>
+                                 <table class="table" style="width: 100%;" border="1">
+                                    <tbody>
+                                       <tr>
+                                          <td style="width: 10%;">001050e8</td>
+                                          <td style="width: 20%;">.159
+                                             <div class="bar" style="width: .159%"></div>
+                                          </td>
+                                          <td style="width: 20%;">0
+                                             <div class="bar" style="width: 0%"></div>
+                                          </td>
+                                          <td style="width: 15%;">Xil_DCacheInvalidateRange</td>
+                                          <td style="width: 15%;">xil_cache.c</td>
+                                          <td style="width: 10%;">317</td>
+                                          <td class="td-btn" style="width: 10%;"><button id="btn-9" class="button" onClick="changeText(this);">[+]</button></td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                                 <div id="btn-9-details" class="details">
+                                 <h4 class="details">Stacktrace is not available</h4>
+                              </div>
+                                    <table class="table" style="width: 100%;" border="1">
+                                       <tbody>
+                                          <tr>
+                                             <td style="width: 10%;">00106750</td>
+                                             <td style="width: 20%;">.159
+                                                <div class="bar" style="width: .159%"></div>
+                                             </td>
+                                             <td style="width: 20%;">0
+                                                <div class="bar" style="width: 0%"></div>
+                                             </td>
+                                             <td style="width: 15%;">XScuGic_Enable</td>
+                                             <td style="width: 15%;">xscugic.c</td>
+                                             <td style="width: 10%;">549</td>
+                                             <td class="td-btn" style="width: 10%;"><button id="btn-10" class="button" onClick="changeText(this);">[+]</button></td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                    <div id="btn-10-details" class="details">
+                                    <h4 class="details">Stacktrace is not available</h4>
+                                 </div>
+                                       <table class="table" style="width: 100%;" border="1">
+                                          <tbody>
+                                             <tr>
+                                                <td style="width: 10%;">00101400</td>
+                                                <td style="width: 20%;">.080
+                                                   <div class="bar" style="width: .080%"></div>
+                                                </td>
+                                                <td style="width: 20%;">0
+                                                   <div class="bar" style="width: 0%"></div>
+                                                </td>
+                                                <td style="width: 15%;">DmaReadDoneHandler</td>
+                                                <td style="width: 15%;">audio_subsystem.cpp</td>
+                                                <td style="width: 10%;">405</td>
+                                                <td class="td-btn" style="width: 10%;"><button id="btn-11" class="button" onClick="changeText(this);">[+]</button></td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                       <div id="btn-11-details" class="details">
+                                       <h4 class="details">Stacktrace is not available</h4>
+                                    </div>
+                                          <table class="table" style="width: 100%;" border="1">
+                                             <tbody>
+                                                <tr>
+                                                   <td style="width: 10%;">001066dc</td>
+                                                   <td style="width: 20%;">.080
+                                                      <div class="bar" style="width: .080%"></div>
+                                                   </td>
+                                                   <td style="width: 20%;">0
+                                                      <div class="bar" style="width: 0%"></div>
+                                                   </td>
+                                                   <td style="width: 15%;">XScuGic_InterruptMaptoCpu</td>
+                                                   <td style="width: 15%;">xscugic.c</td>
+                                                   <td style="width: 10%;">919</td>
+                                                   <td class="td-btn" style="width: 10%;"><button id="btn-12" class="button" onClick="changeText(this);">[+]</button></td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                          <div id="btn-12-details" class="details">
+                                          <h4 class="details">Stacktrace is not available</h4>
+                                       </div>
+                                             <table class="table" style="width: 100%;" border="1">
+                                                <tbody>
+                                                   <tr>
+                                                      <td style="width: 10%;">00106824</td>
+                                                      <td style="width: 20%;">.080
+                                                         <div class="bar" style="width: .080%"></div>
+                                                      </td>
+                                                      <td style="width: 20%;">0
+                                                         <div class="bar" style="width: 0%"></div>
+                                                      </td>
+                                                      <td style="width: 15%;">XScuGic_InterruptUnmapFromCpu</td>
+                                                      <td style="width: 15%;">xscugic.c</td>
+                                                      <td style="width: 10%;">963</td>
+                                                      <td class="td-btn" style="width: 10%;"><button id="btn-13" class="button" onClick="changeText(this);">[+]</button></td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                             <div id="btn-13-details" class="details">
+                                             <h4 class="details">Stacktrace is not available</h4>
+                                          </div>
+                                                <table class="table" style="width: 100%;" border="1">
+                                                   <tbody>
+                                                      <tr>
+                                                         <td style="width: 10%;">00106d34</td>
+                                                         <td style="width: 20%;">.080
+                                                            <div class="bar" style="width: .080%"></div>
+                                                         </td>
+                                                         <td style="width: 20%;">0
+                                                            <div class="bar" style="width: 0%"></div>
+                                                         </td>
+                                                         <td style="width: 15%;">outbyte</td>
+                                                         <td style="width: 15%;">outbyte.c</td>
+                                                         <td style="width: 10%;">14</td>
+                                                         <td class="td-btn" style="width: 10%;"><button id="btn-14" class="button" onClick="changeText(this);">[+]</button></td>
+                                                      </tr>
+                                                   </tbody>
+                                                </table>
+                                                <div id="btn-14-details" class="details">
+                                                <h4 class="details">Stacktrace is not available</h4>
+                                             </div>
+                                                   <table class="table" style="width: 100%;" border="1">
+                                                      <tbody>
+                                                         <tr>
+                                                            <td style="width: 10%;">00107d20</td>
+                                                            <td style="width: 20%;">.080
+                                                               <div class="bar" style="width: .080%"></div>
+                                                            </td>
+                                                            <td style="width: 20%;">0
+                                                               <div class="bar" style="width: 0%"></div>
+                                                            </td>
+                                                            <td style="width: 15%;">__aeabi_uidiv</td>
+                                                            <td style="width: 15%;"></td>
+                                                            <td style="width: 10%;">0</td>
+                                                            <td class="td-btn" style="width: 10%;"><button id="btn-15" class="button" onClick="changeText(this);">[+]</button></td>
+                                                         </tr>
+                                                      </tbody>
+                                                   </table>
+                                                   <div id="btn-15-details" class="details">
+                                                   <h4 class="details">Stacktrace is not available</h4>
+                                                </div>
+                                                      <table class="table" style="width: 100%;" border="1">
+                                                         <tbody>
+                                                            <tr>
+                                                               <td style="width: 10%;">00107f98</td>
+                                                               <td style="width: 20%;">.080
+                                                                  <div class="bar" style="width: .080%"></div>
+                                                               </td>
+                                                               <td style="width: 20%;">0
+                                                                  <div class="bar" style="width: 0%"></div>
+                                                               </td>
+                                                               <td style="width: 15%;">__divsi3</td>
+                                                               <td style="width: 15%;"></td>
+                                                               <td style="width: 10%;">0</td>
+                                                               <td class="td-btn" style="width: 10%;"><button id="btn-16" class="button" onClick="changeText(this);">[+]</button></td>
+                                                            </tr>
+                                                         </tbody>
+                                                      </table>
+                                                      <div id="btn-16-details" class="details">
+                                                      <h4 class="details">Stacktrace is not available</h4>
+                                                   </div>
+                                                         <table class="table" style="width: 100%;" border="1">
+                                                            <tbody>
+                                                               <tr>
+                                                                  <td style="width: 10%;">00107f9e</td>
+                                                                  <td style="width: 20%;">.080
+                                                                     <div class="bar" style="width: .080%"></div>
+                                                                  </td>
+                                                                  <td style="width: 20%;">0
+                                                                     <div class="bar" style="width: 0%"></div>
+                                                                  </td>
+                                                                  <td style="width: 15%;">.divsi3_skip_div0_test</td>
+                                                                  <td style="width: 15%;"></td>
+                                                                  <td style="width: 10%;">0</td>
+                                                                  <td class="td-btn" style="width: 10%;"><button id="btn-17" class="button" onClick="changeText(this);">[+]</button></td>
+                                                               </tr>
+                                                            </tbody>
+                                                         </table>
+                                                         <div id="btn-17-details" class="details">
+                                                         <h4 class="details">Stacktrace is not available</h4>
+                                                      </div>
+                                                      </div>
+</html>

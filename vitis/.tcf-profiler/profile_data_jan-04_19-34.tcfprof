@@ -1,0 +1,95 @@
+{
+  "sampleCount": 20,
+  "entries": [
+    {
+      "addr": 1075812,
+      "name": "XTime_GetTime",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/standalone_v7_3/src/xil_io.h",
+      "fileBase": "xil_io.h",
+      "line": 133,
+      "count": 18,
+      "total": 33.0015,
+      "callerMap": {
+        "1076000": 18.001501,
+        "1075812": 15.0
+      },
+      "calleeMap": {
+        "1075812": 15.001501
+      }
+    },
+    {
+      "addr": 1070992,
+      "name": "_start",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/standalone_v7_3/src/xil-crt0.S",
+      "fileBase": "xil-crt0.S",
+      "line": 59,
+      "count": 0,
+      "total": 20.0113,
+      "callerMap": {},
+      "calleeMap": {
+        "1054136": 20.0113
+      }
+    },
+    {
+      "addr": 1049988,
+      "name": "init",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station/Debug/../src/audio_subsystem.cpp",
+      "fileBase": "audio_subsystem.cpp",
+      "line": 80,
+      "count": 0,
+      "total": 20.0073,
+      "callerMap": {
+        "1054136": 20.0073
+      },
+      "calleeMap": {
+        "1050552": 20.0073
+      }
+    },
+    {
+      "addr": 1054136,
+      "name": "main",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station/Debug/../src/main.cpp",
+      "fileBase": "main.cpp",
+      "line": 42,
+      "count": 0,
+      "total": 20.009298,
+      "callerMap": {
+        "1070992": 20.009298
+      },
+      "calleeMap": {
+        "1049988": 20.009298
+      }
+    },
+    {
+      "addr": 1050552,
+      "name": "setup_audio_codec",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station/Debug/../src/audio_subsystem.cpp",
+      "fileBase": "audio_subsystem.cpp",
+      "line": 139,
+      "count": 0,
+      "total": 20.005302,
+      "callerMap": {
+        "1049988": 20.005302
+      },
+      "calleeMap": {
+        "1076000": 20.005302
+      }
+    },
+    {
+      "addr": 1076000,
+      "name": "usleep_A9",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/standalone_v7_3/src/usleep.c",
+      "fileBase": "usleep.c",
+      "line": 72,
+      "count": 2,
+      "total": 20.003302,
+      "callerMap": {
+        "1050552": 20.003302
+      },
+      "calleeMap": {
+        "1075812": 18.003302
+      }
+    }
+  ],
+  "stackTrace": true
+}

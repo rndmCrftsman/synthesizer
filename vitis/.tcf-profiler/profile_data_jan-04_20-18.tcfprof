@@ -1,0 +1,454 @@
+{
+  "sampleCount": 5635,
+  "entries": [
+    {
+      "addr": 2,
+      "line": 0,
+      "count": 0,
+      "total": 2.0005002,
+      "callerMap": {
+        "2": 1.0002
+      },
+      "calleeMap": {
+        "2": 1.0003,
+        "1080572": 1.0002
+      }
+    },
+    {
+      "addr": 4294967292,
+      "line": 0,
+      "count": 0,
+      "total": 99.546295,
+      "callerMap": {},
+      "calleeMap": {
+        "1048608": 99.546295
+      }
+    },
+    {
+      "addr": 1080606,
+      "name": ".divsi3_skip_div0_test",
+      "line": 0,
+      "count": 2,
+      "total": 2.0,
+      "callerMap": {
+        "1056324": 1.0,
+        "1081260": 1.0
+      },
+      "calleeMap": {}
+    },
+    {
+      "addr": 1053056,
+      "name": "AudioInputHandler",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station/Debug/../src/audio_subsystem.cpp",
+      "fileBase": "audio_subsystem.cpp",
+      "line": 353,
+      "count": 10,
+      "total": 66.020096,
+      "callerMap": {
+        "1072816": 66.020096
+      },
+      "calleeMap": {
+        "1058416": 52.019493,
+        "1074716": 4.0006
+      }
+    },
+    {
+      "addr": 1053208,
+      "name": "AudioOutputHandler",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station/Debug/../src/audio_subsystem.cpp",
+      "fileBase": "audio_subsystem.cpp",
+      "line": 364,
+      "count": 7,
+      "total": 66.0175,
+      "callerMap": {
+        "1072816": 66.0175
+      },
+      "calleeMap": {
+        "1058416": 53.0168,
+        "1074716": 6.0007
+      }
+    },
+    {
+      "addr": 1053360,
+      "name": "DmaReadDoneHandler",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station/Debug/../src/audio_subsystem.cpp",
+      "fileBase": "audio_subsystem.cpp",
+      "line": 375,
+      "count": 13,
+      "total": 16.0005,
+      "callerMap": {
+        "1072816": 16.0005
+      },
+      "calleeMap": {
+        "1074388": 3.0005
+      }
+    },
+    {
+      "addr": 1053496,
+      "name": "DmaWriteDoneHandler",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station/Debug/../src/audio_subsystem.cpp",
+      "fileBase": "audio_subsystem.cpp",
+      "line": 384,
+      "count": 1,
+      "total": 4.0004,
+      "callerMap": {
+        "1072816": 4.0004
+      },
+      "calleeMap": {
+        "1074388": 3.0004
+      }
+    },
+    {
+      "addr": 1048608,
+      "name": "IRQHandler",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/standalone_v7_3/src/asm_vectors.S",
+      "fileBase": "asm_vectors.S",
+      "line": 62,
+      "count": 25,
+      "total": 361.13535,
+      "callerMap": {
+        "1048608": 144.04564,
+        "4294967292": 99.54559,
+        "1054136": 117.5449
+      },
+      "calleeMap": {
+        "1072816": 185.07446,
+        "1048608": 144.06007,
+        "1054388": 7.0007
+      }
+    },
+    {
+      "addr": 1054388,
+      "name": "IRQInterrupt",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/standalone_v7_3/src/vectors.c",
+      "fileBase": "vectors.c",
+      "line": 85,
+      "count": 7,
+      "total": 7.0,
+      "callerMap": {
+        "1048608": 7.0
+      },
+      "calleeMap": {}
+    },
+    {
+      "addr": 1054616,
+      "name": "XDmaPs_BufPool_Free",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/dmaps_v2_7/src/xdmaps.c",
+      "fileBase": "xdmaps.c",
+      "line": 1779,
+      "count": 11,
+      "total": 11.0,
+      "callerMap": {
+        "1054736": 11.0
+      },
+      "calleeMap": {}
+    },
+    {
+      "addr": 1056324,
+      "name": "XDmaPs_ConstructSingleLoop",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/dmaps_v2_7/src/xdmaps.c",
+      "fileBase": "xdmaps.c",
+      "line": 893,
+      "count": 7,
+      "total": 13.0007,
+      "callerMap": {
+        "1070976": 3.0003,
+        "1056756": 9.000401,
+        "1056324": 1.0
+      },
+      "calleeMap": {
+        "1056324": 1.0001,
+        "1080600": 2.0002,
+        "1081260": 2.0003,
+        "1080606": 1.0001
+      }
+    },
+    {
+      "addr": 1059068,
+      "name": "XDmaPs_DoneISR_0",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/dmaps_v2_7/src/xdmaps.c",
+      "fileBase": "xdmaps.c",
+      "line": 1573,
+      "count": 4,
+      "total": 4.0,
+      "callerMap": {
+        "1072816": 4.0
+      },
+      "calleeMap": {}
+    },
+    {
+      "addr": 1054736,
+      "name": "XDmaPs_DoneISR_n",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/dmaps_v2_7/src/xdmaps.c",
+      "fileBase": "xdmaps.c",
+      "line": 1879,
+      "count": 4,
+      "total": 15.001101,
+      "callerMap": {
+        "1072816": 15.001101
+      },
+      "calleeMap": {
+        "1054616": 11.001101
+      }
+    },
+    {
+      "addr": 1056756,
+      "name": "XDmaPs_GenDmaProg",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/dmaps_v2_7/src/xdmaps.c",
+      "fileBase": "xdmaps.c",
+      "line": 1321,
+      "count": 8,
+      "total": 144.02937,
+      "callerMap": {
+        "1058416": 49.014404,
+        "1056756": 95.014984
+      },
+      "calleeMap": {
+        "1068960": 17.0017,
+        "1056756": 95.02448,
+        "1056324": 9.001301,
+        "1055652": 4.0006,
+        "1080572": 11.0013
+      }
+    },
+    {
+      "addr": 1058416,
+      "name": "XDmaPs_Start",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/dmaps_v2_7/src/xdmaps.c",
+      "fileBase": "xdmaps.c",
+      "line": 1447,
+      "count": 10,
+      "total": 106.02578,
+      "callerMap": {
+        "1053056": 52.014297,
+        "1058416": 1.0,
+        "1053208": 53.011505
+      },
+      "calleeMap": {
+        "1068960": 26.002602,
+        "1058416": 1.0001,
+        "1056756": 49.0193,
+        "1068652": 20.0038
+      }
+    },
+    {
+      "addr": 1055652,
+      "name": "XDmaPs_ToCCRValue",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/dmaps_v2_7/src/xdmaps.c",
+      "fileBase": "xdmaps.c",
+      "line": 832,
+      "count": 4,
+      "total": 6.0002003,
+      "callerMap": {
+        "1056756": 4.0002003,
+        "1055652": 2.0
+      },
+      "calleeMap": {
+        "1055652": 2.0002
+      }
+    },
+    {
+      "addr": 1074716,
+      "name": "XScuGic_Disable",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/scugic_v4_3/src/xscugic.c",
+      "fileBase": "xscugic.c",
+      "line": 608,
+      "count": 7,
+      "total": 10.0003,
+      "callerMap": {
+        "1053056": 4.0002003,
+        "1053208": 6.0001
+      },
+      "calleeMap": {
+        "1074600": 3.0003
+      }
+    },
+    {
+      "addr": 1074388,
+      "name": "XScuGic_Enable",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/scugic_v4_3/src/xscugic.c",
+      "fileBase": "xscugic.c",
+      "line": 549,
+      "count": 3,
+      "total": 6.0003004,
+      "callerMap": {
+        "1053360": 3.0002003,
+        "1053496": 3.0001001
+      },
+      "calleeMap": {
+        "1074272": 3.0003
+      }
+    },
+    {
+      "addr": 1072816,
+      "name": "XScuGic_InterruptHandler",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/scugic_v4_3/src/xscugic_intr.c",
+      "fileBase": "xscugic_intr.c",
+      "line": 105,
+      "count": 14,
+      "total": 187.0568,
+      "callerMap": {
+        "1048608": 185.0569,
+        "1072816": 2.0
+      },
+      "calleeMap": {
+        "1053056": 66.026596,
+        "1053360": 16.0021,
+        "1054736": 15.002601,
+        "1072816": 2.0002,
+        "1053208": 66.02409,
+        "1053496": 4.0008,
+        "1059068": 4.0004
+      }
+    },
+    {
+      "addr": 1074272,
+      "name": "XScuGic_InterruptMaptoCpu",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/scugic_v4_3/src/xscugic.c",
+      "fileBase": "xscugic.c",
+      "line": 919,
+      "count": 3,
+      "total": 3.0,
+      "callerMap": {
+        "1074388": 3.0
+      },
+      "calleeMap": {}
+    },
+    {
+      "addr": 1074600,
+      "name": "XScuGic_InterruptUnmapFromCpu",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/scugic_v4_3/src/xscugic.c",
+      "fileBase": "xscugic.c",
+      "line": 963,
+      "count": 3,
+      "total": 3.0,
+      "callerMap": {
+        "1074716": 3.0
+      },
+      "calleeMap": {}
+    },
+    {
+      "addr": 1068960,
+      "name": "Xil_DCacheFlushRange",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/standalone_v7_3/src/xil_cache.c",
+      "fileBase": "xil_cache.c",
+      "line": 462,
+      "count": 43,
+      "total": 43.0,
+      "callerMap": {
+        "1058416": 26.0,
+        "1056756": 17.0
+      },
+      "calleeMap": {}
+    },
+    {
+      "addr": 1068652,
+      "name": "Xil_DCacheInvalidateRange",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/standalone_v7_3/src/xil_cache.c",
+      "fileBase": "xil_cache.c",
+      "line": 317,
+      "count": 20,
+      "total": 38.002296,
+      "callerMap": {
+        "1058416": 20.0018,
+        "1068652": 18.000498
+      },
+      "calleeMap": {
+        "1068652": 18.0023
+      }
+    },
+    {
+      "addr": 1081260,
+      "name": "__aeabi_idivmod",
+      "line": 0,
+      "count": 1,
+      "total": 2.0001001,
+      "callerMap": {
+        "1056324": 2.0001001
+      },
+      "calleeMap": {
+        "1080606": 1.0001
+      }
+    },
+    {
+      "addr": 1079968,
+      "name": "__aeabi_uidiv",
+      "line": 0,
+      "count": 3,
+      "total": 3.0,
+      "callerMap": {
+        "1080572": 3.0
+      },
+      "calleeMap": {}
+    },
+    {
+      "addr": 1080572,
+      "name": "__aeabi_uidivmod",
+      "line": 0,
+      "count": 9,
+      "total": 12.0003,
+      "callerMap": {
+        "2": 1.0001,
+        "1056756": 11.0002
+      },
+      "calleeMap": {
+        "1079968": 3.0003
+      }
+    },
+    {
+      "addr": 1080600,
+      "name": "__divsi3",
+      "line": 0,
+      "count": 2,
+      "total": 2.0,
+      "callerMap": {
+        "1056324": 2.0
+      },
+      "calleeMap": {}
+    },
+    {
+      "addr": 1070976,
+      "name": "_start",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/standalone_v7_3/src/xil-crt0.S",
+      "fileBase": "xil-crt0.S",
+      "line": 59,
+      "count": 0,
+      "total": 5535.108,
+      "callerMap": {},
+      "calleeMap": {
+        "1056324": 3.0006,
+        "1054136": 5532.1074
+      }
+    },
+    {
+      "addr": 1048576,
+      "name": "_vector_table",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station_overview_wrapper/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/ps7_cortexa9_0/libsrc/standalone_v7_3/src/asm_vectors.S",
+      "fileBase": "asm_vectors.S",
+      "line": 50,
+      "count": 2,
+      "total": 2.0,
+      "callerMap": {
+        "1054136": 2.0
+      },
+      "calleeMap": {}
+    },
+    {
+      "addr": 1054136,
+      "name": "main",
+      "fileFull": "/home/hannes/Entwicklung/synthesizer/vitis/audio_station/Debug/../src/main.cpp",
+      "fileBase": "main.cpp",
+      "line": 6,
+      "count": 5412,
+      "total": 5531.5493,
+      "callerMap": {
+        "1070976": 5531.563
+      },
+      "calleeMap": {
+        "1048608": 117.5474,
+        "1048576": 2.0002
+      }
+    }
+  ],
+  "stackTrace": true
+}

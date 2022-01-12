@@ -42,3 +42,21 @@ platform config -updatehw {/home/hannes/Entwicklung/synthesizer/FPGA/audio_stati
 platform generate
 platform config -updatehw {/home/hannes/Entwicklung/synthesizer/FPGA/audio_station/audio_station_overview_wrapper.xsa}
 platform generate -domains 
+platform active {audio_station_overview_wrapper}
+domain active {zynq_fsbl}
+bsp reload
+domain active {standalone_ps7_cortexa9_0}
+bsp reload
+bsp reload
+domain active {zynq_fsbl}
+bsp reload
+platform generate -domains 
+platform generate
+platform clean
+platform generate
+platform clean
+platform generate
+platform clean
+platform generate
+platform clean
+platform generate
