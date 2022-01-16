@@ -17,9 +17,6 @@ typedef int32_t	audio_buffer[AUDIO_BUFFER_LEN];
 
 namespace AudioSubsystem {
 	XStatus init();
-	bool newInputDataAvailable();
-	XStatus readInputData(int32_t buffer[AUDIO_BUFFER_LEN]);
-	XStatus writeOutputData(int32_t buffer[AUDIO_BUFFER_LEN]);
 }
 
 #endif // __HPP_AUDIOSUBSYSTEM

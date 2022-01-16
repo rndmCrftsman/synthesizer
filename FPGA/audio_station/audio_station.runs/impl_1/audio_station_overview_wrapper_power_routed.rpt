@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date             : Mon Jan  3 21:38:27 2022
+| Date             : Thu Jan 13 13:26:54 2022
 | Host             : pop-os running 64-bit Pop!_OS 21.10
 | Command          : report_power -file audio_station_overview_wrapper_power_routed.rpt -pb audio_station_overview_wrapper_power_summary_routed.pb -rpx audio_station_overview_wrapper_power_routed.rpx
 | Design           : audio_station_overview_wrapper
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.555        |
+| Total On-Chip Power (W)  | 1.553        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.414        |
+| Dynamic (W)              | 1.412        |
 | Device Static (W)        | 0.141        |
 | Effective TJA (C/W)      | 11.5         |
 | Max Ambient (C)          | 67.1         |
@@ -53,18 +53,18 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.002 |        3 |       --- |             --- |
-| Slice Logic              |    <0.001 |      791 |       --- |             --- |
-|   LUT as Logic           |    <0.001 |      202 |     53200 |            0.38 |
+| Slice Logic              |    <0.001 |      799 |       --- |             --- |
+|   LUT as Logic           |    <0.001 |      199 |     53200 |            0.37 |
 |   LUT as Distributed RAM |    <0.001 |       48 |     17400 |            0.28 |
-|   Register               |    <0.001 |      267 |    106400 |            0.25 |
-|   CARRY4                 |    <0.001 |        3 |     13300 |            0.02 |
+|   CARRY4                 |    <0.001 |        6 |     13300 |            0.05 |
+|   Register               |    <0.001 |      270 |    106400 |            0.25 |
 |   Others                 |     0.000 |      152 |       --- |             --- |
 |   LUT as Shift Register  |     0.000 |        1 |     17400 |           <0.01 |
-| Signals                  |     0.001 |      584 |       --- |             --- |
-| I/O                      |     0.009 |       14 |       125 |           11.20 |
+| Signals                  |    <0.001 |      593 |       --- |             --- |
+| I/O                      |     0.008 |       14 |       125 |           11.20 |
 | PS7                      |     1.400 |        1 |       --- |             --- |
 | Static Power             |     0.141 |          |           |                 |
-| Total                    |     1.555 |          |           |                 |
+| Total                    |     1.553 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -76,7 +76,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Vccint    |       1.000 |     0.018 |       0.004 |      0.014 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.015 |       0.000 |      0.015 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     0.004 |       0.003 |      0.001 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.003 |       0.002 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -150,7 +150,7 @@ Table of Contents
 +--------------------------------+-----------+
 | Name                           | Power (W) |
 +--------------------------------+-----------+
-| audio_station_overview_wrapper |     1.414 |
+| audio_station_overview_wrapper |     1.412 |
 |   audio_station_overview_i     |     1.404 |
 |     AudioStation_0             |     0.003 |
 |       inst                     |     0.003 |

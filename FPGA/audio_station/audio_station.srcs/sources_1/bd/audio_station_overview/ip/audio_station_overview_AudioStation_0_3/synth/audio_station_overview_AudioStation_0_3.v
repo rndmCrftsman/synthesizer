@@ -48,7 +48,7 @@
 
 
 // IP VLNV: hannes.stoll:myIP:AudioStation:0.5
-// IP Revision: 27
+// IP Revision: 28
 
 (* X_CORE_INFO = "AudioStation,Vivado 2020.2" *)
 (* CHECK_LICENSE_TYPE = "audio_station_overview_AudioStation_0_3,AudioStation,{}" *)

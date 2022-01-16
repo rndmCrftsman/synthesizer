@@ -60,3 +60,16 @@ platform clean
 platform generate
 platform clean
 platform generate
+platform generate
+platform active {audio_station_overview_wrapper}
+platform config -updatehw {/home/hannes/Entwicklung/synthesizer/FPGA/audio_station/audio_station_overview_wrapper.xsa}
+platform generate -domains 
+platform config -updatehw {/home/hannes/Entwicklung/synthesizer/FPGA/audio_station/audio_station_overview_wrapper.xsa}
+platform clean
+platform generate
+bsp reload
+domain active {standalone_ps7_cortexa9_0}
+bsp reload
+platform active {audio_station_overview_wrapper}
+platform config -updatehw {/home/hannes/Entwicklung/synthesizer/FPGA/audio_station/audio_station_overview_wrapper.xsa}
+platform generate -domains 

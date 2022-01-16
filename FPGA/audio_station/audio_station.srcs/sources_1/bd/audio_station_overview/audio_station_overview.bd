@@ -1274,12 +1274,6 @@
           "PCW_USB0_PERIPHERAL_ENABLE": {
             "value": "0"
           },
-          "PCW_USB0_RESET_ENABLE": {
-            "value": "1"
-          },
-          "PCW_USB0_RESET_IO": {
-            "value": "MIO 46"
-          },
           "PCW_USB_RESET_ENABLE": {
             "value": "1"
           },

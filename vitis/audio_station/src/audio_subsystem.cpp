@@ -8,7 +8,6 @@
 #include "audio_subsystem.hpp"
 
 #include <stdint.h>
-#include <queue>
 
 #include <xstatus.h>
 #include "xil_printf.h"
@@ -22,12 +21,12 @@
 
 #include "ssm2603.hpp"
 #include "utility.hpp"
+#include "processing_pipeline.hpp"
 
 #define CODEC_DEV_ID				XPAR_PS7_I2C_0_DEVICE_ID
 #define INTERRUPT_DEV_ID			XPAR_PS7_SCUGIC_0_DEVICE_ID
 #define DMA_PS_DEV_ID				XPAR_XDMAPS_1_DEVICE_ID
 
-// #define CODEC_BASEADDR				XPAR_PS7_I2C_0_BASEADDR
 #define CODEC_SCL_FREQ_HZ			100000
 #define CODEC_IIC_ADDR				0x1A // equal to 0b0011010
 
@@ -51,9 +50,6 @@
 namespace AudioSubsystem {
 	/* public  members */
 	XStatus init();
-	bool newInputDataAvailable();
-	XStatus readInputData(int32_t buffer[AUDIO_BUFFER_LEN]);
-	XStatus writeOutputData(int32_t buffer[AUDIO_BUFFER_LEN]);
 
 	/* private members */
 	namespace {
@@ -69,8 +65,6 @@ namespace AudioSubsystem {
 
 		audio_buffer input_buffer;
 		audio_buffer output_buffer;
-//		std::queue<int32_t> input_queue;
-//		std::queue<int32_t> output_queue;
 		bool i_new_input_data_available = false;
 
 		XStatus setup_GPIOs();
@@ -108,7 +102,6 @@ namespace AudioSubsystem {
 		}
 
 		for (int i = 0; i < AUDIO_BUFFER_LEN; ++i) {
-//			output_queue.push(0);
 			output_buffer[i] = 0;
 		}
 
@@ -117,43 +110,6 @@ namespace AudioSubsystem {
 		print("Audio Subsystem initalized\n");
 
 		return Status;
-	}
-
-	bool newInputDataAvailable() {
-//		return (input_queue.size() >= AUDIO_BUFFER_LEN);
-		return i_new_input_data_available;
-	}
-
-	XStatus readInputData(int32_t buffer[AUDIO_BUFFER_LEN]) {
-		XScuGic_Disable(&IntrInst, AUDIO_INPUT_BUFFER_INTR);
-		if(DmaAudioChannelActive) {
-			return XST_FAILURE;
-		}
-//		for (int i = 0; i < AUDIO_BUFFER_LEN; i++) {
-//			buffer[i] = input_queue.front();
-//			input_queue.pop();
-//		}
-		for (int i = 0; i < AUDIO_BUFFER_LEN; i++) {
-			buffer[i] = input_buffer[i];
-		}
-		i_new_input_data_available = false;
-		XScuGic_Enable(&IntrInst, AUDIO_INPUT_BUFFER_INTR);
-		return XST_SUCCESS;
-	}
-
-	XStatus writeOutputData(int32_t buffer[AUDIO_BUFFER_LEN]) {
-		XScuGic_Disable(&IntrInst, AUDIO_OUTPUT_BUFFER_INTR);
-		if(DmaAudioChannelActive) {
-			return XST_FAILURE;
-		}
-//		for (int i = 0; i < AUDIO_BUFFER_LEN; i++) {
-//			output_queue.push(buffer[i]);
-//		}
-		for (int i = 0; i < AUDIO_BUFFER_LEN; i++) {
-			output_buffer[i] = buffer[i];
-		}
-		XScuGic_Enable(&IntrInst, AUDIO_OUTPUT_BUFFER_INTR);
-		return XST_SUCCESS;
 	}
 
 	/* implementation of private functions */
@@ -242,11 +198,12 @@ namespace AudioSubsystem {
 			TxData = 0b1000;
 			Status |= codec_write_reg(CODEC_DIGIF_ADDR, TxData);
 
-			TxData = (0b0111 << 2);
+//			TxData = (0b0111 << 2); // fs = 96 kHz
+			TxData = (0b0000 << 2); // fs = 48 kHz
 			Status |= codec_write_reg(CODEC_SAMPLE_ADDR, TxData);
 
-		//	TxData = 0b001111011;
-		//	Status |= codec_write_reg(CODEC_ALCCTRL1_ADDR, TxData);
+			TxData = 0b000101011;
+			Status |= codec_write_reg(CODEC_ALCCTRL1_ADDR, TxData);
 		//
 		//	TxData = 0b000110010;
 		//	Status |= codec_write_reg(CODEC_ALCCTRL2_ADDR, TxData);
@@ -418,24 +375,11 @@ namespace AudioSubsystem {
 
 		void DmaReadDoneHandler(unsigned int Channel, XDmaPs_Cmd *DmaCmd, void *CallbackRef)
 		{
-//			for (int i = 0; i < AUDIO_BUFFER_LEN; ++i) {
-//				output_buffer[i] = input_buffer[i];
-//			}
+			ProcessingPipeline::processBuffer(input_buffer);
 
-//			for (int i = 0; i < AUDIO_BUFFER_LEN; ++i) {
-//				input_queue.push(input_buffer[i]);
-//			}
-//			if(output_queue.size() >= AUDIO_BUFFER_LEN) {
-//				for (int i = 0; i < AUDIO_BUFFER_LEN; ++i) {
-//					output_buffer[i] = output_queue.front();
-//					output_queue.pop();
-//				}
-//			} else {
-//				for (int i = 0; i < AUDIO_BUFFER_LEN; ++i) {
-//					output_buffer[i] = 0;
-//				}
-//			}
-			i_new_input_data_available = true;
+			for (int i = 0; i < AUDIO_BUFFER_LEN; ++i) {
+				output_buffer[i] = input_buffer[i];
+			}
 			DmaAudioChannelActive = false;
 			XScuGic_Enable(&IntrInst, AUDIO_INPUT_BUFFER_INTR);
 			XScuGic_Enable(&IntrInst, AUDIO_OUTPUT_BUFFER_INTR);

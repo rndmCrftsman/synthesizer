@@ -201,9 +201,9 @@ module I2S (
   reg        [31:0]   r_buffer_in;
   reg                 r_buffer_in_full;
   reg        [2:0]    r_cnt_mclk_en;
-  reg        [4:0]    r_cnt_bclk_en;
-  reg        [10:0]   r_cnt_lrclk_en;
-  reg        [11:0]   r_cnt_frame_en;
+  reg        [5:0]    r_cnt_bclk_en;
+  reg        [11:0]   r_cnt_lrclk_en;
+  reg        [12:0]   r_cnt_frame_en;
   reg                 r_mclk_en;
   reg                 r_bclk_en;
   reg                 r_lrclk_en;
@@ -234,9 +234,9 @@ module I2S (
   assign when_I2S_l113 = (r_cnt_mclk_en == 3'b100);
   assign when_I2S_l125 = (r_cnt_mclk_en == 3'b011);
   assign when_I2S_l126 = (! r_mclk);
-  assign when_I2S_l138 = (r_cnt_bclk_en == 5'h09);
-  assign when_I2S_l146 = (r_cnt_lrclk_en == 11'h27f);
-  assign when_I2S_l154 = (r_cnt_frame_en == 12'h4ff);
+  assign when_I2S_l138 = (r_cnt_bclk_en == 6'h13);
+  assign when_I2S_l146 = (r_cnt_lrclk_en == 12'h4ff);
+  assign when_I2S_l154 = (r_cnt_frame_en == 13'h09ff);
   assign when_I2S_l171 = (io_s_data_in_valid && io_s_data_in_ready);
   assign when_I2S_l177 = (io_s_data_out_valid && io_s_data_out_ready);
   always @(posedge clk) begin
@@ -246,9 +246,9 @@ module I2S (
       r_buffer_in <= 32'h0;
       r_buffer_in_full <= 1'b0;
       r_cnt_mclk_en <= 3'b000;
-      r_cnt_bclk_en <= 5'h0;
-      r_cnt_lrclk_en <= 11'h0;
-      r_cnt_frame_en <= 12'h0;
+      r_cnt_bclk_en <= 6'h0;
+      r_cnt_lrclk_en <= 12'h0;
+      r_cnt_frame_en <= 13'h0;
       r_mclk_en <= 1'b0;
       r_bclk_en <= 1'b0;
       r_lrclk_en <= 1'b0;
@@ -283,24 +283,24 @@ module I2S (
       end
       if(r_enable) begin
         if(when_I2S_l138) begin
-          r_cnt_bclk_en <= 5'h0;
+          r_cnt_bclk_en <= 6'h0;
           r_bclk_en <= 1'b1;
         end else begin
-          r_cnt_bclk_en <= (r_cnt_bclk_en + 5'h01);
+          r_cnt_bclk_en <= (r_cnt_bclk_en + 6'h01);
           r_bclk_en <= 1'b0;
         end
         if(when_I2S_l146) begin
-          r_cnt_lrclk_en <= 11'h0;
+          r_cnt_lrclk_en <= 12'h0;
           r_lrclk_en <= 1'b1;
         end else begin
-          r_cnt_lrclk_en <= (r_cnt_lrclk_en + 11'h001);
+          r_cnt_lrclk_en <= (r_cnt_lrclk_en + 12'h001);
           r_lrclk_en <= 1'b0;
         end
         if(when_I2S_l154) begin
-          r_cnt_frame_en <= 12'h0;
+          r_cnt_frame_en <= 13'h0;
           r_frame_en <= 1'b1;
         end else begin
-          r_cnt_frame_en <= (r_cnt_frame_en + 12'h001);
+          r_cnt_frame_en <= (r_cnt_frame_en + 13'h0001);
           r_frame_en <= 1'b0;
         end
         if(r_bclk_en) begin
@@ -331,9 +331,9 @@ module I2S (
           end
         end
       end else begin
-        r_cnt_bclk_en <= 5'h09;
-        r_cnt_lrclk_en <= 11'h27f;
-        r_cnt_frame_en <= 12'h4ff;
+        r_cnt_bclk_en <= 6'h13;
+        r_cnt_lrclk_en <= 12'h4ff;
+        r_cnt_frame_en <= 13'h09ff;
         r_bclk_en <= 1'b0;
         r_lrclk_en <= 1'b0;
         r_frame_en <= 1'b0;

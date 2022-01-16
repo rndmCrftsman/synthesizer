@@ -71,7 +71,7 @@ vcom -work xil_defaultlib -93 \
 "../../../bd/audio_station_overview/ip/audio_station_overview_rst_ps7_0_125M_0/sim/audio_station_overview_rst_ps7_0_125M_0.vhd" \
 
 vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../audio_station.srcs/sources_1/bd/audio_station_overview/ipshared/ec67/hdl" "+incdir+../../../../audio_station.srcs/sources_1/bd/audio_station_overview/ipshared/34f8/hdl" "+incdir+/usr/local/Xilinx/Vivado/2020.2/data/xilinx_vip/include" \
-"../../../bd/audio_station_overview/ipshared/5d29/AudioStation.v" \
+"../../../bd/audio_station_overview/ipshared/8fb0/AudioStation.v" \
 "../../../bd/audio_station_overview/ip/audio_station_overview_AudioStation_0_3/sim/audio_station_overview_AudioStation_0_3.v" \
 
 vlog -work xlconcat_v2_1_4  -v2k5 "+incdir+../../../../audio_station.srcs/sources_1/bd/audio_station_overview/ipshared/ec67/hdl" "+incdir+../../../../audio_station.srcs/sources_1/bd/audio_station_overview/ipshared/34f8/hdl" "+incdir+/usr/local/Xilinx/Vivado/2020.2/data/xilinx_vip/include" \
