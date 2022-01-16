@@ -39,7 +39,7 @@ class I2S() extends Component {
     
     /* Important:
      * This Module is developed to work with a input clock of 122.88MHz
-     * to produce a 96kHz Audiosignal with the SSM2603 chip. It's not 
+     * to produce a 48kHz Audiosignal with the SSM2603 chip. It's not 
      * including the I2C Bus for configuration of the IC.
      */
   
@@ -55,9 +55,9 @@ class I2S() extends Component {
 
     // Registers for generating enable signals to generate clocks
     val r_cnt_mclk_en = Reg(UInt(log2Up(4)+1 bits))   init(0)
-    val r_cnt_bclk_en = Reg(UInt(log2Up(9)+1 bits))   init(0)
-    val r_cnt_lrclk_en = Reg(UInt(log2Up(639)+1 bits)) init(0)
-    val r_cnt_frame_en = Reg(UInt(log2Up(1279)+1 bits)) init(0)
+    val r_cnt_bclk_en = Reg(UInt(log2Up(19)+1 bits))   init(0)
+    val r_cnt_lrclk_en = Reg(UInt(log2Up(1279)+1 bits)) init(0)
+    val r_cnt_frame_en = Reg(UInt(log2Up(2559)+1 bits)) init(0)
     val r_mclk_en = Reg(Bool) init(False)
     val r_bclk_en = Reg(Bool) init(False)
     val r_lrclk_en = Reg(Bool) init(False)
@@ -135,7 +135,7 @@ class I2S() extends Component {
     }
 
     when(r_enable) {
-        when(r_cnt_bclk_en === 9) {
+        when(r_cnt_bclk_en === 19) {
             r_cnt_bclk_en := 0
             r_bclk_en := True
         } .otherwise {
@@ -143,7 +143,7 @@ class I2S() extends Component {
             r_bclk_en := False
         }
 
-        when(r_cnt_lrclk_en === 639) {
+        when(r_cnt_lrclk_en === 1279) {
             r_cnt_lrclk_en := 0
             r_lrclk_en := True
         } .otherwise {
@@ -151,7 +151,7 @@ class I2S() extends Component {
             r_lrclk_en := False
         }
     
-        when(r_cnt_frame_en === 1279) {
+        when(r_cnt_frame_en === 2559) {
             r_cnt_frame_en := 0
             r_frame_en := True
         } .otherwise {
@@ -198,9 +198,9 @@ class I2S() extends Component {
             }
         }
     } .otherwise {
-        r_cnt_bclk_en := 9
-        r_cnt_lrclk_en := 639
-        r_cnt_frame_en := 1279
+        r_cnt_bclk_en := 19
+        r_cnt_lrclk_en := 1279
+        r_cnt_frame_en := 2559
         r_bclk_en := False
         r_lrclk_en := False
         r_frame_en := False

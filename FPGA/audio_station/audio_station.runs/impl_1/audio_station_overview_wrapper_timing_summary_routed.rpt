@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Mon Jan  3 21:38:27 2022
+| Date         : Thu Jan 13 13:26:54 2022
 | Host         : pop-os running 64-bit Pop!_OS 21.10
 | Command      : report_timing_summary -max_paths 10 -file audio_station_overview_wrapper_timing_summary_routed.rpt -pb audio_station_overview_wrapper_timing_summary_routed.pb -rpx audio_station_overview_wrapper_timing_summary_routed.rpx -warn_on_violation
 | Design       : audio_station_overview_wrapper
@@ -128,7 +128,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      2.478        0.000                      0                 1381        0.037        0.000                      0                 1381        2.750        0.000                       0                   365  
+      2.406        0.000                      0                 1389        0.080        0.000                      0                 1389        2.750        0.000                       0                   368  
 
 
 All user specified timing constraints are met.
@@ -151,7 +151,7 @@ clk_fpga_0  {0.000 4.000}        8.000           125.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-clk_fpga_0          2.478        0.000                      0                 1381        0.037        0.000                      0                 1381        2.750        0.000                       0                   365  
+clk_fpga_0          2.406        0.000                      0                 1389        0.080        0.000                      0                 1389        2.750        0.000                       0                   368  
 
 
 ------------------------------------------------------------------------------------------------
@@ -182,356 +182,27 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 From Clock:  clk_fpga_0
   To Clock:  clk_fpga_0
 
-Setup :            0  Failing Endpoints,  Worst Slack        2.478ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.037ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        2.406ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.080ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        2.750ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             2.478ns  (required time - arrival time)
-  Source:                 audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-                            (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Destination:            audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0RDATA[20]
-                            (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            8.000ns  (clk_fpga_0 rise@8.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        4.847ns  (logic 1.481ns (30.557%)  route 3.366ns (69.443%))
-  Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        0.000ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.742ns = ( 10.742 - 8.000 ) 
-    Source Clock Delay      (SCD):    3.031ns
-    Clock Pessimism Removal (CPR):    0.289ns
-  Clock Uncertainty:      0.125ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.240ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.193     1.193    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         1.737     3.031    audio_station_overview_i/processing_system7_0/inst/M_AXI_GP0_ACLK
-    PS7_X0Y0             PS7                                          r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-  -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0RREADY)
-                                                      1.357     4.388 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0RREADY
-                         net (fo=36, routed)          3.049     7.436    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/io_axi_r_ready
-    SLICE_X27Y95         LUT6 (Prop_lut6_I2_O)        0.124     7.560 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/io_axi_r_payload_data[20]_INST_0/O
-                         net (fo=1, routed)           0.317     7.877    audio_station_overview_i/processing_system7_0/inst/M_AXI_GP0_RDATA[20]
-    PS7_X0Y0             PS7                                          r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0RDATA[20]
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      8.000     8.000 r  
-    PS7_X0Y0             PS7                          0.000     8.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.088     9.088    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     9.179 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         1.562    10.742    audio_station_overview_i/processing_system7_0/inst/M_AXI_GP0_ACLK
-    PS7_X0Y0             PS7                                          r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-                         clock pessimism              0.289    11.031    
-                         clock uncertainty           -0.125    10.906    
-    PS7_X0Y0             PS7 (Setup_ps7_MAXIGP0ACLK_MAXIGP0RDATA[20])
-                                                     -0.550    10.356    audio_station_overview_i/processing_system7_0/inst/PS7_i
-  -------------------------------------------------------------------
-                         required time                         10.356    
-                         arrival time                          -7.877    
-  -------------------------------------------------------------------
-                         slack                                  2.478    
-
-Slack (MET) :             2.732ns  (required time - arrival time)
-  Source:                 audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-                            (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Destination:            audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0RDATA[27]
-                            (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            8.000ns  (clk_fpga_0 rise@8.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        4.593ns  (logic 1.481ns (32.247%)  route 3.112ns (67.753%))
-  Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        0.000ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.742ns = ( 10.742 - 8.000 ) 
-    Source Clock Delay      (SCD):    3.031ns
-    Clock Pessimism Removal (CPR):    0.289ns
-  Clock Uncertainty:      0.125ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.240ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.193     1.193    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         1.737     3.031    audio_station_overview_i/processing_system7_0/inst/M_AXI_GP0_ACLK
-    PS7_X0Y0             PS7                                          r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-  -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0RREADY)
-                                                      1.357     4.388 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0RREADY
-                         net (fo=36, routed)          2.631     7.019    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/io_axi_r_ready
-    SLICE_X28Y96         LUT6 (Prop_lut6_I2_O)        0.124     7.143 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/io_axi_r_payload_data[27]_INST_0/O
-                         net (fo=1, routed)           0.481     7.623    audio_station_overview_i/processing_system7_0/inst/M_AXI_GP0_RDATA[27]
-    PS7_X0Y0             PS7                                          r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0RDATA[27]
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      8.000     8.000 r  
-    PS7_X0Y0             PS7                          0.000     8.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.088     9.088    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     9.179 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         1.562    10.742    audio_station_overview_i/processing_system7_0/inst/M_AXI_GP0_ACLK
-    PS7_X0Y0             PS7                                          r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-                         clock pessimism              0.289    11.031    
-                         clock uncertainty           -0.125    10.906    
-    PS7_X0Y0             PS7 (Setup_ps7_MAXIGP0ACLK_MAXIGP0RDATA[27])
-                                                     -0.550    10.356    audio_station_overview_i/processing_system7_0/inst/PS7_i
-  -------------------------------------------------------------------
-                         required time                         10.356    
-                         arrival time                          -7.623    
-  -------------------------------------------------------------------
-                         slack                                  2.732    
-
-Slack (MET) :             2.738ns  (required time - arrival time)
-  Source:                 audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-                            (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Destination:            audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0RDATA[24]
-                            (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            8.000ns  (clk_fpga_0 rise@8.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        4.586ns  (logic 1.481ns (32.291%)  route 3.105ns (67.709%))
-  Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        0.000ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.742ns = ( 10.742 - 8.000 ) 
-    Source Clock Delay      (SCD):    3.031ns
-    Clock Pessimism Removal (CPR):    0.289ns
-  Clock Uncertainty:      0.125ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.240ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.193     1.193    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         1.737     3.031    audio_station_overview_i/processing_system7_0/inst/M_AXI_GP0_ACLK
-    PS7_X0Y0             PS7                                          r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-  -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0RREADY)
-                                                      1.357     4.388 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0RREADY
-                         net (fo=36, routed)          2.640     7.028    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/io_axi_r_ready
-    SLICE_X28Y96         LUT6 (Prop_lut6_I2_O)        0.124     7.152 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/io_axi_r_payload_data[24]_INST_0/O
-                         net (fo=1, routed)           0.466     7.617    audio_station_overview_i/processing_system7_0/inst/M_AXI_GP0_RDATA[24]
-    PS7_X0Y0             PS7                                          r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0RDATA[24]
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      8.000     8.000 r  
-    PS7_X0Y0             PS7                          0.000     8.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.088     9.088    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     9.179 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         1.562    10.742    audio_station_overview_i/processing_system7_0/inst/M_AXI_GP0_ACLK
-    PS7_X0Y0             PS7                                          r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-                         clock pessimism              0.289    11.031    
-                         clock uncertainty           -0.125    10.906    
-    PS7_X0Y0             PS7 (Setup_ps7_MAXIGP0ACLK_MAXIGP0RDATA[24])
-                                                     -0.550    10.356    audio_station_overview_i/processing_system7_0/inst/PS7_i
-  -------------------------------------------------------------------
-                         required time                         10.356    
-                         arrival time                          -7.617    
-  -------------------------------------------------------------------
-                         slack                                  2.738    
-
-Slack (MET) :             2.935ns  (required time - arrival time)
+Slack (MET) :             2.406ns  (required time - arrival time)
   Source:                 audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Destination:            audio_station_overview_i/AudioStation_0/inst/i2s_1/r_bclk_en_reg/R
+  Destination:            audio_station_overview_i/AudioStation_0/inst/i2s_1/r_enable_reg/R
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            8.000ns  (clk_fpga_0 rise@8.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        3.855ns  (logic 0.668ns (17.328%)  route 3.187ns (82.672%))
-  Logic Levels:           1  (LUT2=1)
-  Clock Path Skew:        -0.352ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.658ns = ( 10.658 - 8.000 ) 
-    Source Clock Delay      (SCD):    3.139ns
-    Clock Pessimism Removal (CPR):    0.129ns
-  Clock Uncertainty:      0.125ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.240ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.193     1.193    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         1.845     3.139    audio_station_overview_i/rst_ps7_0_125M/U0/slowest_sync_clk
-    SLICE_X32Y100        FDRE                                         r  audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X32Y100        FDRE (Prop_fdre_C_Q)         0.518     3.657 f  audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
-                         net (fo=19, routed)          2.001     5.658    audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn
-    SLICE_X29Y88         LUT2 (Prop_lut2_I0_O)        0.150     5.808 r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_lrclk_i_1/O
-                         net (fo=10, routed)          1.186     6.994    audio_station_overview_i/AudioStation_0/inst/i2s_1/r_lrclk
-    SLICE_X34Y91         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_bclk_en_reg/R
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      8.000     8.000 r  
-    PS7_X0Y0             PS7                          0.000     8.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.088     9.088    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     9.179 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         1.479    10.658    audio_station_overview_i/AudioStation_0/inst/i2s_1/clk
-    SLICE_X34Y91         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_bclk_en_reg/C
-                         clock pessimism              0.129    10.787    
-                         clock uncertainty           -0.125    10.662    
-    SLICE_X34Y91         FDRE (Setup_fdre_C_R)       -0.732     9.930    audio_station_overview_i/AudioStation_0/inst/i2s_1/r_bclk_en_reg
-  -------------------------------------------------------------------
-                         required time                          9.930    
-                         arrival time                          -6.994    
-  -------------------------------------------------------------------
-                         slack                                  2.935    
-
-Slack (MET) :             2.957ns  (required time - arrival time)
-  Source:                 audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-                            (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Destination:            audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0RDATA[29]
-                            (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            8.000ns  (clk_fpga_0 rise@8.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        4.368ns  (logic 1.481ns (33.909%)  route 2.887ns (66.091%))
-  Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        0.000ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.742ns = ( 10.742 - 8.000 ) 
-    Source Clock Delay      (SCD):    3.031ns
-    Clock Pessimism Removal (CPR):    0.289ns
-  Clock Uncertainty:      0.125ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.240ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.193     1.193    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         1.737     3.031    audio_station_overview_i/processing_system7_0/inst/M_AXI_GP0_ACLK
-    PS7_X0Y0             PS7                                          r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-  -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0RREADY)
-                                                      1.357     4.388 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0RREADY
-                         net (fo=36, routed)          2.403     6.791    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/io_axi_r_ready
-    SLICE_X29Y96         LUT6 (Prop_lut6_I2_O)        0.124     6.915 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/io_axi_r_payload_data[29]_INST_0/O
-                         net (fo=1, routed)           0.484     7.398    audio_station_overview_i/processing_system7_0/inst/M_AXI_GP0_RDATA[29]
-    PS7_X0Y0             PS7                                          r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0RDATA[29]
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      8.000     8.000 r  
-    PS7_X0Y0             PS7                          0.000     8.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.088     9.088    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     9.179 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         1.562    10.742    audio_station_overview_i/processing_system7_0/inst/M_AXI_GP0_ACLK
-    PS7_X0Y0             PS7                                          r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-                         clock pessimism              0.289    11.031    
-                         clock uncertainty           -0.125    10.906    
-    PS7_X0Y0             PS7 (Setup_ps7_MAXIGP0ACLK_MAXIGP0RDATA[29])
-                                                     -0.550    10.356    audio_station_overview_i/processing_system7_0/inst/PS7_i
-  -------------------------------------------------------------------
-                         required time                         10.356    
-                         arrival time                          -7.398    
-  -------------------------------------------------------------------
-                         slack                                  2.957    
-
-Slack (MET) :             2.962ns  (required time - arrival time)
-  Source:                 audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-                            (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_arready_reg/D
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            8.000ns  (clk_fpga_0 rise@8.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        4.575ns  (logic 1.635ns (35.740%)  route 2.940ns (64.260%))
-  Logic Levels:           2  (LUT3=1 LUT6=1)
-  Clock Path Skew:        -0.068ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.699ns = ( 10.699 - 8.000 ) 
-    Source Clock Delay      (SCD):    3.031ns
-    Clock Pessimism Removal (CPR):    0.264ns
-  Clock Uncertainty:      0.125ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.240ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.193     1.193    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         1.737     3.031    audio_station_overview_i/processing_system7_0/inst/M_AXI_GP0_ACLK
-    PS7_X0Y0             PS7                                          r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-  -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0RREADY)
-                                                      1.357     4.388 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0RREADY
-                         net (fo=36, routed)          1.386     5.773    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/io_axi_r_ready
-    SLICE_X27Y90         LUT6 (Prop_lut6_I3_O)        0.124     5.897 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_arready_i_2/O
-                         net (fo=2, routed)           0.990     6.887    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_arready_i_2_n_0
-    SLICE_X27Y91         LUT3 (Prop_lut3_I2_O)        0.154     7.041 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_arready_i_1/O
-                         net (fo=1, routed)           0.565     7.606    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_arready_i_1_n_0
-    SLICE_X27Y91         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_arready_reg/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      8.000     8.000 r  
-    PS7_X0Y0             PS7                          0.000     8.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.088     9.088    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     9.179 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         1.520    10.699    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/clk
-    SLICE_X27Y91         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_arready_reg/C
-                         clock pessimism              0.264    10.963    
-                         clock uncertainty           -0.125    10.838    
-    SLICE_X27Y91         FDRE (Setup_fdre_C_D)       -0.270    10.568    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_arready_reg
-  -------------------------------------------------------------------
-                         required time                         10.568    
-                         arrival time                          -7.606    
-  -------------------------------------------------------------------
-                         slack                                  2.962    
-
-Slack (MET) :             3.051ns  (required time - arrival time)
-  Source:                 audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-                            (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/r_addr_reg[0]/CE
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            8.000ns  (clk_fpga_0 rise@8.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        4.520ns  (logic 1.605ns (35.511%)  route 2.915ns (64.489%))
-  Logic Levels:           2  (LUT2=1 LUT6=1)
-  Clock Path Skew:        -0.099ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.703ns = ( 10.703 - 8.000 ) 
-    Source Clock Delay      (SCD):    3.031ns
+  Data Path Delay:        4.665ns  (logic 0.609ns (13.054%)  route 4.056ns (86.946%))
+  Logic Levels:           1  (LUT1=1)
+  Clock Path Skew:        -0.073ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.645ns = ( 10.645 - 8.000 ) 
+    Source Clock Delay      (SCD):    2.947ns
     Clock Pessimism Removal (CPR):    0.229ns
   Clock Uncertainty:      0.125ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -546,17 +217,14 @@ Slack (MET) :             3.051ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.193     1.193    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         1.737     3.031    audio_station_overview_i/processing_system7_0/inst/M_AXI_GP0_ACLK
-    PS7_X0Y0             PS7                                          r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
+                         net (fo=368, routed)         1.653     2.947    audio_station_overview_i/rst_ps7_0_125M/U0/slowest_sync_clk
+    SLICE_X33Y97         FDRE                                         r  audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
   -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0RREADY)
-                                                      1.357     4.388 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0RREADY
-                         net (fo=36, routed)          1.363     5.751    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/io_axi_r_ready
-    SLICE_X26Y91         LUT2 (Prop_lut2_I0_O)        0.124     5.875 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/axi_r_cnt[3]_i_2/O
-                         net (fo=6, routed)           0.729     6.604    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/E[0]
-    SLICE_X27Y92         LUT6 (Prop_lut6_I2_O)        0.124     6.728 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/r_addr[4]_i_1__0/O
-                         net (fo=5, routed)           0.823     7.551    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/when_FIFO_l65
-    SLICE_X31Y92         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/r_addr_reg[0]/CE
+    SLICE_X33Y97         FDRE (Prop_fdre_C_Q)         0.456     3.403 f  audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
+                         net (fo=23, routed)          1.340     4.743    audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn
+    SLICE_X34Y90         LUT1 (Prop_lut1_I0_O)        0.153     4.896 r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_axi_bid[11]_i_1/O
+                         net (fo=183, routed)         2.716     7.612    audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn_0
+    SLICE_X34Y72         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_enable_reg/R
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -564,30 +232,30 @@ Slack (MET) :             3.051ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     8.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.088     9.088    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     9.179 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         1.524    10.703    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/clk
-    SLICE_X31Y92         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/r_addr_reg[0]/C
-                         clock pessimism              0.229    10.932    
-                         clock uncertainty           -0.125    10.807    
-    SLICE_X31Y92         FDRE (Setup_fdre_C_CE)      -0.205    10.602    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/r_addr_reg[0]
+                         net (fo=368, routed)         1.466    10.645    audio_station_overview_i/AudioStation_0/inst/i2s_1/clk
+    SLICE_X34Y72         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_enable_reg/C
+                         clock pessimism              0.229    10.874    
+                         clock uncertainty           -0.125    10.749    
+    SLICE_X34Y72         FDRE (Setup_fdre_C_R)       -0.731    10.018    audio_station_overview_i/AudioStation_0/inst/i2s_1/r_enable_reg
   -------------------------------------------------------------------
-                         required time                         10.602    
-                         arrival time                          -7.551    
+                         required time                         10.018    
+                         arrival time                          -7.612    
   -------------------------------------------------------------------
-                         slack                                  3.051    
+                         slack                                  2.406    
 
-Slack (MET) :             3.051ns  (required time - arrival time)
-  Source:                 audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-                            (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/r_addr_reg[1]/CE
+Slack (MET) :             2.406ns  (required time - arrival time)
+  Source:                 audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            audio_station_overview_i/AudioStation_0/inst/i2s_1/r_mclk_en_reg/R
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            8.000ns  (clk_fpga_0 rise@8.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        4.520ns  (logic 1.605ns (35.511%)  route 2.915ns (64.489%))
-  Logic Levels:           2  (LUT2=1 LUT6=1)
-  Clock Path Skew:        -0.099ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.703ns = ( 10.703 - 8.000 ) 
-    Source Clock Delay      (SCD):    3.031ns
+  Data Path Delay:        4.665ns  (logic 0.609ns (13.054%)  route 4.056ns (86.946%))
+  Logic Levels:           1  (LUT1=1)
+  Clock Path Skew:        -0.073ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.645ns = ( 10.645 - 8.000 ) 
+    Source Clock Delay      (SCD):    2.947ns
     Clock Pessimism Removal (CPR):    0.229ns
   Clock Uncertainty:      0.125ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -602,17 +270,14 @@ Slack (MET) :             3.051ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.193     1.193    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         1.737     3.031    audio_station_overview_i/processing_system7_0/inst/M_AXI_GP0_ACLK
-    PS7_X0Y0             PS7                                          r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
+                         net (fo=368, routed)         1.653     2.947    audio_station_overview_i/rst_ps7_0_125M/U0/slowest_sync_clk
+    SLICE_X33Y97         FDRE                                         r  audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
   -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0RREADY)
-                                                      1.357     4.388 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0RREADY
-                         net (fo=36, routed)          1.363     5.751    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/io_axi_r_ready
-    SLICE_X26Y91         LUT2 (Prop_lut2_I0_O)        0.124     5.875 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/axi_r_cnt[3]_i_2/O
-                         net (fo=6, routed)           0.729     6.604    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/E[0]
-    SLICE_X27Y92         LUT6 (Prop_lut6_I2_O)        0.124     6.728 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/r_addr[4]_i_1__0/O
-                         net (fo=5, routed)           0.823     7.551    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/when_FIFO_l65
-    SLICE_X31Y92         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/r_addr_reg[1]/CE
+    SLICE_X33Y97         FDRE (Prop_fdre_C_Q)         0.456     3.403 f  audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
+                         net (fo=23, routed)          1.340     4.743    audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn
+    SLICE_X34Y90         LUT1 (Prop_lut1_I0_O)        0.153     4.896 r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_axi_bid[11]_i_1/O
+                         net (fo=183, routed)         2.716     7.612    audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn_0
+    SLICE_X34Y72         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_mclk_en_reg/R
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -620,30 +285,30 @@ Slack (MET) :             3.051ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     8.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.088     9.088    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     9.179 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         1.524    10.703    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/clk
-    SLICE_X31Y92         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/r_addr_reg[1]/C
-                         clock pessimism              0.229    10.932    
-                         clock uncertainty           -0.125    10.807    
-    SLICE_X31Y92         FDRE (Setup_fdre_C_CE)      -0.205    10.602    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/r_addr_reg[1]
+                         net (fo=368, routed)         1.466    10.645    audio_station_overview_i/AudioStation_0/inst/i2s_1/clk
+    SLICE_X34Y72         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_mclk_en_reg/C
+                         clock pessimism              0.229    10.874    
+                         clock uncertainty           -0.125    10.749    
+    SLICE_X34Y72         FDRE (Setup_fdre_C_R)       -0.731    10.018    audio_station_overview_i/AudioStation_0/inst/i2s_1/r_mclk_en_reg
   -------------------------------------------------------------------
-                         required time                         10.602    
-                         arrival time                          -7.551    
+                         required time                         10.018    
+                         arrival time                          -7.612    
   -------------------------------------------------------------------
-                         slack                                  3.051    
+                         slack                                  2.406    
 
-Slack (MET) :             3.051ns  (required time - arrival time)
-  Source:                 audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-                            (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/r_addr_reg[3]/CE
+Slack (MET) :             2.406ns  (required time - arrival time)
+  Source:                 audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            audio_station_overview_i/AudioStation_0/inst/i2s_1/r_mclk_reg/S
+                            (rising edge-triggered cell FDSE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            8.000ns  (clk_fpga_0 rise@8.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        4.520ns  (logic 1.605ns (35.511%)  route 2.915ns (64.489%))
-  Logic Levels:           2  (LUT2=1 LUT6=1)
-  Clock Path Skew:        -0.099ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.703ns = ( 10.703 - 8.000 ) 
-    Source Clock Delay      (SCD):    3.031ns
+  Data Path Delay:        4.665ns  (logic 0.609ns (13.054%)  route 4.056ns (86.946%))
+  Logic Levels:           1  (LUT1=1)
+  Clock Path Skew:        -0.073ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.645ns = ( 10.645 - 8.000 ) 
+    Source Clock Delay      (SCD):    2.947ns
     Clock Pessimism Removal (CPR):    0.229ns
   Clock Uncertainty:      0.125ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -658,17 +323,14 @@ Slack (MET) :             3.051ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.193     1.193    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         1.737     3.031    audio_station_overview_i/processing_system7_0/inst/M_AXI_GP0_ACLK
-    PS7_X0Y0             PS7                                          r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
+                         net (fo=368, routed)         1.653     2.947    audio_station_overview_i/rst_ps7_0_125M/U0/slowest_sync_clk
+    SLICE_X33Y97         FDRE                                         r  audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
   -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0RREADY)
-                                                      1.357     4.388 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0RREADY
-                         net (fo=36, routed)          1.363     5.751    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/io_axi_r_ready
-    SLICE_X26Y91         LUT2 (Prop_lut2_I0_O)        0.124     5.875 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/axi_r_cnt[3]_i_2/O
-                         net (fo=6, routed)           0.729     6.604    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/E[0]
-    SLICE_X27Y92         LUT6 (Prop_lut6_I2_O)        0.124     6.728 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/r_addr[4]_i_1__0/O
-                         net (fo=5, routed)           0.823     7.551    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/when_FIFO_l65
-    SLICE_X31Y92         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/r_addr_reg[3]/CE
+    SLICE_X33Y97         FDRE (Prop_fdre_C_Q)         0.456     3.403 f  audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
+                         net (fo=23, routed)          1.340     4.743    audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn
+    SLICE_X34Y90         LUT1 (Prop_lut1_I0_O)        0.153     4.896 r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_axi_bid[11]_i_1/O
+                         net (fo=183, routed)         2.716     7.612    audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn_0
+    SLICE_X34Y72         FDSE                                         r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_mclk_reg/S
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -676,30 +338,30 @@ Slack (MET) :             3.051ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     8.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.088     9.088    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     9.179 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         1.524    10.703    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/clk
-    SLICE_X31Y92         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/r_addr_reg[3]/C
-                         clock pessimism              0.229    10.932    
-                         clock uncertainty           -0.125    10.807    
-    SLICE_X31Y92         FDRE (Setup_fdre_C_CE)      -0.205    10.602    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/r_addr_reg[3]
+                         net (fo=368, routed)         1.466    10.645    audio_station_overview_i/AudioStation_0/inst/i2s_1/clk
+    SLICE_X34Y72         FDSE                                         r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_mclk_reg/C
+                         clock pessimism              0.229    10.874    
+                         clock uncertainty           -0.125    10.749    
+    SLICE_X34Y72         FDSE (Setup_fdse_C_S)       -0.731    10.018    audio_station_overview_i/AudioStation_0/inst/i2s_1/r_mclk_reg
   -------------------------------------------------------------------
-                         required time                         10.602    
-                         arrival time                          -7.551    
+                         required time                         10.018    
+                         arrival time                          -7.612    
   -------------------------------------------------------------------
-                         slack                                  3.051    
+                         slack                                  2.406    
 
-Slack (MET) :             3.051ns  (required time - arrival time)
-  Source:                 audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
-                            (rising edge-triggered cell PS7 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/r_addr_reg[4]/CE
+Slack (MET) :             2.459ns  (required time - arrival time)
+  Source:                 audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[10]/R
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            8.000ns  (clk_fpga_0 rise@8.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        4.520ns  (logic 1.605ns (35.511%)  route 2.915ns (64.489%))
-  Logic Levels:           2  (LUT2=1 LUT6=1)
-  Clock Path Skew:        -0.099ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.703ns = ( 10.703 - 8.000 ) 
-    Source Clock Delay      (SCD):    3.031ns
+  Data Path Delay:        4.668ns  (logic 0.609ns (13.046%)  route 4.059ns (86.954%))
+  Logic Levels:           1  (LUT1=1)
+  Clock Path Skew:        -0.017ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.701ns = ( 10.701 - 8.000 ) 
+    Source Clock Delay      (SCD):    2.947ns
     Clock Pessimism Removal (CPR):    0.229ns
   Clock Uncertainty:      0.125ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -714,17 +376,14 @@ Slack (MET) :             3.051ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.193     1.193    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         1.737     3.031    audio_station_overview_i/processing_system7_0/inst/M_AXI_GP0_ACLK
-    PS7_X0Y0             PS7                                          r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0ACLK
+                         net (fo=368, routed)         1.653     2.947    audio_station_overview_i/rst_ps7_0_125M/U0/slowest_sync_clk
+    SLICE_X33Y97         FDRE                                         r  audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
   -------------------------------------------------------------------    -------------------
-    PS7_X0Y0             PS7 (Prop_ps7_MAXIGP0ACLK_MAXIGP0RREADY)
-                                                      1.357     4.388 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/MAXIGP0RREADY
-                         net (fo=36, routed)          1.363     5.751    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/io_axi_r_ready
-    SLICE_X26Y91         LUT2 (Prop_lut2_I0_O)        0.124     5.875 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/axi_r_cnt[3]_i_2/O
-                         net (fo=6, routed)           0.729     6.604    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/E[0]
-    SLICE_X27Y92         LUT6 (Prop_lut6_I2_O)        0.124     6.728 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/r_addr[4]_i_1__0/O
-                         net (fo=5, routed)           0.823     7.551    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/when_FIFO_l65
-    SLICE_X31Y92         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/r_addr_reg[4]/CE
+    SLICE_X33Y97         FDRE (Prop_fdre_C_Q)         0.456     3.403 f  audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
+                         net (fo=23, routed)          1.340     4.743    audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn
+    SLICE_X34Y90         LUT1 (Prop_lut1_I0_O)        0.153     4.896 r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_axi_bid[11]_i_1/O
+                         net (fo=183, routed)         2.719     7.615    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/w_addr_reg[0]
+    SLICE_X26Y99         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[10]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -732,16 +391,334 @@ Slack (MET) :             3.051ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     8.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.088     9.088    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     9.179 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         1.524    10.703    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/clk
-    SLICE_X31Y92         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/r_addr_reg[4]/C
-                         clock pessimism              0.229    10.932    
-                         clock uncertainty           -0.125    10.807    
-    SLICE_X31Y92         FDRE (Setup_fdre_C_CE)      -0.205    10.602    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/r_addr_reg[4]
+                         net (fo=368, routed)         1.522    10.701    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/clk
+    SLICE_X26Y99         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[10]/C
+                         clock pessimism              0.229    10.930    
+                         clock uncertainty           -0.125    10.805    
+    SLICE_X26Y99         FDRE (Setup_fdre_C_R)       -0.731    10.074    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[10]
   -------------------------------------------------------------------
-                         required time                         10.602    
-                         arrival time                          -7.551    
+                         required time                         10.074    
+                         arrival time                          -7.615    
   -------------------------------------------------------------------
-                         slack                                  3.051    
+                         slack                                  2.459    
+
+Slack (MET) :             2.459ns  (required time - arrival time)
+  Source:                 audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[11]/R
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (clk_fpga_0 rise@8.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        4.668ns  (logic 0.609ns (13.046%)  route 4.059ns (86.954%))
+  Logic Levels:           1  (LUT1=1)
+  Clock Path Skew:        -0.017ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.701ns = ( 10.701 - 8.000 ) 
+    Source Clock Delay      (SCD):    2.947ns
+    Clock Pessimism Removal (CPR):    0.229ns
+  Clock Uncertainty:      0.125ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.240ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=368, routed)         1.653     2.947    audio_station_overview_i/rst_ps7_0_125M/U0/slowest_sync_clk
+    SLICE_X33Y97         FDRE                                         r  audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X33Y97         FDRE (Prop_fdre_C_Q)         0.456     3.403 f  audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
+                         net (fo=23, routed)          1.340     4.743    audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn
+    SLICE_X34Y90         LUT1 (Prop_lut1_I0_O)        0.153     4.896 r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_axi_bid[11]_i_1/O
+                         net (fo=183, routed)         2.719     7.615    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/w_addr_reg[0]
+    SLICE_X26Y99         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[11]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      8.000     8.000 r  
+    PS7_X0Y0             PS7                          0.000     8.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088     9.088    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     9.179 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=368, routed)         1.522    10.701    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/clk
+    SLICE_X26Y99         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[11]/C
+                         clock pessimism              0.229    10.930    
+                         clock uncertainty           -0.125    10.805    
+    SLICE_X26Y99         FDRE (Setup_fdre_C_R)       -0.731    10.074    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[11]
+  -------------------------------------------------------------------
+                         required time                         10.074    
+                         arrival time                          -7.615    
+  -------------------------------------------------------------------
+                         slack                                  2.459    
+
+Slack (MET) :             2.459ns  (required time - arrival time)
+  Source:                 audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[8]/R
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (clk_fpga_0 rise@8.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        4.668ns  (logic 0.609ns (13.046%)  route 4.059ns (86.954%))
+  Logic Levels:           1  (LUT1=1)
+  Clock Path Skew:        -0.017ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.701ns = ( 10.701 - 8.000 ) 
+    Source Clock Delay      (SCD):    2.947ns
+    Clock Pessimism Removal (CPR):    0.229ns
+  Clock Uncertainty:      0.125ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.240ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=368, routed)         1.653     2.947    audio_station_overview_i/rst_ps7_0_125M/U0/slowest_sync_clk
+    SLICE_X33Y97         FDRE                                         r  audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X33Y97         FDRE (Prop_fdre_C_Q)         0.456     3.403 f  audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
+                         net (fo=23, routed)          1.340     4.743    audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn
+    SLICE_X34Y90         LUT1 (Prop_lut1_I0_O)        0.153     4.896 r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_axi_bid[11]_i_1/O
+                         net (fo=183, routed)         2.719     7.615    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/w_addr_reg[0]
+    SLICE_X26Y99         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[8]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      8.000     8.000 r  
+    PS7_X0Y0             PS7                          0.000     8.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088     9.088    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     9.179 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=368, routed)         1.522    10.701    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/clk
+    SLICE_X26Y99         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[8]/C
+                         clock pessimism              0.229    10.930    
+                         clock uncertainty           -0.125    10.805    
+    SLICE_X26Y99         FDRE (Setup_fdre_C_R)       -0.731    10.074    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[8]
+  -------------------------------------------------------------------
+                         required time                         10.074    
+                         arrival time                          -7.615    
+  -------------------------------------------------------------------
+                         slack                                  2.459    
+
+Slack (MET) :             2.459ns  (required time - arrival time)
+  Source:                 audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[9]/R
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (clk_fpga_0 rise@8.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        4.668ns  (logic 0.609ns (13.046%)  route 4.059ns (86.954%))
+  Logic Levels:           1  (LUT1=1)
+  Clock Path Skew:        -0.017ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.701ns = ( 10.701 - 8.000 ) 
+    Source Clock Delay      (SCD):    2.947ns
+    Clock Pessimism Removal (CPR):    0.229ns
+  Clock Uncertainty:      0.125ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.240ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=368, routed)         1.653     2.947    audio_station_overview_i/rst_ps7_0_125M/U0/slowest_sync_clk
+    SLICE_X33Y97         FDRE                                         r  audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X33Y97         FDRE (Prop_fdre_C_Q)         0.456     3.403 f  audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
+                         net (fo=23, routed)          1.340     4.743    audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn
+    SLICE_X34Y90         LUT1 (Prop_lut1_I0_O)        0.153     4.896 r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_axi_bid[11]_i_1/O
+                         net (fo=183, routed)         2.719     7.615    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/w_addr_reg[0]
+    SLICE_X26Y99         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[9]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      8.000     8.000 r  
+    PS7_X0Y0             PS7                          0.000     8.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088     9.088    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     9.179 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=368, routed)         1.522    10.701    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/clk
+    SLICE_X26Y99         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[9]/C
+                         clock pessimism              0.229    10.930    
+                         clock uncertainty           -0.125    10.805    
+    SLICE_X26Y99         FDRE (Setup_fdre_C_R)       -0.731    10.074    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[9]
+  -------------------------------------------------------------------
+                         required time                         10.074    
+                         arrival time                          -7.615    
+  -------------------------------------------------------------------
+                         slack                                  2.459    
+
+Slack (MET) :             2.593ns  (required time - arrival time)
+  Source:                 audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[4]/R
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (clk_fpga_0 rise@8.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        4.534ns  (logic 0.609ns (13.431%)  route 3.925ns (86.569%))
+  Logic Levels:           1  (LUT1=1)
+  Clock Path Skew:        -0.017ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.701ns = ( 10.701 - 8.000 ) 
+    Source Clock Delay      (SCD):    2.947ns
+    Clock Pessimism Removal (CPR):    0.229ns
+  Clock Uncertainty:      0.125ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.240ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=368, routed)         1.653     2.947    audio_station_overview_i/rst_ps7_0_125M/U0/slowest_sync_clk
+    SLICE_X33Y97         FDRE                                         r  audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X33Y97         FDRE (Prop_fdre_C_Q)         0.456     3.403 f  audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
+                         net (fo=23, routed)          1.340     4.743    audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn
+    SLICE_X34Y90         LUT1 (Prop_lut1_I0_O)        0.153     4.896 r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_axi_bid[11]_i_1/O
+                         net (fo=183, routed)         2.585     7.481    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/w_addr_reg[0]
+    SLICE_X26Y98         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[4]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      8.000     8.000 r  
+    PS7_X0Y0             PS7                          0.000     8.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088     9.088    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     9.179 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=368, routed)         1.522    10.701    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/clk
+    SLICE_X26Y98         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[4]/C
+                         clock pessimism              0.229    10.930    
+                         clock uncertainty           -0.125    10.805    
+    SLICE_X26Y98         FDRE (Setup_fdre_C_R)       -0.731    10.074    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[4]
+  -------------------------------------------------------------------
+                         required time                         10.074    
+                         arrival time                          -7.481    
+  -------------------------------------------------------------------
+                         slack                                  2.593    
+
+Slack (MET) :             2.593ns  (required time - arrival time)
+  Source:                 audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[5]/R
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (clk_fpga_0 rise@8.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        4.534ns  (logic 0.609ns (13.431%)  route 3.925ns (86.569%))
+  Logic Levels:           1  (LUT1=1)
+  Clock Path Skew:        -0.017ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.701ns = ( 10.701 - 8.000 ) 
+    Source Clock Delay      (SCD):    2.947ns
+    Clock Pessimism Removal (CPR):    0.229ns
+  Clock Uncertainty:      0.125ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.240ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=368, routed)         1.653     2.947    audio_station_overview_i/rst_ps7_0_125M/U0/slowest_sync_clk
+    SLICE_X33Y97         FDRE                                         r  audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X33Y97         FDRE (Prop_fdre_C_Q)         0.456     3.403 f  audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
+                         net (fo=23, routed)          1.340     4.743    audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn
+    SLICE_X34Y90         LUT1 (Prop_lut1_I0_O)        0.153     4.896 r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_axi_bid[11]_i_1/O
+                         net (fo=183, routed)         2.585     7.481    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/w_addr_reg[0]
+    SLICE_X26Y98         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[5]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      8.000     8.000 r  
+    PS7_X0Y0             PS7                          0.000     8.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088     9.088    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     9.179 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=368, routed)         1.522    10.701    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/clk
+    SLICE_X26Y98         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[5]/C
+                         clock pessimism              0.229    10.930    
+                         clock uncertainty           -0.125    10.805    
+    SLICE_X26Y98         FDRE (Setup_fdre_C_R)       -0.731    10.074    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[5]
+  -------------------------------------------------------------------
+                         required time                         10.074    
+                         arrival time                          -7.481    
+  -------------------------------------------------------------------
+                         slack                                  2.593    
+
+Slack (MET) :             2.593ns  (required time - arrival time)
+  Source:                 audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[6]/R
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (clk_fpga_0 rise@8.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        4.534ns  (logic 0.609ns (13.431%)  route 3.925ns (86.569%))
+  Logic Levels:           1  (LUT1=1)
+  Clock Path Skew:        -0.017ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.701ns = ( 10.701 - 8.000 ) 
+    Source Clock Delay      (SCD):    2.947ns
+    Clock Pessimism Removal (CPR):    0.229ns
+  Clock Uncertainty:      0.125ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.240ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=368, routed)         1.653     2.947    audio_station_overview_i/rst_ps7_0_125M/U0/slowest_sync_clk
+    SLICE_X33Y97         FDRE                                         r  audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X33Y97         FDRE (Prop_fdre_C_Q)         0.456     3.403 f  audio_station_overview_i/rst_ps7_0_125M/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/Q
+                         net (fo=23, routed)          1.340     4.743    audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn
+    SLICE_X34Y90         LUT1 (Prop_lut1_I0_O)        0.153     4.896 r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_axi_bid[11]_i_1/O
+                         net (fo=183, routed)         2.585     7.481    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/w_addr_reg[0]
+    SLICE_X26Y98         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[6]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      8.000     8.000 r  
+    PS7_X0Y0             PS7                          0.000     8.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088     9.088    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     9.179 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=368, routed)         1.522    10.701    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/clk
+    SLICE_X26Y98         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[6]/C
+                         clock pessimism              0.229    10.930    
+                         clock uncertainty           -0.125    10.805    
+    SLICE_X26Y98         FDRE (Setup_fdre_C_R)       -0.731    10.074    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_bid_reg[6]
+  -------------------------------------------------------------------
+                         required time                         10.074    
+                         arrival time                          -7.481    
+  -------------------------------------------------------------------
+                         slack                                  2.593    
 
 
 
@@ -749,56 +726,10 @@ Slack (MET) :             3.051ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.037ns  (arrival time - required time)
-  Source:                 audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[0]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_0_5/RAMA/I
-                            (rising edge-triggered cell RAMD32 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.197ns  (logic 0.141ns (71.611%)  route 0.056ns (28.389%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.209ns
-    Source Clock Delay      (SCD):    0.911ns
-    Clock Pessimism Removal (CPR):    0.285ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.310     0.310    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         0.575     0.911    audio_station_overview_i/AudioStation_0/inst/i2s_1/clk
-    SLICE_X31Y91         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[0]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X31Y91         FDRE (Prop_fdre_C_Q)         0.141     1.052 r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[0]/Q
-                         net (fo=1, routed)           0.056     1.107    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_0_5/DIA0
-    SLICE_X30Y91         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_0_5/RAMA/I
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.337     0.337    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         0.843     1.209    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_0_5/WCLK
-    SLICE_X30Y91         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_0_5/RAMA/CLK
-                         clock pessimism             -0.285     0.924    
-    SLICE_X30Y91         RAMD32 (Hold_ramd32_CLK_I)
-                                                      0.147     1.071    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_0_5/RAMA
-  -------------------------------------------------------------------
-                         required time                         -1.071    
-                         arrival time                           1.107    
-  -------------------------------------------------------------------
-                         slack                                  0.037    
-
 Slack (MET) :             0.080ns  (arrival time - required time)
-  Source:                 audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[14]/C
+  Source:                 audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[2]/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_12_17/RAMB/I
+  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_0_5/RAMB/I
                             (rising edge-triggered cell RAMD32 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Hold (Min at Fast Process Corner)
@@ -817,12 +748,12 @@ Slack (MET) :             0.080ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.310     0.310    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         0.575     0.911    audio_station_overview_i/AudioStation_0/inst/i2s_1/clk
-    SLICE_X29Y92         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[14]/C
+                         net (fo=368, routed)         0.575     0.911    audio_station_overview_i/AudioStation_0/inst/i2s_1/clk
+    SLICE_X29Y91         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[2]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X29Y92         FDRE (Prop_fdre_C_Q)         0.141     1.052 r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[14]/Q
-                         net (fo=1, routed)           0.101     1.153    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_12_17/DIB0
-    SLICE_X30Y92         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_12_17/RAMB/I
+    SLICE_X29Y91         FDRE (Prop_fdre_C_Q)         0.141     1.052 r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[2]/Q
+                         net (fo=1, routed)           0.101     1.153    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_0_5/DIB0
+    SLICE_X30Y91         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_0_5/RAMB/I
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -830,123 +761,76 @@ Slack (MET) :             0.080ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.337     0.337    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         0.843     1.209    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_12_17/WCLK
-    SLICE_X30Y92         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_12_17/RAMB/CLK
+                         net (fo=368, routed)         0.843     1.209    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_0_5/WCLK
+    SLICE_X30Y91         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_0_5/RAMB/CLK
                          clock pessimism             -0.282     0.927    
-    SLICE_X30Y92         RAMD32 (Hold_ramd32_CLK_I)
-                                                      0.146     1.073    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_12_17/RAMB
+    SLICE_X30Y91         RAMD32 (Hold_ramd32_CLK_I)
+                                                      0.146     1.073    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_0_5/RAMB
   -------------------------------------------------------------------
                          required time                         -1.073    
                          arrival time                           1.153    
   -------------------------------------------------------------------
                          slack                                  0.080    
 
-Slack (MET) :             0.082ns  (arrival time - required time)
-  Source:                 audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[16]/C
+Slack (MET) :             0.086ns  (arrival time - required time)
+  Source:                 audio_station_overview_i/rst_ps7_0_125M/U0/EXT_LPF/ACTIVE_LOW_AUX.ACT_LO_AUX/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d4/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_12_17/RAMC/I
+  Destination:            audio_station_overview_i/rst_ps7_0_125M/U0/EXT_LPF/AUX_LPF[1].asr_lpf_reg[1]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.325ns  (logic 0.141ns (43.446%)  route 0.184ns (56.554%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.180ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.192ns
+    Source Clock Delay      (SCD):    0.977ns
+    Clock Pessimism Removal (CPR):    0.035ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.310     0.310    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=368, routed)         0.641     0.977    audio_station_overview_i/rst_ps7_0_125M/U0/EXT_LPF/ACTIVE_LOW_AUX.ACT_LO_AUX/slowest_sync_clk
+    SLICE_X33Y100        FDRE                                         r  audio_station_overview_i/rst_ps7_0_125M/U0/EXT_LPF/ACTIVE_LOW_AUX.ACT_LO_AUX/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d4/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X33Y100        FDRE (Prop_fdre_C_Q)         0.141     1.118 r  audio_station_overview_i/rst_ps7_0_125M/U0/EXT_LPF/ACTIVE_LOW_AUX.ACT_LO_AUX/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d4/Q
+                         net (fo=2, routed)           0.184     1.302    audio_station_overview_i/rst_ps7_0_125M/U0/EXT_LPF/p_3_in1_in
+    SLICE_X32Y99         FDRE                                         r  audio_station_overview_i/rst_ps7_0_125M/U0/EXT_LPF/AUX_LPF[1].asr_lpf_reg[1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.337     0.337    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=368, routed)         0.826     1.192    audio_station_overview_i/rst_ps7_0_125M/U0/EXT_LPF/slowest_sync_clk
+    SLICE_X32Y99         FDRE                                         r  audio_station_overview_i/rst_ps7_0_125M/U0/EXT_LPF/AUX_LPF[1].asr_lpf_reg[1]/C
+                         clock pessimism             -0.035     1.157    
+    SLICE_X32Y99         FDRE (Hold_fdre_C_D)         0.059     1.216    audio_station_overview_i/rst_ps7_0_125M/U0/EXT_LPF/AUX_LPF[1].asr_lpf_reg[1]
+  -------------------------------------------------------------------
+                         required time                         -1.216    
+                         arrival time                           1.302    
+  -------------------------------------------------------------------
+                         slack                                  0.086    
+
+Slack (MET) :             0.096ns  (arrival time - required time)
+  Source:                 audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMA/WADR3
                             (rising edge-triggered cell RAMD32 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.242ns  (logic 0.141ns (58.263%)  route 0.101ns (41.737%))
+  Data Path Delay:        0.369ns  (logic 0.141ns (38.252%)  route 0.228ns (61.748%))
   Logic Levels:           0  
-  Clock Path Skew:        0.016ns (DCD - SCD - CPR)
+  Clock Path Skew:        0.033ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    1.209ns
-    Source Clock Delay      (SCD):    0.911ns
-    Clock Pessimism Removal (CPR):    0.282ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.310     0.310    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         0.575     0.911    audio_station_overview_i/AudioStation_0/inst/i2s_1/clk
-    SLICE_X29Y92         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[16]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X29Y92         FDRE (Prop_fdre_C_Q)         0.141     1.052 r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[16]/Q
-                         net (fo=1, routed)           0.101     1.153    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_12_17/DIC0
-    SLICE_X30Y92         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_12_17/RAMC/I
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.337     0.337    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         0.843     1.209    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_12_17/WCLK
-    SLICE_X30Y92         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_12_17/RAMC/CLK
-                         clock pessimism             -0.282     0.927    
-    SLICE_X30Y92         RAMD32 (Hold_ramd32_CLK_I)
-                                                      0.144     1.071    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_12_17/RAMC
-  -------------------------------------------------------------------
-                         required time                         -1.071    
-                         arrival time                           1.153    
-  -------------------------------------------------------------------
-                         slack                                  0.082    
-
-Slack (MET) :             0.090ns  (arrival time - required time)
-  Source:                 audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[26]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_24_29/RAMB/I
-                            (rising edge-triggered cell RAMD32 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.251ns  (logic 0.141ns (56.174%)  route 0.110ns (43.826%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.015ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.210ns
-    Source Clock Delay      (SCD):    0.913ns
-    Clock Pessimism Removal (CPR):    0.282ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.310     0.310    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         0.577     0.913    audio_station_overview_i/AudioStation_0/inst/i2s_1/clk
-    SLICE_X31Y97         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[26]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X31Y97         FDRE (Prop_fdre_C_Q)         0.141     1.054 r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[26]/Q
-                         net (fo=1, routed)           0.110     1.164    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_24_29/DIB0
-    SLICE_X30Y96         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_24_29/RAMB/I
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.337     0.337    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         0.844     1.210    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_24_29/WCLK
-    SLICE_X30Y96         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_24_29/RAMB/CLK
-                         clock pessimism             -0.282     0.928    
-    SLICE_X30Y96         RAMD32 (Hold_ramd32_CLK_I)
-                                                      0.146     1.074    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_24_29/RAMB
-  -------------------------------------------------------------------
-                         required time                         -1.074    
-                         arrival time                           1.164    
-  -------------------------------------------------------------------
-                         slack                                  0.090    
-
-Slack (MET) :             0.094ns  (arrival time - required time)
-  Source:                 audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[10]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/RAMC/I
-                            (rising edge-triggered cell RAMD32 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.251ns  (logic 0.141ns (56.174%)  route 0.110ns (43.826%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.210ns
     Source Clock Delay      (SCD):    0.912ns
-    Clock Pessimism Removal (CPR):    0.285ns
+    Clock Pessimism Removal (CPR):    0.264ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -955,12 +839,12 @@ Slack (MET) :             0.094ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.310     0.310    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         0.576     0.912    audio_station_overview_i/AudioStation_0/inst/i2s_1/clk
-    SLICE_X31Y93         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[10]/C
+                         net (fo=368, routed)         0.576     0.912    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/clk
+    SLICE_X29Y95         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X31Y93         FDRE (Prop_fdre_C_Q)         0.141     1.053 r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[10]/Q
-                         net (fo=1, routed)           0.110     1.163    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/DIC0
-    SLICE_X30Y93         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/RAMC/I
+    SLICE_X29Y95         FDRE (Prop_fdre_C_Q)         0.141     1.053 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/Q
+                         net (fo=54, routed)          0.228     1.280    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/ADDRD3
+    SLICE_X26Y95         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMA/WADR3
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -968,31 +852,31 @@ Slack (MET) :             0.094ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.337     0.337    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         0.844     1.210    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/WCLK
-    SLICE_X30Y93         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/RAMC/CLK
-                         clock pessimism             -0.285     0.925    
-    SLICE_X30Y93         RAMD32 (Hold_ramd32_CLK_I)
-                                                      0.144     1.069    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/RAMC
+                         net (fo=368, routed)         0.843     1.209    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/WCLK
+    SLICE_X26Y95         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMA/CLK
+                         clock pessimism             -0.264     0.945    
+    SLICE_X26Y95         RAMD32 (Hold_ramd32_CLK_WADR3)
+                                                      0.240     1.185    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMA
   -------------------------------------------------------------------
-                         required time                         -1.069    
-                         arrival time                           1.163    
+                         required time                         -1.185    
+                         arrival time                           1.280    
   -------------------------------------------------------------------
-                         slack                                  0.094    
+                         slack                                  0.096    
 
-Slack (MET) :             0.094ns  (arrival time - required time)
-  Source:                 audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[18]/C
+Slack (MET) :             0.096ns  (arrival time - required time)
+  Source:                 audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_18_23/RAMA/I
+  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMA_D1/WADR3
                             (rising edge-triggered cell RAMD32 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.254ns  (logic 0.141ns (55.511%)  route 0.113ns (44.489%))
+  Data Path Delay:        0.369ns  (logic 0.141ns (38.252%)  route 0.228ns (61.748%))
   Logic Levels:           0  
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.210ns
+  Clock Path Skew:        0.033ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.209ns
     Source Clock Delay      (SCD):    0.912ns
-    Clock Pessimism Removal (CPR):    0.285ns
+    Clock Pessimism Removal (CPR):    0.264ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1001,12 +885,12 @@ Slack (MET) :             0.094ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.310     0.310    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         0.576     0.912    audio_station_overview_i/AudioStation_0/inst/i2s_1/clk
-    SLICE_X31Y95         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[18]/C
+                         net (fo=368, routed)         0.576     0.912    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/clk
+    SLICE_X29Y95         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X31Y95         FDRE (Prop_fdre_C_Q)         0.141     1.053 r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[18]/Q
-                         net (fo=1, routed)           0.113     1.166    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_18_23/DIA0
-    SLICE_X30Y95         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_18_23/RAMA/I
+    SLICE_X29Y95         FDRE (Prop_fdre_C_Q)         0.141     1.053 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/Q
+                         net (fo=54, routed)          0.228     1.280    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/ADDRD3
+    SLICE_X26Y95         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMA_D1/WADR3
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -1014,31 +898,31 @@ Slack (MET) :             0.094ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.337     0.337    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         0.844     1.210    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_18_23/WCLK
-    SLICE_X30Y95         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_18_23/RAMA/CLK
-                         clock pessimism             -0.285     0.925    
-    SLICE_X30Y95         RAMD32 (Hold_ramd32_CLK_I)
-                                                      0.147     1.072    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_18_23/RAMA
+                         net (fo=368, routed)         0.843     1.209    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/WCLK
+    SLICE_X26Y95         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMA_D1/CLK
+                         clock pessimism             -0.264     0.945    
+    SLICE_X26Y95         RAMD32 (Hold_ramd32_CLK_WADR3)
+                                                      0.240     1.185    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMA_D1
   -------------------------------------------------------------------
-                         required time                         -1.072    
-                         arrival time                           1.166    
+                         required time                         -1.185    
+                         arrival time                           1.280    
   -------------------------------------------------------------------
-                         slack                                  0.094    
+                         slack                                  0.096    
 
-Slack (MET) :             0.094ns  (arrival time - required time)
-  Source:                 audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[6]/C
+Slack (MET) :             0.096ns  (arrival time - required time)
+  Source:                 audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/RAMA/I
+  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMB/WADR3
                             (rising edge-triggered cell RAMD32 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.254ns  (logic 0.141ns (55.511%)  route 0.113ns (44.489%))
+  Data Path Delay:        0.369ns  (logic 0.141ns (38.252%)  route 0.228ns (61.748%))
   Logic Levels:           0  
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.210ns
+  Clock Path Skew:        0.033ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.209ns
     Source Clock Delay      (SCD):    0.912ns
-    Clock Pessimism Removal (CPR):    0.285ns
+    Clock Pessimism Removal (CPR):    0.264ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1047,12 +931,12 @@ Slack (MET) :             0.094ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.310     0.310    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         0.576     0.912    audio_station_overview_i/AudioStation_0/inst/i2s_1/clk
-    SLICE_X31Y93         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[6]/C
+                         net (fo=368, routed)         0.576     0.912    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/clk
+    SLICE_X29Y95         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X31Y93         FDRE (Prop_fdre_C_Q)         0.141     1.053 r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[6]/Q
-                         net (fo=1, routed)           0.113     1.166    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/DIA0
-    SLICE_X30Y93         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/RAMA/I
+    SLICE_X29Y95         FDRE (Prop_fdre_C_Q)         0.141     1.053 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/Q
+                         net (fo=54, routed)          0.228     1.280    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/ADDRD3
+    SLICE_X26Y95         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMB/WADR3
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -1060,31 +944,31 @@ Slack (MET) :             0.094ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.337     0.337    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         0.844     1.210    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/WCLK
-    SLICE_X30Y93         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/RAMA/CLK
-                         clock pessimism             -0.285     0.925    
-    SLICE_X30Y93         RAMD32 (Hold_ramd32_CLK_I)
-                                                      0.147     1.072    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/RAMA
+                         net (fo=368, routed)         0.843     1.209    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/WCLK
+    SLICE_X26Y95         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMB/CLK
+                         clock pessimism             -0.264     0.945    
+    SLICE_X26Y95         RAMD32 (Hold_ramd32_CLK_WADR3)
+                                                      0.240     1.185    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMB
   -------------------------------------------------------------------
-                         required time                         -1.072    
-                         arrival time                           1.166    
+                         required time                         -1.185    
+                         arrival time                           1.280    
   -------------------------------------------------------------------
-                         slack                                  0.094    
+                         slack                                  0.096    
 
-Slack (MET) :             0.094ns  (arrival time - required time)
-  Source:                 audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[8]/C
+Slack (MET) :             0.096ns  (arrival time - required time)
+  Source:                 audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/RAMB/I
+  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMB_D1/WADR3
                             (rising edge-triggered cell RAMD32 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.253ns  (logic 0.141ns (55.730%)  route 0.112ns (44.270%))
+  Data Path Delay:        0.369ns  (logic 0.141ns (38.252%)  route 0.228ns (61.748%))
   Logic Levels:           0  
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.210ns
+  Clock Path Skew:        0.033ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.209ns
     Source Clock Delay      (SCD):    0.912ns
-    Clock Pessimism Removal (CPR):    0.285ns
+    Clock Pessimism Removal (CPR):    0.264ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1093,12 +977,12 @@ Slack (MET) :             0.094ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.310     0.310    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         0.576     0.912    audio_station_overview_i/AudioStation_0/inst/i2s_1/clk
-    SLICE_X31Y93         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[8]/C
+                         net (fo=368, routed)         0.576     0.912    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/clk
+    SLICE_X29Y95         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X31Y93         FDRE (Prop_fdre_C_Q)         0.141     1.053 r  audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out_reg[8]/Q
-                         net (fo=1, routed)           0.112     1.165    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/DIB0
-    SLICE_X30Y93         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/RAMB/I
+    SLICE_X29Y95         FDRE (Prop_fdre_C_Q)         0.141     1.053 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/Q
+                         net (fo=54, routed)          0.228     1.280    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/ADDRD3
+    SLICE_X26Y95         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMB_D1/WADR3
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -1106,31 +990,31 @@ Slack (MET) :             0.094ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.337     0.337    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         0.844     1.210    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/WCLK
-    SLICE_X30Y93         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/RAMB/CLK
-                         clock pessimism             -0.285     0.925    
-    SLICE_X30Y93         RAMD32 (Hold_ramd32_CLK_I)
-                                                      0.146     1.071    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/RAMB
+                         net (fo=368, routed)         0.843     1.209    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/WCLK
+    SLICE_X26Y95         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMB_D1/CLK
+                         clock pessimism             -0.264     0.945    
+    SLICE_X26Y95         RAMD32 (Hold_ramd32_CLK_WADR3)
+                                                      0.240     1.185    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMB_D1
   -------------------------------------------------------------------
-                         required time                         -1.071    
-                         arrival time                           1.165    
+                         required time                         -1.185    
+                         arrival time                           1.280    
   -------------------------------------------------------------------
-                         slack                                  0.094    
+                         slack                                  0.096    
 
-Slack (MET) :             0.097ns  (arrival time - required time)
-  Source:                 audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[0]/C
+Slack (MET) :             0.096ns  (arrival time - required time)
+  Source:                 audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_30_31/RAMA/WADR0
+  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMC/WADR3
                             (rising edge-triggered cell RAMD32 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.423ns  (logic 0.141ns (33.323%)  route 0.282ns (66.677%))
+  Data Path Delay:        0.369ns  (logic 0.141ns (38.252%)  route 0.228ns (61.748%))
   Logic Levels:           0  
-  Clock Path Skew:        0.016ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.211ns
-    Source Clock Delay      (SCD):    0.913ns
-    Clock Pessimism Removal (CPR):    0.282ns
+  Clock Path Skew:        0.033ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.209ns
+    Source Clock Delay      (SCD):    0.912ns
+    Clock Pessimism Removal (CPR):    0.264ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1139,12 +1023,12 @@ Slack (MET) :             0.097ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.310     0.310    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         0.577     0.913    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/clk
-    SLICE_X29Y98         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[0]/C
+                         net (fo=368, routed)         0.576     0.912    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/clk
+    SLICE_X29Y95         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X29Y98         FDRE (Prop_fdre_C_Q)         0.141     1.054 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[0]/Q
-                         net (fo=58, routed)          0.282     1.336    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_30_31/ADDRD0
-    SLICE_X30Y97         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_30_31/RAMA/WADR0
+    SLICE_X29Y95         FDRE (Prop_fdre_C_Q)         0.141     1.053 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/Q
+                         net (fo=54, routed)          0.228     1.280    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/ADDRD3
+    SLICE_X26Y95         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMC/WADR3
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -1152,31 +1036,31 @@ Slack (MET) :             0.097ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.337     0.337    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         0.845     1.211    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_30_31/WCLK
-    SLICE_X30Y97         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_30_31/RAMA/CLK
-                         clock pessimism             -0.282     0.929    
-    SLICE_X30Y97         RAMD32 (Hold_ramd32_CLK_WADR0)
-                                                      0.310     1.239    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_30_31/RAMA
+                         net (fo=368, routed)         0.843     1.209    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/WCLK
+    SLICE_X26Y95         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMC/CLK
+                         clock pessimism             -0.264     0.945    
+    SLICE_X26Y95         RAMD32 (Hold_ramd32_CLK_WADR3)
+                                                      0.240     1.185    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMC
   -------------------------------------------------------------------
-                         required time                         -1.239    
-                         arrival time                           1.336    
+                         required time                         -1.185    
+                         arrival time                           1.280    
   -------------------------------------------------------------------
-                         slack                                  0.097    
+                         slack                                  0.096    
 
-Slack (MET) :             0.097ns  (arrival time - required time)
-  Source:                 audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[0]/C
+Slack (MET) :             0.096ns  (arrival time - required time)
+  Source:                 audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
-  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_30_31/RAMA_D1/WADR0
+  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMC_D1/WADR3
                             (rising edge-triggered cell RAMD32 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
   Path Group:             clk_fpga_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.423ns  (logic 0.141ns (33.323%)  route 0.282ns (66.677%))
+  Data Path Delay:        0.369ns  (logic 0.141ns (38.252%)  route 0.228ns (61.748%))
   Logic Levels:           0  
-  Clock Path Skew:        0.016ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.211ns
-    Source Clock Delay      (SCD):    0.913ns
-    Clock Pessimism Removal (CPR):    0.282ns
+  Clock Path Skew:        0.033ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.209ns
+    Source Clock Delay      (SCD):    0.912ns
+    Clock Pessimism Removal (CPR):    0.264ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1185,12 +1069,12 @@ Slack (MET) :             0.097ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.310     0.310    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         0.577     0.913    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/clk
-    SLICE_X29Y98         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[0]/C
+                         net (fo=368, routed)         0.576     0.912    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/clk
+    SLICE_X29Y95         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X29Y98         FDRE (Prop_fdre_C_Q)         0.141     1.054 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[0]/Q
-                         net (fo=58, routed)          0.282     1.336    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_30_31/ADDRD0
-    SLICE_X30Y97         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_30_31/RAMA_D1/WADR0
+    SLICE_X29Y95         FDRE (Prop_fdre_C_Q)         0.141     1.053 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/Q
+                         net (fo=54, routed)          0.228     1.280    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/ADDRD3
+    SLICE_X26Y95         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMC_D1/WADR3
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -1198,16 +1082,108 @@ Slack (MET) :             0.097ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.337     0.337    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=365, routed)         0.845     1.211    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_30_31/WCLK
-    SLICE_X30Y97         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_30_31/RAMA_D1/CLK
-                         clock pessimism             -0.282     0.929    
-    SLICE_X30Y97         RAMD32 (Hold_ramd32_CLK_WADR0)
-                                                      0.310     1.239    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_30_31/RAMA_D1
+                         net (fo=368, routed)         0.843     1.209    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/WCLK
+    SLICE_X26Y95         RAMD32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMC_D1/CLK
+                         clock pessimism             -0.264     0.945    
+    SLICE_X26Y95         RAMD32 (Hold_ramd32_CLK_WADR3)
+                                                      0.240     1.185    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMC_D1
   -------------------------------------------------------------------
-                         required time                         -1.239    
-                         arrival time                           1.336    
+                         required time                         -1.185    
+                         arrival time                           1.280    
   -------------------------------------------------------------------
-                         slack                                  0.097    
+                         slack                                  0.096    
+
+Slack (MET) :             0.096ns  (arrival time - required time)
+  Source:                 audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMD/ADR3
+                            (rising edge-triggered cell RAMS32 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.369ns  (logic 0.141ns (38.252%)  route 0.228ns (61.748%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.033ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.209ns
+    Source Clock Delay      (SCD):    0.912ns
+    Clock Pessimism Removal (CPR):    0.264ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.310     0.310    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=368, routed)         0.576     0.912    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/clk
+    SLICE_X29Y95         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X29Y95         FDRE (Prop_fdre_C_Q)         0.141     1.053 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/Q
+                         net (fo=54, routed)          0.228     1.280    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/ADDRD3
+    SLICE_X26Y95         RAMS32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMD/ADR3
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.337     0.337    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=368, routed)         0.843     1.209    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/WCLK
+    SLICE_X26Y95         RAMS32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMD/CLK
+                         clock pessimism             -0.264     0.945    
+    SLICE_X26Y95         RAMS32 (Hold_rams32_CLK_ADR3)
+                                                      0.240     1.185    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMD
+  -------------------------------------------------------------------
+                         required time                         -1.185    
+                         arrival time                           1.280    
+  -------------------------------------------------------------------
+                         slack                                  0.096    
+
+Slack (MET) :             0.096ns  (arrival time - required time)
+  Source:                 audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMD_D1/ADR3
+                            (rising edge-triggered cell RAMS32 clocked by clk_fpga_0  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.369ns  (logic 0.141ns (38.252%)  route 0.228ns (61.748%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.033ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.209ns
+    Source Clock Delay      (SCD):    0.912ns
+    Clock Pessimism Removal (CPR):    0.264ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.310     0.310    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=368, routed)         0.576     0.912    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/clk
+    SLICE_X29Y95         FDRE                                         r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X29Y95         FDRE (Prop_fdre_C_Q)         0.141     1.053 r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/w_addr_reg[3]/Q
+                         net (fo=54, routed)          0.228     1.280    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/ADDRD3
+    SLICE_X26Y95         RAMS32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMD_D1/ADR3
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  audio_station_overview_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.337     0.337    audio_station_overview_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=368, routed)         0.843     1.209    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/WCLK
+    SLICE_X26Y95         RAMS32                                       r  audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMD_D1/CLK
+                         clock pessimism             -0.264     0.945    
+    SLICE_X26Y95         RAMS32 (Hold_rams32_CLK_ADR3)
+                                                      0.240     1.185    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMD_D1
+  -------------------------------------------------------------------
+                         required time                         -1.185    
+                         arrival time                           1.280    
+  -------------------------------------------------------------------
+                         slack                                  0.096    
 
 
 
@@ -1222,26 +1198,25 @@ Sources:            { audio_station_overview_i/processing_system7_0/inst/PS7_i/F
 
 Check Type        Corner  Lib Pin     Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location        Pin
 Min Period        n/a     BUFG/I      n/a            2.155         8.000       5.845      BUFGCTRL_X0Y16  audio_station_overview_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
-Min Period        n/a     FDRE/C      n/a            1.000         8.000       7.000      SLICE_X26Y91    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/axi_r_cnt_reg[0]/C
-Min Period        n/a     FDRE/C      n/a            1.000         8.000       7.000      SLICE_X26Y91    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/axi_r_cnt_reg[1]/C
-Min Period        n/a     FDRE/C      n/a            1.000         8.000       7.000      SLICE_X26Y91    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/axi_r_cnt_reg[2]/C
-Min Period        n/a     FDRE/C      n/a            1.000         8.000       7.000      SLICE_X26Y91    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/axi_r_cnt_reg[3]/C
-Min Period        n/a     FDRE/C      n/a            1.000         8.000       7.000      SLICE_X26Y92    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/axi_r_cnt_reg[4]/C
-Min Period        n/a     FDRE/C      n/a            1.000         8.000       7.000      SLICE_X27Y91    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_rresp_reg[1]/C
-Min Period        n/a     FDRE/C      n/a            1.000         8.000       7.000      SLICE_X27Y91    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_rvalid_reg/C
-Min Period        n/a     FDRE/C      n/a            1.000         8.000       7.000      SLICE_X26Y98    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/r_axi_wready_reg/C
-Min Period        n/a     FDRE/C      n/a            1.000         8.000       7.000      SLICE_X34Y91    audio_station_overview_i/AudioStation_0/inst/i2s_1/r_bclk_en_reg/C
-Low Pulse Width   Fast    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X30Y95    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_18_23/RAMA/CLK
-Low Pulse Width   Fast    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X30Y95    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_18_23/RAMA_D1/CLK
-Low Pulse Width   Fast    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X30Y95    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_18_23/RAMB/CLK
-Low Pulse Width   Fast    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X30Y93    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/RAMA/CLK
-Low Pulse Width   Fast    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X30Y93    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/RAMA_D1/CLK
-Low Pulse Width   Fast    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X30Y93    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/RAMB/CLK
-Low Pulse Width   Fast    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X30Y93    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/RAMB_D1/CLK
-Low Pulse Width   Fast    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X30Y93    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/RAMC/CLK
-Low Pulse Width   Fast    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X30Y93    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/RAMC_D1/CLK
-Low Pulse Width   Fast    RAMS32/CLK  n/a            1.250         4.000       2.750      SLICE_X30Y93    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_6_11/RAMD/CLK
-High Pulse Width  Slow    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X26Y95    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMC_D1/CLK
+Min Period        n/a     FDRE/C      n/a            1.000         8.000       7.000      SLICE_X28Y89    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/axi_r_cnt_reg[0]/C
+Min Period        n/a     FDRE/C      n/a            1.000         8.000       7.000      SLICE_X28Y89    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/axi_r_cnt_reg[1]/C
+Min Period        n/a     FDRE/C      n/a            1.000         8.000       7.000      SLICE_X28Y89    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/axi_r_cnt_reg[2]/C
+Min Period        n/a     FDRE/C      n/a            1.000         8.000       7.000      SLICE_X28Y89    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/axi_r_cnt_reg[3]/C
+Min Period        n/a     FDRE/C      n/a            1.000         8.000       7.000      SLICE_X28Y88    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/axi_r_cnt_reg[4]/C
+Min Period        n/a     FDRE/C      n/a            1.000         8.000       7.000      SLICE_X29Y96    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/r_addr_reg[0]/C
+Min Period        n/a     FDRE/C      n/a            1.000         8.000       7.000      SLICE_X29Y96    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/r_addr_reg[1]/C
+Min Period        n/a     FDRE/C      n/a            1.000         8.000       7.000      SLICE_X29Y96    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/r_addr_reg[2]/C
+Min Period        n/a     FDRE/C      n/a            1.000         8.000       7.000      SLICE_X31Y95    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/r_addr_reg[3]/C
+Low Pulse Width   Fast    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X30Y93    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_12_17/RAMB_D1/CLK
+Low Pulse Width   Fast    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X30Y93    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_12_17/RAMC/CLK
+Low Pulse Width   Fast    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X30Y93    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_12_17/RAMC_D1/CLK
+Low Pulse Width   Fast    RAMS32/CLK  n/a            1.250         4.000       2.750      SLICE_X30Y93    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_12_17/RAMD/CLK
+Low Pulse Width   Fast    RAMS32/CLK  n/a            1.250         4.000       2.750      SLICE_X30Y93    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_12_17/RAMD_D1/CLK
+Low Pulse Width   Fast    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X30Y94    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_18_23/RAMA/CLK
+Low Pulse Width   Fast    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X30Y94    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_18_23/RAMA_D1/CLK
+Low Pulse Width   Fast    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X30Y94    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_18_23/RAMB/CLK
+Low Pulse Width   Fast    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X30Y94    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_18_23/RAMB_D1/CLK
+Low Pulse Width   Fast    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X30Y94    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/mem_reg_0_31_18_23/RAMC/CLK
 High Pulse Width  Slow    RAMS32/CLK  n/a            1.250         4.000       2.750      SLICE_X26Y95    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMD/CLK
 High Pulse Width  Slow    RAMS32/CLK  n/a            1.250         4.000       2.750      SLICE_X26Y95    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_12_17/RAMD_D1/CLK
 High Pulse Width  Slow    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X26Y96    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_18_23/RAMA/CLK
@@ -1249,8 +1224,9 @@ High Pulse Width  Slow    RAMD32/CLK  n/a            1.250         4.000       2
 High Pulse Width  Slow    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X26Y96    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_18_23/RAMB/CLK
 High Pulse Width  Slow    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X26Y96    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_18_23/RAMB_D1/CLK
 High Pulse Width  Slow    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X26Y96    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_18_23/RAMC/CLK
-High Pulse Width  Slow    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X26Y94    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_6_11/RAMB/CLK
-High Pulse Width  Slow    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X26Y94    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_6_11/RAMB_D1/CLK
+High Pulse Width  Slow    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X26Y96    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_18_23/RAMC_D1/CLK
+High Pulse Width  Slow    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X26Y94    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_6_11/RAMC/CLK
+High Pulse Width  Slow    RAMD32/CLK  n/a            1.250         4.000       2.750      SLICE_X26Y94    audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_6_11/RAMC_D1/CLK
 
 
 

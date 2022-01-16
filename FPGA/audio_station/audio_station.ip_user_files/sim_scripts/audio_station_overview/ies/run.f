@@ -38,7 +38,7 @@
   "../../../bd/audio_station_overview/ip/audio_station_overview_rst_ps7_0_125M_0/sim/audio_station_overview_rst_ps7_0_125M_0.vhd" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
-  "../../../bd/audio_station_overview/ipshared/5d29/AudioStation.v" \
+  "../../../bd/audio_station_overview/ipshared/8fb0/AudioStation.v" \
   "../../../bd/audio_station_overview/ip/audio_station_overview_AudioStation_0_3/sim/audio_station_overview_AudioStation_0_3.v" \
 -endlib
 -makelib ies_lib/xlconcat_v2_1_4 \

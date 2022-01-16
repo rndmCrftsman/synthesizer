@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Jan  3 21:36:59 2022" VIVADOVERSION="2020.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Jan 13 13:25:28 2022" VIVADOVERSION="2020.2">
 
   <SYSTEMINFO ARCH="zynq" BOARD="digilentinc.com:zybo-z7-20:part0:1.0" DEVICE="7z020" NAME="audio_station_overview" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -64,34 +64,34 @@
         <CONNECTION INSTANCE="AudioStation_0" PORT="io_output_buffer_empty"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="ac_i2c_sda_i" SIGIS="undef" SIGNAME="processing_system7_0_I2C0_SDA_I">
+    <PORT DIR="IO" LEFT="53" NAME="FIXED_IO_mio" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_MIO">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="I2C0_SDA_I"/>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="MIO"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="ac_i2c_sda_o" SIGIS="undef" SIGNAME="processing_system7_0_I2C0_SDA_O">
+    <PORT DIR="IO" NAME="FIXED_IO_ddr_vrn" SIGIS="undef" SIGNAME="processing_system7_0_DDR_VRN">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="I2C0_SDA_O"/>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="DDR_VRN"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="ac_i2c_sda_t" SIGIS="undef" SIGNAME="processing_system7_0_I2C0_SDA_T">
+    <PORT DIR="IO" NAME="FIXED_IO_ddr_vrp" SIGIS="undef" SIGNAME="processing_system7_0_DDR_VRP">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="I2C0_SDA_T"/>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="DDR_VRP"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="ac_i2c_scl_i" SIGIS="undef" SIGNAME="processing_system7_0_I2C0_SCL_I">
+    <PORT DIR="IO" NAME="FIXED_IO_ps_srstb" SIGIS="undef" SIGNAME="processing_system7_0_PS_SRSTB">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="I2C0_SCL_I"/>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="PS_SRSTB"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="ac_i2c_scl_o" SIGIS="undef" SIGNAME="processing_system7_0_I2C0_SCL_O">
+    <PORT DIR="IO" NAME="FIXED_IO_ps_clk" SIGIS="undef" SIGNAME="processing_system7_0_PS_CLK">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="I2C0_SCL_O"/>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="PS_CLK"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="ac_i2c_scl_t" SIGIS="undef" SIGNAME="processing_system7_0_I2C0_SCL_T">
+    <PORT DIR="IO" NAME="FIXED_IO_ps_porb" SIGIS="undef" SIGNAME="processing_system7_0_PS_PORB">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="I2C0_SCL_T"/>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="PS_PORB"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="IO" NAME="DDR_cas_n" SIGIS="undef" SIGNAME="processing_system7_0_DDR_CAS_n">
@@ -169,34 +169,34 @@
         <CONNECTION INSTANCE="processing_system7_0" PORT="DDR_DQS"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="IO" LEFT="53" NAME="FIXED_IO_mio" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_MIO">
+    <PORT DIR="I" NAME="ac_i2c_sda_i" SIGIS="undef" SIGNAME="processing_system7_0_I2C0_SDA_I">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="MIO"/>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="I2C0_SDA_I"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="IO" NAME="FIXED_IO_ddr_vrn" SIGIS="undef" SIGNAME="processing_system7_0_DDR_VRN">
+    <PORT DIR="O" NAME="ac_i2c_sda_o" SIGIS="undef" SIGNAME="processing_system7_0_I2C0_SDA_O">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="DDR_VRN"/>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="I2C0_SDA_O"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="IO" NAME="FIXED_IO_ddr_vrp" SIGIS="undef" SIGNAME="processing_system7_0_DDR_VRP">
+    <PORT DIR="O" NAME="ac_i2c_sda_t" SIGIS="undef" SIGNAME="processing_system7_0_I2C0_SDA_T">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="DDR_VRP"/>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="I2C0_SDA_T"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="IO" NAME="FIXED_IO_ps_srstb" SIGIS="undef" SIGNAME="processing_system7_0_PS_SRSTB">
+    <PORT DIR="I" NAME="ac_i2c_scl_i" SIGIS="undef" SIGNAME="processing_system7_0_I2C0_SCL_I">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="PS_SRSTB"/>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="I2C0_SCL_I"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="IO" NAME="FIXED_IO_ps_clk" SIGIS="undef" SIGNAME="processing_system7_0_PS_CLK">
+    <PORT DIR="O" NAME="ac_i2c_scl_o" SIGIS="undef" SIGNAME="processing_system7_0_I2C0_SCL_O">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="PS_CLK"/>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="I2C0_SCL_O"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="IO" NAME="FIXED_IO_ps_porb" SIGIS="undef" SIGNAME="processing_system7_0_PS_PORB">
+    <PORT DIR="O" NAME="ac_i2c_scl_t" SIGIS="undef" SIGNAME="processing_system7_0_I2C0_SCL_T">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="PS_PORB"/>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="I2C0_SCL_T"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -259,7 +259,7 @@
   </EXTERNALINTERFACES>
 
   <MODULES>
-    <MODULE COREREVISION="27" FULLNAME="/AudioStation_0" HWVERSION="0.5" INSTANCE="AudioStation_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="AudioStation" VLNV="hannes.stoll:myIP:AudioStation:0.5">
+    <MODULE COREREVISION="28" FULLNAME="/AudioStation_0" HWVERSION="0.5" INSTANCE="AudioStation_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="AudioStation" VLNV="hannes.stoll:myIP:AudioStation:0.5">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="AXI_S" NAME="data" RANGE="1" USAGE=""/>

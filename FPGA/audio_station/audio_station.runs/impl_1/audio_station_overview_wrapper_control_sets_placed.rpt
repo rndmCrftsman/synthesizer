@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Mon Jan  3 21:38:11 2022
+| Date         : Thu Jan 13 13:26:38 2022
 | Host         : pop-os running 64-bit Pop!_OS 21.10
 | Command      : report_control_sets -verbose -file audio_station_overview_wrapper_control_sets_placed.rpt
 | Design       : audio_station_overview_wrapper
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    21 |
-|    Minimum number of control sets                        |    21 |
+| Total control sets                                       |    22 |
+|    Minimum number of control sets                        |    22 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    61 |
+| Unused register locations in slices containing registers |    66 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,12 +39,12 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    21 |
-| >= 0 to < 4        |     1 |
+| Total control sets |    22 |
+| >= 0 to < 4        |     2 |
 | >= 4 to < 6        |     8 |
 | >= 6 to < 8        |     1 |
-| >= 8 to < 10       |     3 |
-| >= 10 to < 12      |     0 |
+| >= 8 to < 10       |     2 |
+| >= 10 to < 12      |     1 |
 | >= 12 to < 14      |     2 |
 | >= 14 to < 16      |     0 |
 | >= 16              |     6 |
@@ -58,12 +58,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              42 |           14 |
+| No           | No                    | No                     |              40 |           14 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              37 |           20 |
+| No           | Yes                   | No                     |              42 |           19 |
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             188 |           45 |
+| Yes          | Yes                   | No                     |             188 |           44 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -73,27 +73,28 @@ Table of Contents
 +---------------------------------------------------------------+---------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+------------------+----------------+--------------+
 |                          Clock Signal                         |                                           Enable Signal                                           |                                  Set/Reset Signal                                  | Slice Load Count | Bel Load Count | Bels / Slice |
 +---------------------------------------------------------------+---------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+------------------+----------------+--------------+
-|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 |                                                                                                   | audio_station_overview_i/AudioStation_0/inst/i2s_1/r_cnt_frame_en[11]_i_1_n_0      |                2 |              3 |         1.50 |
-|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 |                                                                                                   | audio_station_overview_i/rst_ps7_0_125M/U0/EXT_LPF/lpf_int                         |                2 |              4 |         2.00 |
-|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 |                                                                                                   | audio_station_overview_i/AudioStation_0/inst/i2s_1/r_lrclk                         |                4 |              4 |         1.00 |
+|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 |                                                                                                   | audio_station_overview_i/AudioStation_0/inst/i2s_1/r_cnt_frame_en[12]_i_1_n_0      |                1 |              3 |         3.00 |
+|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 |                                                                                                   | audio_station_overview_i/AudioStation_0/inst/i2s_1/r_cnt_lrclk_en[11]_i_1_n_0      |                2 |              3 |         1.50 |
+|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 |                                                                                                   | audio_station_overview_i/rst_ps7_0_125M/U0/EXT_LPF/lpf_int                         |                3 |              4 |         1.33 |
 |  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 | audio_station_overview_i/AudioStation_0/inst/audio_data_mover/when_AudioDataMover_l176            | audio_station_overview_i/AudioStation_0/inst/audio_data_mover/axi_w_cnt[3]_i_1_n_0 |                1 |              4 |         4.00 |
-|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 | audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/E[0]                      | audio_station_overview_i/AudioStation_0/inst/audio_data_mover/axi_r_cnt[3]_i_1_n_0 |                1 |              4 |         4.00 |
-|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 | audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/io_enable_0[0]           | audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn_0                        |                3 |              5 |         1.67 |
-|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 | audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_0_5_i_1_n_0 | audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn_0                        |                2 |              5 |         2.50 |
-|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 | audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/w_addr_reg[3]_0[0]        | audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn_0                        |                2 |              5 |         2.50 |
+|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 | audio_station_overview_i/AudioStation_0/inst/audio_data_mover/when_AudioDataMover_l205            | audio_station_overview_i/AudioStation_0/inst/audio_data_mover/axi_r_cnt[3]_i_1_n_0 |                1 |              4 |         4.00 |
+|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 |                                                                                                   | audio_station_overview_i/AudioStation_0/inst/i2s_1/r_lrclk                         |                2 |              4 |         2.00 |
+|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 | audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_0_5_i_1_n_0 | audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn_0                        |                3 |              5 |         1.67 |
 |  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 | audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/when_FIFO_l65             | audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn_0                        |                2 |              5 |         2.50 |
+|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 | audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/io_enable_0[0]           | audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn_0                        |                2 |              5 |         2.50 |
+|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 | audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/E[0]                      | audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn_0                        |                2 |              5 |         2.50 |
 |  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 | audio_station_overview_i/rst_ps7_0_125M/U0/SEQ/seq_cnt_en                                         | audio_station_overview_i/rst_ps7_0_125M/U0/SEQ/SEQ_COUNTER/clear                   |                1 |              6 |         6.00 |
-|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 |                                                                                                   | audio_station_overview_i/AudioStation_0/inst/i2s_1/r_cnt_lrclk_en[9]_i_1_n_0       |                3 |              8 |         2.67 |
+|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 |                                                                                                   | audio_station_overview_i/AudioStation_0/inst/i2s_1/r_cnt_lrclk_en[10]_i_1_n_0      |                2 |              9 |         4.50 |
 |  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 |                                                                                                   | audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn_0                        |                6 |              9 |         1.50 |
-|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 |                                                                                                   | audio_station_overview_i/AudioStation_0/inst/i2s_1/r_cnt_frame_en[10]_i_1_n_0      |                3 |              9 |         3.00 |
-|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 | audio_station_overview_i/AudioStation_0/inst/audio_data_mover/when_AudioDataMover_l162            | audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn_0                        |                3 |             13 |         4.33 |
-|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 | audio_station_overview_i/AudioStation_0/inst/audio_data_mover/when_AudioDataMover_l191            | audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn_0                        |                4 |             13 |         3.25 |
+|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 |                                                                                                   | audio_station_overview_i/AudioStation_0/inst/i2s_1/r_cnt_frame_en[11]_i_1_n_0      |                3 |             10 |         3.33 |
+|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 | audio_station_overview_i/AudioStation_0/inst/audio_data_mover/when_AudioDataMover_l191            | audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn_0                        |                3 |             13 |         4.33 |
+|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 | audio_station_overview_i/AudioStation_0/inst/audio_data_mover/when_AudioDataMover_l162            | audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn_0                        |                4 |             13 |         3.25 |
 |  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 | audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/E[0]                     | audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn_0                        |                6 |             32 |         5.33 |
-|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 | audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out                                   | audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn_0                        |                8 |             32 |         4.00 |
-|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 |                                                                                                   |                                                                                    |               15 |             43 |         2.87 |
-|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 | audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/w_addr_reg[3]_0[0]        |                                                                                    |                6 |             48 |         8.00 |
+|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 | audio_station_overview_i/AudioStation_0/inst/i2s_1/r_buffer_out                                   | audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn_0                        |               10 |             32 |         3.20 |
+|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 |                                                                                                   |                                                                                    |               15 |             41 |         2.73 |
 |  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 | audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_out/mem_reg_0_31_0_5_i_1_n_0 |                                                                                    |                6 |             48 |         8.00 |
-|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 | audio_station_overview_i/AudioStation_0/inst/i2s_1/r_data                                         | audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn_0                        |               12 |             64 |         5.33 |
+|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 | audio_station_overview_i/AudioStation_0/inst/audio_data_mover/buffer_in/E[0]                      |                                                                                    |                6 |             48 |         8.00 |
+|  audio_station_overview_i/processing_system7_0/inst/FCLK_CLK0 | audio_station_overview_i/AudioStation_0/inst/i2s_1/r_data                                         | audio_station_overview_i/AudioStation_0/inst/i2s_1/resetn_0                        |                9 |             64 |         7.11 |
 +---------------------------------------------------------------+---------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+------------------+----------------+--------------+
 
 

@@ -48,7 +48,7 @@
 
 
 // IP VLNV: hannes.stoll:myIP:AudioStation:0.5
-// IP Revision: 27
+// IP Revision: 28
 
 `timescale 1ns/1ps
 
