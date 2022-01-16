@@ -9,8 +9,6 @@
 
 #include <stdint.h>
 
-#define INT24_ABS_MAX 0x800000
-
 namespace Utility {
 	void do_nothing() {
 		;

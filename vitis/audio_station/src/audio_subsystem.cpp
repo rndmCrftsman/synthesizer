@@ -1,5 +1,5 @@
 /*
- * AudioSubsystem.cpp
+ * audio_subsystem.cpp
  *
  *  Created on: Jan 4, 2022
  *      Author: hannes
@@ -245,7 +245,7 @@ namespace AudioSubsystem {
 			DmaRead.ChanCtrl.DstBurstLen = AUDIO_BUFFER_LEN;
 			DmaRead.ChanCtrl.DstInc = 1;
 			DmaRead.BD.SrcAddr = (u32) AUDIO_BASEADDR;
-			DmaRead.BD.DstAddr = (u32) input_buffer;
+			DmaRead.BD.DstAddr = (u32) input_buffer[0];
 			DmaRead.BD.Length = AUDIO_BUFFER_LEN * sizeof(int);
 
 			DmaWrite.ChanCtrl.SrcBurstSize = 4;
@@ -254,7 +254,7 @@ namespace AudioSubsystem {
 			DmaWrite.ChanCtrl.DstBurstSize = 4;
 			DmaWrite.ChanCtrl.DstBurstLen = AUDIO_BUFFER_LEN;
 			DmaWrite.ChanCtrl.DstInc = 0;
-			DmaWrite.BD.SrcAddr = (u32) output_buffer;
+			DmaWrite.BD.SrcAddr = (u32) output_buffer[0];
 			DmaWrite.BD.DstAddr = (u32) AUDIO_BASEADDR;
 			DmaWrite.BD.Length = AUDIO_BUFFER_LEN * sizeof(int);
 

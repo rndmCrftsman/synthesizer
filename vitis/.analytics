@@ -321,3 +321,6 @@ timestamp=[2022-01-15 11:25:49], mode=BUILD, duration=0:00:00.682, duration_ms=6
 timestamp=[2022-01-16 10:07:25], mode=WORKBENCH_START, duration=0:00:10.915, duration_ms=10915, data={}
 timestamp=[2022-01-16 10:07:26], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.627, duration_ms=627, data={}
 timestamp=[2022-01-16 10:07:27], mode=WORKBENCH_UI_INIT, duration=0:00:02.608, duration_ms=2608, data={editors_count=7, platform_editors_count=0, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,audio_station,audio_station_overview_wrapper,audio_station_system_cpu_0}
+timestamp=[2022-01-16 19:42:29], mode=WORKBENCH_START, duration=0:00:10.827, duration_ms=10827, data={}
+timestamp=[2022-01-16 19:42:30], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.491, duration_ms=491, data={}
+timestamp=[2022-01-16 19:42:30], mode=WORKBENCH_UI_INIT, duration=0:00:01.056, duration_ms=1056, data={editors_count=5, platform_editors_count=0, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,audio_station,audio_station_overview_wrapper,audio_station_system_cpu_0}

@@ -1,8 +1,8 @@
 /*
- * AudioSubsystem.cpp
+ * processing_pipeline.cpp
  *
- *  Created on: Jan 4, 2022
- *      Author: hannes
+ *  Created on: Jan 15, 2022
+ *      Author: Hannes Stoll
  */
 
 #include "processing_pipeline.hpp"
@@ -32,7 +32,7 @@ namespace ProcessingPipeline {
 	XStatus registerProcessingModule() {
 		Status = XST_SUCCESS;
 
-		print("Processing Module registered\n");
+		// print("Processing Module registered\n");
 
 		return Status;
 	}

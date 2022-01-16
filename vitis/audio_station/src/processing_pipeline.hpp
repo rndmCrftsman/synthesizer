@@ -1,8 +1,8 @@
 /*
- * AudioSubsystem.cpp
+ * processing_pipeline.hpp
  *
- *  Created on: Jan 4, 2022
- *      Author: hannes
+ *  Created on: Jan 15, 2022
+ *      Author: Hannes Stoll
  */
 
 #ifndef __HPP_PROCESSINGPIPELINE

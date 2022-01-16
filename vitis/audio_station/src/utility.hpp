@@ -10,6 +10,10 @@
 
 #include <stdint.h>
 
+#define INT24_MAX		0x7FFFFF
+#define INT24_MIN		0x800000
+#define INT24_ABS_MAX 	INT24_MIN
+
 namespace Utility {
 	void do_nothing();
 	float convertInt16ToFloat(int16_t value);
